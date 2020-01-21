@@ -1,6 +1,7 @@
 # Analysis and Design for purpose of Interdisciplinary Computing System
 Lưu trữ mã nguồn của đồ án chuyên ngành: Ứng dụng các thuật toán khoa học tự nhiên và khoa học xã hội vào phân tích và thiết kế hệ thống tính toán liên ngành
-
+### Subject of the study
+Applied Algorithms
 ### System Configuration 
 - AI: Django, Flask, Python
 - Backend: Python, PHP, Javascript
