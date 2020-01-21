@@ -3,5 +3,5 @@ Lưu trữ mã nguồn của đồ án chuyên ngành: Ứng dụng các thuật
 
 ### Configuration
 - AI: Django, Flask, Python
-- Backend: Python, PHP
+- Backend: Python, PHP, Javascript
 - Server: Xampp
