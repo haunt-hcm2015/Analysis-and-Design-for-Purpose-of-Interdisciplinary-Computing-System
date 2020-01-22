@@ -6,6 +6,7 @@ if (!isset($_SESSION)){
     session_start();
 }
 define("BASE_URL", "http://localhost:81/ai-solution/");
+define("AI_URL", "http://localhost:8000/");
 
 function execInBackground($cmd) {
     if (substr(php_uname(), 0, 7) == "Windows"){
@@ -15,6 +16,5 @@ function execInBackground($cmd) {
         exec($cmd . " > /dev/null &");  
     }
 }
-// $technology = 'python implementation_algorithm/manage.py runserver';
-// shell_exec($technology);
+
 ?>

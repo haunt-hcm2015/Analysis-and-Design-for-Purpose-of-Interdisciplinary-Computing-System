@@ -5,7 +5,9 @@
       <div class="col-md-6 mt-md-0 mt-3">
         <h5 class="text-uppercase">AI Solution</h5>
         <p>Applied Research in Artificial Intelligence is started from algorithm of areas: </p>
-        <img src="<?php echo BASE_URL.'assets/images/logo.png'; ?>"/>
+        <a href="<?php echo BASE_URL; ?>">
+          <img src="<?php echo BASE_URL.'assets/images/logo.png'; ?>"/>
+        </a> 
       </div>
       <hr class="clearfix w-100 d-md-none pb-3">
 

@@ -7,14 +7,18 @@ from django.views.static import serve
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/',      admin.site.urls),
+    path('technology/', include('technology.urls')),
+    path('bigdata/',    include('bigdata.urls')),
+    path('solution/',   include('solution.urls')),
+    path('services/',   include('services.urls')),
+    path('research/',   include('research.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 else:
     urlpatterns += [
         url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
-        url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     ]
 
 #handler400 = 'views.error404'
