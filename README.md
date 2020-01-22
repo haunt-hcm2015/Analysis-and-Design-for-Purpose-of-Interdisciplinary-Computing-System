@@ -6,3 +6,25 @@ Applied Algorithms
 - AI: Django, Flask, Python
 - Backend: Python, PHP, Javascript
 - Server: Xampp
+- DB: Mysql
+  + Cấu hình Mysql trong Django tại file settings.py của project: `pip install wheel` và `pip install pymysql`
+  
+	```py
+		import pymysql
+		pymysql.version_info = (1, 3, 13, "final", 0)
+		pymysql.install_as_MySQLdb()
+		DATABASES = {
+			'default': {
+				'ENGINE': 'django.db.backends.mysql',
+				'NAME': 'ai-solution',
+				'USER': 'root',
+				'PASSWORD': '',
+				'HOST': '127.0.0.1',
+				'PORT': '3306',
+				'OPTIONS': {
+					'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+				}
+			},
+		}
+	```
+   + Cập nhật cấu hình của hệ thống CSDL: `python manage.py migrate`
