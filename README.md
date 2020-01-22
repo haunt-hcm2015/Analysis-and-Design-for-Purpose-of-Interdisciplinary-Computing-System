@@ -3,8 +3,8 @@ Lưu trữ mã nguồn của đồ án chuyên ngành: Ứng dụng các thuật
 ### Subject of the study
 Applied Algorithms
 ### System Configuration 
-- AI: Django, Flask, Python
-- Backend: Python, PHP, Javascript
+- AI: Django 3, Flask, Python 3.7
+- Backend: Python 3.7, PHP 7, Javascript
 - Server: Xampp
 - DB: Mysql
   + Cấu hình Mysql trong Django tại file settings.py của project: `pip install wheel` và `pip install pymysql`
