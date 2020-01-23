@@ -7,12 +7,12 @@ from django.views.static import serve
 
 
 urlpatterns = [
-    path('admin/',      admin.site.urls),
-    path('technology/', include('technology.urls')),
-    path('bigdata/',    include('bigdata.urls')),
-    path('solution/',   include('solution.urls')),
-    path('services/',   include('services.urls')),
-    path('research/',   include('research.urls')),
+    path('admin/',              admin.site.urls),
+    path('technology/',         include('technology.urls')),
+    path('bigdata/',            include('bigdata.urls')),
+    path('solution/',           include('solution.urls')),
+    path('services/',           include('services.urls')),
+    path('research/',           include('research.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

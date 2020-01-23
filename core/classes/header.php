@@ -16,13 +16,13 @@
           Services
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="<?php echo AI_URL.'services'; ?>">AI Programming Script</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'services'; ?>">AI API</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'services'; ?>">Analysis API</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'services'; ?>">Data Repository</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'services'; ?>">Data Virtualization</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'services'; ?>">Programming Lab</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'services'; ?>">Mathematical Lab</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'services/ai-programming-script'; ?>">AI Programming Script</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'services/ai-api'; ?>">AI API</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'services/analysis-api'; ?>">Analysis API</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'services/data-repository'; ?>">Data Repository</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'services/data-virtualization'; ?>">Data Virtualization</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'services/programming-lab'; ?>">Programming Lab</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'services/mathematical-lab'; ?>">Mathematical Lab</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -30,10 +30,10 @@
           Technology
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="<?php echo AI_URL.'technology'; ?>">AI Language</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'technology'; ?>">AI Cloud</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'technology'; ?>">AI Natural Language Understanding</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'technology'; ?>">AI Digital Map</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'technology/ai-language'; ?>">AI Language</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'technology/ai-cloud'; ?>">AI Cloud</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'technology/ai-natural-language-understanding'; ?>">AI Natural Language Understanding</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'technology/ai-digital-map'; ?>">AI Digital Map</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -41,20 +41,20 @@
           Solution
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Aerospace Engineering and Defense</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Automotive Engineering</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Chemical Engineering</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Control Systems</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Data Science</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Electrical Engineering</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Image Processing</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Video Processing</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Industrial Engineering</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Signal Processing</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Statistics</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Software Engineering</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">NLP Processing</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution'; ?>">Web Development</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/aerospace-engineering-and-defense'; ?>">Aerospace Engineering and Defense</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/automotive-engineering'; ?>">Automotive Engineering</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/chemical-engineering'; ?>">Chemical Engineering</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/control-systems'; ?>">Control Systems</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/data-science'; ?>">Data Science</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/electrical-engineering'; ?>">Electrical Engineering</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/image-processing'; ?>">Image Processing</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/video-processing'; ?>">Video Processing</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/industrial-engineering'; ?>">Industrial Engineering</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/signal-processing'; ?>">Signal Processing</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/statistics'; ?>">Statistics</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/software-engineering'; ?>">Software Engineering</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/nlp-processing'; ?>">NLP Processing</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/web-development'; ?>">Web Development</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -62,12 +62,12 @@
           Research
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="<?php echo AI_URL.'research'; ?>">Algorithm</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'research'; ?>">Artificial Intelligence</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'research'; ?>#">VR/AR</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'research'; ?>">Computer Science</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'research'; ?>">Software Engineering</a>
-          <a class="dropdown-item" href="<?php echo AI_URL.'research'; ?>">System Information</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'research/algorithm'; ?>">Algorithm</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'research/artificial-intelligence'; ?>">Artificial Intelligence</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'research/vr-ar';?>">VR/AR</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'research/computer-science';?>">Computer Science</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'research/software-engineering'; ?>">Software Engineering</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'research/system-information'; ?>">System Information</a>
         </div>
       </li>
       <li class="nav-item">

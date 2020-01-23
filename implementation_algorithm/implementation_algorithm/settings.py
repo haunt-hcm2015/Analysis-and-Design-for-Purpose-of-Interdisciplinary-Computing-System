@@ -17,6 +17,7 @@ INSTALLED_APPS = [
 	'solution',
 	'technology',
 	'bigdata',
+    'product_document',
 ]
 
 MIDDLEWARE = [

@@ -15,46 +15,46 @@
         <h5 class="text-uppercase">Solution</h5>
         <ul class="list-unstyled">
           <li>
-            <a class="" href="#">Aerospace Engineering and Defense</a>
+            <a class="" href="<?php echo AI_URL.'solution/aerospace-engineering-and-defense'; ?>">Aerospace Engineering and Defense</a>
           </li>
           <li>
-            <a class="" href="#">Automotive Engineering</a>
+            <a class="" href="<?php echo AI_URL.'solution/automotive-engineering'; ?>">Automotive Engineering</a>
           </li>
           <li>
-            <a class="" href="#">Chemical Engineering</a>
+            <a class="" href="<?php echo AI_URL.'solution/chemical-engineering'; ?>">Chemical Engineering</a>
           </li>
           <li>
-            <a class="" href="#">Control Systems</a>
+            <a class="" href="<?php echo AI_URL.'solution/control-systems'; ?>">Control Systems</a>
           </li>
           <li>
-            <a class="" href="#">Data Science</a>
+            <a class="" href="<?php echo AI_URL.'solution/data-science'; ?>">Data Science</a>
           </li>
           <li>
-            <a class="" href="#">Electrical Engineering</a>
+            <a class="" href="<?php echo AI_URL.'solution/electrical-engineering'; ?>">Electrical Engineering</a>
           </li>
           <li>
-            <a class="" href="#">Image Processing</a>
+            <a class="" href="<?php echo AI_URL.'solution/image-processing'; ?>">Image Processing</a>
           </li>
           <li>
-            <a class="" href="#">Video Processing</a>
+            <a class="" href="<?php echo AI_URL.'solution/video-processing'; ?>">Video Processing</a>
           </li>
           <li>
-            <a class="" href="#">Industrial Engineering</a>
+            <a class="" href="<?php echo AI_URL.'solution/industrial-engineering'; ?>">Industrial Engineering</a>
           </li>
           <li>
-            <a class="" href="#">Signal Processing</a>
+            <a class="" href="<?php echo AI_URL.'solution/signal-processing'; ?>">Signal Processing</a>
           </li>
           <li>
-            <a class="" href="#">Statistics</a>
+            <a class="" href="<?php echo AI_URL.'solution/statistics'; ?>">Statistics</a>
           </li>
           <li>
-            <a class="" href="#">Software Engineering</a>
+            <a class="" href="<?php echo AI_URL.'solution/software-engineering'; ?>">Software Engineering</a>
           </li>
           <li>
-            <a class="" href="#">NLP Processing</a>
+            <a class="" href="<?php echo AI_URL.'solution/nlp-processing'; ?>">NLP Processing</a>
           </li>
           <li>
-            <a class="" href="#">Web Development</a>
+            <a class="" href="<?php echo AI_URL.'solution/web-development'; ?>">Web Development</a>
           </li>
         </ul>
       </div>
@@ -63,25 +63,25 @@
         <h5 class="text-uppercase">Services</h5>
         <ul class="list-unstyled">
           <li>
-            <a class="" href="#">AI Programming Script</a>
+            <a class="" href="<?php echo AI_URL.'services/ai-programming-script'; ?>">AI Programming Script</a>
           </li>
           <li>
-            <a class="" href="#">AI API</a>
+            <a class="" href="<?php echo AI_URL.'services/ai-api'; ?>">AI API</a>
           </li>
           <li>
-            <a class="" href="#">Analysis API</a>
+            <a class="" href="<?php echo AI_URL.'services/analysis-api'; ?>">Analysis API</a>
           </li>
           <li>
-            <a class="" href="#">Data Repository</a>
+            <a class="" href="<?php echo AI_URL.'services/data-repository'; ?>">Data Repository</a>
           </li>
           <li>
-            <a class="" href="#">Data Virtualization</a>
+            <a class="" href="<?php echo AI_URL.'services/data-virtualization'; ?>">Data Virtualization</a>
           </li>
           <li>
-            <a class="" href="#">Programming Lab</a>
+            <a class="" href="<?php echo AI_URL.'services/programming-lab'; ?>">Programming Lab</a>
           </li>
           <li>
-            <a class="" href="#">Mathematical Lab</a>
+            <a class="" href="<?php echo AI_URL.'services/mathematical-lab'; ?>">Mathematical Lab</a>
           </li>
         </ul>
       </div>
@@ -90,19 +90,19 @@
         <h5 class="text-uppercase">Technology</h5>
         <ul class="list-unstyled">
           <li>
-            <a class="" href="#">Product Documentation</a>
+            <a class="" href="<?php echo AI_URL.'product-document'; ?>">Product Documentation</a>
           </li>
           <li>
-            <a class="" href="#">AI Language</a>
+            <a class="" href="<?php echo AI_URL.'technology/ai-language'; ?>">AI Language</a>
           </li>
           <li>
-            <a class="" href="#">AI Cloud</a>
+            <a class="" href="<?php echo AI_URL.'technology/ai-cloud'; ?>">AI Cloud</a>
           </li>
           <li>
-            <a class="" href="#">AI Natural Language Understanding</a>
+            <a class="" href="<?php echo AI_URL.'technology/ai-natural-language-understanding'; ?>">AI Natural Language Understanding</a>
           </li>
           <li>
-            <a class="" href="#">AI Digital Map</a>
+            <a class="" href="<?php echo AI_URL.'technology/ai-digital-map'; ?>">AI Digital Map</a>
           </li>
         </ul>
       </div>
