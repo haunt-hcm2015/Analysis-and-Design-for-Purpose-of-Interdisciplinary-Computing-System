@@ -90,7 +90,7 @@
         <h5 class="text-uppercase">Technology</h5>
         <ul class="list-unstyled">
           <li>
-            <a class="" href="<?php echo AI_URL.'product-document'; ?>">Product Documentation</a>
+            <a class="" href="<?php echo AI_URL.'technology/product-document'; ?>">Product Documentation</a>
           </li>
           <li>
             <a class="" href="<?php echo AI_URL.'technology/ai-language'; ?>">AI Language</a>
@@ -106,7 +106,6 @@
           </li>
         </ul>
       </div>
-
     </div>
 
   </div>
