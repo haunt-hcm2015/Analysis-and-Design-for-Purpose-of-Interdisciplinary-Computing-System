@@ -2,7 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index),
     path('algorithm/', views.algorithm, name='research/algorithm'),
     path('artificial-intelligence/', views.artificial_intelligence, name='research/artificial-intelligence'),
     path('vr-ar/', views.vr_ar, name='research/vr-ar'),

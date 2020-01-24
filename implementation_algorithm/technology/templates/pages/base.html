@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" crossorigin="anonymous"/>
         <title>{% block title%} {% endblock %}</title>
         <style>
             html, body{
@@ -17,6 +18,20 @@
     <body>
     <div class="container-fluid" style="min-height:95%">
         {% include "pages/header.html" %}
+        <div id="content">
+            <div id="title-content">
+                {% block title_content %} {% endblock %}
+            </div>
+            <div id="description">
+                {% block description %} {% endblock %}
+            </div>
+            <div id="tab">
+                {% block tab %} {% endblock %}
+            </div>
+            <div id="solution">
+                {% block solution %} {% endblock %}
+            </div>
+        </div>
         {% include "pages/footer.html" %}
     </div>
     </body>

@@ -2,6 +2,15 @@ html, body{
     padding: 0px;
     margin: 0px;
 }
+.content-padding{
+    padding: 52px;
+}
+.inline{
+    display: inline;
+}
+#content{
+    padding: 20px 100px;
+}
 .slide{
     background-color: #E8F0FE;
     background-image: url('../images/bg.jpg');
