@@ -26,70 +26,70 @@ Applied all the edge of algorithm in natural science and social science to analy
     </h1>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#area_of_application" role="tab" aria-selected="true">Area of Application</a>
+            <a class="nav-link active" id="area_of_application_tab" data-toggle="tab" href="#area_of_application" role="tab" aria-controls="area_of_application" aria-selected="true">Area of Application</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="algorithm_of_application" data-toggle="tab" href="#algorithm_of_application" role="tab" aria-selected="false">Algorithm of Application</a>
+            <a class="nav-link" id="algorithm_of_application_tab" data-toggle="tab" href="#algorithm_of_application" aria-controls="algorithm_of_application" role="tab" aria-selected="false">Algorithm of Application</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="demo" data-toggle="tab" href="#demo" role="tab" aria-selected="false">Demo</a>
+            <a class="nav-link" id="demo_tab" data-toggle="tab" href="#demo" role="tab" aria-controls="demo" aria-selected="false">Demo</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="guide" data-toggle="tab" href="#guide" role="tab"  aria-selected="false">Guide Documentation</a>
+            <a class="nav-link" id="guide_tab" data-toggle="tab" href="#guide" role="tab" aria-controls="guide" aria-selected="false">Guide Documentation</a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="area_of_application" role="tabpanel">
-        <div id="accordion">
-            {% if areaOfApplication %}
-                {% for application in areaOfApplication %}
-                <div class="card">
-                    <div class="card-header" id="heading{{application.id}}">
-                    <h5 class="mb-0">
+        <div class="tab-pane fade show active" id="area_of_application" role="tabpanel" aria-labelledby="area_of_application_tab">
+            <div id="accordion">
+                {% if areaOfApplication %}
+                    {% for application in areaOfApplication %}
+                    <div class="card">
+                        <div class="card-header" id="heading{{application.id}}">
+                        <h5 class="mb-0">
+                            {% if application.id == 1 %}
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{application.id}}" aria-expanded="true" aria-controls="collapse{{application.id}}">
+                                    {{application.field_name}}
+                                </button>
+                            {% else %}
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse{{application.id}}" aria-expanded="false" aria-controls="collapse{{application.id}}">
+                                    {{application.field_name}}
+                                </button>
+                            {% endif %}
+                        </h5>
+                        </div>
                         {% if application.id == 1 %}
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{application.id}}" aria-expanded="true" aria-controls="collapse{{application.id}}">
-                                {{application.field_name}}
-                            </button>
+                            <div id="collapse{{application.id}}" class="collapse show" aria-labelledby="heading{{application.id}}" data-parent="#accordion">
+                                <div class="card-body">
+                                    {{application.description}}
+                                    <center>
+                                        <img class="img-fluid" src="{{application.image.url}}" width="500px" />
+                                    </center>
+                                </div>
+                            </div>
                         {% else %}
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse{{application.id}}" aria-expanded="false" aria-controls="collapse{{application.id}}">
-                                {{application.field_name}}
-                            </button>
+                            <div id="collapse{{application.id}}" class="collapse" aria-labelledby="heading{{application.id}}" data-parent="#accordion">
+                                <div class="card-body">
+                                    {{application.description}}
+                                    <center>
+                                        <img class="img-fluid" src="{{application.image.url}}" width="500px" />
+                                    </center>
+                                </div>
+                            </div>
                         {% endif %}
-                    </h5>
                     </div>
-                    {% if application.id == 1 %}
-                        <div id="collapse{{application.id}}" class="collapse show" aria-labelledby="heading{{application.id}}" data-parent="#accordion">
-                            <div class="card-body">
-                                {{application.description}}
-                                <center>
-                                    <img class="img-fluid" src="{{application.image.url}}" width="500px" />
-                                </center>
-                            </div>
-                        </div>
-                    {% else %}
-                        <div id="collapse{{application.id}}" class="collapse" aria-labelledby="heading{{application.id}}" data-parent="#accordion">
-                            <div class="card-body">
-                                {{application.description}}
-                                <center>
-                                    <img class="img-fluid" src="{{application.image.url}}" width="500px" />
-                                </center>
-                            </div>
-                        </div>
-                    {% endif %}
-                </div>
-                {% endfor %}
-            {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
-    </div>
-    <div class="tab-pane fade" id="algorithm_of_application" role="tabpanel">
-    
-    </div>
-    <div class="tab-pane fade" id="demo" role="tabpanel">
-    
-    </div>
-    <div class="tab-pane fade" id="guide" role="tabpanel">
-    
-    </div>
+        <div class="tab-pane show fade" id="algorithm_of_application" aria-labelledby="algorithm_of_application_tab" role="tabpanel">
+            ...
+        </div>
+        <div class="tab-pane fade" id="demo" role="tabpanel" aria-labelledby="demo_tab">
+            ...
+        </div>
+        <div class="tab-pane fade" id="guide" role="tabpanel" aria-labelledby="guide_tab">
+            ...
+        </div>
     </div>
 
 {% endblock %}
