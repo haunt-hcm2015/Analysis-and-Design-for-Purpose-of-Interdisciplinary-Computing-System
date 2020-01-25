@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Field
 from technology import config
 
+def computational_interdisciplinary(request):
+    data = {'areaOfApplication' : Field.objects.all(), 'PHP_HOST': config.PHP_HOST}
+    return render(request, 'pages/computational-interdisciplinary.html',data)
 def aerospace_engineering_and_defense(request):
     return render(request, 'pages/aerospace-engineering-and-defense.html',{'PHP_HOST': config.PHP_HOST})
 def automotive_engineering(request):

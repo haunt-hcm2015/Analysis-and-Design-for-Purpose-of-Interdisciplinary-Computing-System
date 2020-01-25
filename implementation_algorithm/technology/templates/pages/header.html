@@ -3,7 +3,6 @@
   <a href="{{PHP_HOST}}">
     <img src="{% static 'images/logo.png' %}"/>
   </a>
-  <a class="navbar-brand" href="#">AI Solution</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -42,6 +41,7 @@
           Solution
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'solution/computational-interdisciplinary' %}">Computational Interdisciplinary</a>
           <a class="dropdown-item" href="{% url 'solution/aerospace-engineering-and-defense' %}">Aerospace Engineering and Defense</a>
           <a class="dropdown-item" href="{% url 'solution/automotive-engineering' %}">Automotive Engineering</a>
           <a class="dropdown-item" href="{% url 'solution/chemical-engineering' %}">Chemical Engineering</a>

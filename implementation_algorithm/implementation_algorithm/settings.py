@@ -49,6 +49,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'implementation_algorithm.wsgi.application'
 
 pymysql.version_info = (1, 3, 13, "final", 0)

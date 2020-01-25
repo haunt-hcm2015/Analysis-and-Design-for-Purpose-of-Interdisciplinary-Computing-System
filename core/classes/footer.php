@@ -15,6 +15,9 @@
         <h5 class="text-uppercase">Solution</h5>
         <ul class="list-unstyled">
           <li>
+            <a class="" href="<?php echo AI_URL.'solution/computational-interdisciplinary'; ?>">Computational Interdisciplinary</a>
+          </li>
+          <li>
             <a class="" href="<?php echo AI_URL.'solution/aerospace-engineering-and-defense'; ?>">Aerospace Engineering and Defense</a>
           </li>
           <li>
