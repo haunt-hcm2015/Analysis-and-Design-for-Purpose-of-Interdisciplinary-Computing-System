@@ -3,7 +3,7 @@ Lưu trữ mã nguồn của đồ án chuyên ngành: Ứng dụng các thuật
 ### Subject of the study
 Applied Algorithms
 ### System Configuration 
-- AI: Django 3, Flask, Python 3.7
+- AI: Django 3, Flask, Python 3.7, R
 - Backend: Python 3.7, PHP 7, Javascript
 - Server: Xampp
 - DB: Mysql
