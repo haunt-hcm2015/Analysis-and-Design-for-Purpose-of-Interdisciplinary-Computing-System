@@ -1,6 +1,19 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Field
 from technology import config
+'''
+class DictList(dict):
+    def __setitem__(self, key, value):
+        try:
+            self[key].append(value)
+        except KeyError: 
+            super(DictList, self).__setitem__(key, value)
+        except AttributeError:
+            super(DictList, self).__setitem__(key, [self[key], value])
+class _obj:
+    def __init__(self, name):
+        self.field_name = name 
+'''
 
 def computational_interdisciplinary(request):
     data = {'areaOfApplication' : Field.objects.all(), 'PHP_HOST': config.PHP_HOST}

@@ -1,5 +1,6 @@
 {% extends 'pages/base.html' %}
 {% load static %}
+{% load FunctionalFoundation %}
 {% block title %}
     Solution of Computational Interdisciplinary
 {% endblock %}
@@ -14,7 +15,7 @@
  Description
 </h1>
 <p class="lead">
-Applied all the edge of algorithm in natural science and social science to analysis and design the computational interdisciplinary system include design plan and build model of mathamatics for two or more academic disciplines for one prioprity of activity.
+Applied all the edge of algorithm in natural science and social science to analysis and design the computational interdisciplinary system include design plan and build model of mathematics for two or more academic disciplines for one prioprity of activity.
 </p>
 <center>
     <img class="img-fluid" src="{% static 'images/computational-interdisplinary.png' %}">
@@ -29,13 +30,13 @@ Applied all the edge of algorithm in natural science and social science to analy
             <a class="nav-link active" id="area_of_application_tab" data-toggle="tab" href="#area_of_application" role="tab" aria-controls="area_of_application" aria-selected="true">Area of Application</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="algorithm_of_application_tab" data-toggle="tab" href="#algorithm_of_application" aria-controls="algorithm_of_application" role="tab" aria-selected="false">Algorithm of Application</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="demo_tab" data-toggle="tab" href="#demo" role="tab" aria-controls="demo" aria-selected="false">Demo</a>
+            <a class="nav-link" id="algorithm_of_application_tab" data-toggle="tab" href="#algorithm_of_application" aria-controls="algorithm_of_application" role="tab" aria-selected="false">Foundation of Algorithm</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="guide_tab" data-toggle="tab" href="#guide" role="tab" aria-controls="guide" aria-selected="false">Guide Documentation</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="demo_tab" data-toggle="tab" href="#demo" role="tab" aria-controls="demo" aria-selected="false">Demo</a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -57,25 +58,31 @@ Applied all the edge of algorithm in natural science and social science to analy
                             {% endif %}
                         </h5>
                         </div>
-                        {% if application.id == 1 %}
-                            <div id="collapse{{application.id}}" class="collapse show" aria-labelledby="heading{{application.id}}" data-parent="#accordion">
-                                <div class="card-body">
-                                    {{application.description}}
-                                    <center>
-                                        <img class="img-fluid" src="{{application.image.url}}" width="500px" />
-                                    </center>
+                            {% if application.id == 1 %}
+                                <div id="collapse{{application.id}}" class="collapse show" aria-labelledby="heading{{application.id}}" data-parent="#accordion">
+                                    <div class="card-body">
+                                        {{application.description}}
+                                        <center>
+                                            <img class="img-fluid" src="{{application.image.url}}" width="500px" />
+                                        </center>
+                                        <a href="{% convertTextToLink application.field_name %}">
+                                            <button type="button" class="btn btn-warning">Learn more</button>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        {% else %}
-                            <div id="collapse{{application.id}}" class="collapse" aria-labelledby="heading{{application.id}}" data-parent="#accordion">
-                                <div class="card-body">
-                                    {{application.description}}
-                                    <center>
-                                        <img class="img-fluid" src="{{application.image.url}}" width="500px" />
-                                    </center>
+                            {% else %}
+                                <div id="collapse{{application.id}}" class="collapse" aria-labelledby="heading{{application.id}}" data-parent="#accordion">
+                                    <div class="card-body">
+                                        {{application.description}}
+                                        <center>
+                                            <img class="img-fluid" src="{{application.image.url}}" width="500px" />
+                                        </center>
+                                        <a href="{% convertTextToLink application.field_name %}">
+                                            <button type="button" class="btn btn-warning">Learn more</button>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        {% endif %}
+                            {% endif %}
                     </div>
                     {% endfor %}
                 {% endif %}
@@ -84,10 +91,10 @@ Applied all the edge of algorithm in natural science and social science to analy
         <div class="tab-pane show fade" id="algorithm_of_application" aria-labelledby="algorithm_of_application_tab" role="tabpanel">
             ...
         </div>
-        <div class="tab-pane fade" id="demo" role="tabpanel" aria-labelledby="demo_tab">
+         <div class="tab-pane fade" id="guide" role="tabpanel" aria-labelledby="guide_tab">
             ...
         </div>
-        <div class="tab-pane fade" id="guide" role="tabpanel" aria-labelledby="guide_tab">
+        <div class="tab-pane fade" id="demo" role="tabpanel" aria-labelledby="demo_tab">
             ...
         </div>
     </div>
