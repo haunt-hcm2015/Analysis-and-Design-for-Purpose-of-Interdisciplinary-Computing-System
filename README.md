@@ -28,3 +28,11 @@ Applied Algorithms
 		}
 	```
    + Cập nhật cấu hình của hệ thống CSDL: `python manage.py migrate`
+
+### AI Solution Products:
++ Social Network as Open Source
++ Video Social Network as Open Source
++ Image Social Network as Open Source
++ Search Engine as Open Source
++ Blog Builder
++ Computing Interdisciplinary System: Image Processing, video processing, NLP processing, Mathematics, Analytical Chemistry, Archeology, Anthropology,... 
