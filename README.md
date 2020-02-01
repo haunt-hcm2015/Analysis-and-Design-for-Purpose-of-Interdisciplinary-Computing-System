@@ -35,4 +35,5 @@ Applied Algorithms
 + Image Social Network as Open Source
 + Search Engine as Open Source
 + Blog Builder
-+ Computing Interdisciplinary System: Image Processing, video processing, NLP processing, Mathematics, Analytical Chemistry, Archeology, Anthropology,... 
++ Computing Interdisciplinary System: Image Processing, video processing, NLP processing, Mathematics, Analytical Chemistry, Archeology, Anthropology,...
+ 
