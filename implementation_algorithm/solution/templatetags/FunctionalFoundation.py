@@ -6,5 +6,5 @@ register = template.Library()
 def convertTextToLink(text):
     text = text.lower()
     text = text.replace(' ', '-')
-    text = text + '.html'
+   # text = text + '.html'
     return text

@@ -18,6 +18,12 @@ class _obj:
 def computational_interdisciplinary(request):
     data = {'areaOfApplication' : Field.objects.all(), 'PHP_HOST': config.PHP_HOST}
     return render(request, 'pages/computational-interdisciplinary.html',data)
+def computing_image_processing(request):
+    data = {'PHP_HOST': config.PHP_HOST}
+    return render(request, 'pages/computational-interdisciplinary/image-processing.html', data)
+def computing_video_processing(request):
+    data = {'PHP_HOST': config.PHP_HOST}
+    return render(request, 'pages/computational-interdisciplinary/video-processing.html', data)
 def aerospace_engineering_and_defense(request):
     return render(request, 'pages/aerospace-engineering-and-defense.html',{'PHP_HOST': config.PHP_HOST})
 def automotive_engineering(request):

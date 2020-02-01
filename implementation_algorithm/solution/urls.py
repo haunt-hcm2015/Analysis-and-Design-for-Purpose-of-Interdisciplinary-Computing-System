@@ -3,6 +3,8 @@ from . import views
 
 urlpatterns = [
     path('computational-interdisciplinary/', views.computational_interdisciplinary, name='solution/computational-interdisciplinary'),
+    path('computational-interdisciplinary/image-processing/', views.computing_image_processing, name='solution/computational-interdisciplinary/image-processing'),
+    path('computational-interdisciplinary/video-processing/', views.computing_video_processing, name='solution/computational-interdisciplinary/video-processing'),
     path('aerospace-engineering-and-defense/', views.aerospace_engineering_and_defense, name='solution/aerospace-engineering-and-defense'),
     path('automotive-engineering/', views.automotive_engineering, name='solution/automotive-engineering'),
     path('chemical-engineering/', views.chemical_engineering, name='solution/chemical-engineering'),
