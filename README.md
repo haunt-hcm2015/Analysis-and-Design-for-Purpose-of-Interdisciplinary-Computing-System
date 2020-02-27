@@ -36,4 +36,11 @@ Applied Algorithms
 + Search Engine as Open Source
 + Blog Builder
 + Content Management System (CMS)
++ Translate Machine 
++ Digital Map
++ Mediacast
++ App Chat Bot 
++ Office Cloud 
++ TV Channel 
++ Cl
 + Computing Interdisciplinary System: Image Processing, video processing, NLP processing, Mathematics, Analytical Chemistry, Archeology, Anthropology,...
