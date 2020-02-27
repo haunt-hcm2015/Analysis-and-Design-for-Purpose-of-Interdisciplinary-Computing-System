@@ -42,5 +42,5 @@ Applied Algorithms
 + App Chat Bot 
 + Office Cloud 
 + TV Channel 
-+ Cl
++ Cloud Computing 
 + Computing Interdisciplinary System: Image Processing, video processing, NLP processing, Mathematics, Analytical Chemistry, Archeology, Anthropology,...
