@@ -45,3 +45,13 @@ Applied Algorithms
 + Cloud Computing 
 + Computing Interdisciplinary System: Image Processing, video processing, NLP processing, Mathematics, Analytical Chemistry, Archeology, Anthropology,...
 + Project of disaster warning system, project of transportation system
++ ERP, CRM:
+  + Phần mềm Kế toán Doanh nghiệp 
+  + Phần mềm quản trị doanh nghiệp 
+  + Phần mềm quản lý trường học
+  + Phần mềm quản lý tài sản
+  + Phần mềm quản lý hộ tịch 
+  + Phần mềm quản lý nhà hàng
+  + Phần mềm quản lý cửa hàng thời trang 
+  + Phần mềm tính lương, lập dự toán và cải cách tiền lương 
+  + Phần mềm quản lý tài chính
