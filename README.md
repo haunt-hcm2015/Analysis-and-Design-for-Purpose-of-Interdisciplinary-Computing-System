@@ -39,6 +39,9 @@ Applied Algorithms
 + Translate Machine 
 + Digital Map
 + Mediacast
++ DevOps
++ Big Data
++ Testing 
 + App Chat Bot 
 + Office Cloud 
 + TV Channel 
@@ -62,4 +65,5 @@ Applied Algorithms
   + Video Processing
   + Sound Processing
   + Algorithm
+
 
