@@ -30,10 +30,10 @@ Applied Algorithms
    + Cập nhật cấu hình của hệ thống CSDL: `python manage.py migrate`
 
 ### AI Solution Products:
-+ Social Network as Open Source
-+ Video Social Network as Open Source
-+ Image Social Network as Open Source
-+ Search Engine as Open Source
++ Social Network 
++ Video Social Network 
++ Image Social Network 
++ Search Engine 
 + Blog Builder
 + Content Management System (CMS)
 + Translate Machine 
@@ -54,4 +54,12 @@ Applied Algorithms
   + Phần mềm quản lý nhà hàng
   + Phần mềm quản lý cửa hàng thời trang 
   + Phần mềm tính lương, lập dự toán và cải cách tiền lương 
-  + Phần mềm quản lý tài chính
+  + Ứng dụng Blockchain vào quản lý tài chính 
+  + Phần mềm quản lý y tế
++ Phần mềm phân tích khoa học:
+  + Sentiment Analytics 
+  + Image Processing
+  + Video Processing
+  + Sound Processing
+  + Algorithm
+
