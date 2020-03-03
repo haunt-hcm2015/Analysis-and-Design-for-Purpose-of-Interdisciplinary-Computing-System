@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([A-Za-z0-9_-]+)/?$ profile.php?username=$1 [QSA]
+RewriteRule ^hashtag/([A-Za-z0-9_-]+)/?$ hashtag.php?hashtag=$1 
+RewriteRule ^settings/account/?$ account.php
+RewriteRule ^settings/password/?$ password.php
+RewriteRule ^([A-Za-z0-9_-]+)/(following|followers)?$ $2.php?username=$1 
+RewriteRule ^([A-Za-z0-9_-]+)/(product)?$ $2.php 
+RewriteRule ^i/notifications/?$ notification.php
+ErrorDocument 400 /400.php
+ErrorDocument 401 /401.php
+ErrorDocument 403 /403.php
+ErrorDocument 404 /404.php 
+ErrorDocument 500 /500.php
