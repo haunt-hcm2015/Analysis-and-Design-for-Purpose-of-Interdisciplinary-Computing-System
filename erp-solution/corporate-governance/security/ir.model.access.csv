@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_corporate-governance_corporate-governance,corporate-governance.corporate-governance,model_corporate-governance_corporate-governance,base.group_user,1,1,1,1

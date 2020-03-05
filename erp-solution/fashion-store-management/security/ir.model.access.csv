@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fashion-store-management_fashion-store-management,fashion-store-management.fashion-store-management,model_fashion-store-management_fashion-store-management,base.group_user,1,1,1,1
