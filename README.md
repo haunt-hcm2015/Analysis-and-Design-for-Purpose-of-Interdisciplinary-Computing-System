@@ -9,10 +9,7 @@
 + Digital Map 
 + Mediacast 
 + DevOps 
-+ Big Data 
 + Testing  
-+ App Chat Bot 
-+ Office Cloud  
 + Computing Interdisciplinary System: Image Processing, video processing, NLP processing, Mathematics, Analytical Chemistry, Archeology, Anthropology,... 
 + Phần mềm phân tích khoa học: 
   + Sentiment Analytics 
