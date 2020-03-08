@@ -40,14 +40,8 @@ Applied Algorithms
 + Digital Map
 + Mediacast
 + DevOps
-+ Big Data
 + Testing 
-+ App Chat Bot 
-+ Office Cloud 
-+ TV Channel 
-+ Cloud Computing 
 + Computing Interdisciplinary System: Image Processing, video processing, NLP processing, Mathematics, Analytical Chemistry, Archeology, Anthropology,...
-+ Project of disaster warning system, project of transportation system
 + ERP, CRM:
   + Phần mềm Kế toán Doanh nghiệp 
   + Phần mềm quản trị doanh nghiệp 
