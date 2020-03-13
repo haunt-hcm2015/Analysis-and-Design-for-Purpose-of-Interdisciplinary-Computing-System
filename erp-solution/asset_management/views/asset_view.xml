@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="asset_view_form" model="ir.ui.view" >
+            <field name="name">asset.view.form</field>
+            <field name="model">asset.asset</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="asset_info_based">
+                            <group>
+                                <field name="asset_name" />
+                                <field name="asset_type_id" />
+                                <field name="quantity" />
+                                <field name="place_of_production" />
+                            </group>                     
+                            <group>
+                                <field name="year_of_manufacture" />
+                                <field name="year_of_use" />
+                                <field name="original_price" />
+                                <field name="state" />
+                            </group>                     
+                        </group>
+                        <notebook>
+                            <page name="AssetImage" string="Asset Attribute">
+                                <group>
+                                    <field name="asset_attribute" colspan="2" string="Asset Attribute" />
+                                </group>
+                                <group>
+                                    <field name="image_asset" colspan="2" string="Image Asset" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="asset_view_tree" model="ir.ui.view">
+            <field name="name">asset.view.tree</field>
+            <field name="model">asset.asset</field>
+            <field name="arch" type="xml">
+                <tree string="Construction">
+                    <field name="asset_name" />
+                    <field name="asset_type_id" />                   
+                    <field name="quantity" />
+                    <field name="asset_attribute"/>
+                    <field name="place_of_production" />
+                    <field name="asset_name" />
+                    <field name="asset_type_id" />                   
+                    <field name="quantity" />
+                    <field name="place_of_production" />
+                </tree>
+            </field>
+        </record>
+        <record id="asset_action" model="ir.actions.act_window">
+            <field name="name">Asset Management</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">asset.asset</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('asset_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('asset_view_form')})]"/>
+        </record>
+        <menuitem id="asset_menu"
+            name="Asset Management"/>
+        <menuitem id="asset_menu_management" 
+            parent="asset_menu" 
+            name="Asset Management" 
+            action="asset_action"
+            groups="base.group_user" />
+        <menuitem id="asset_menu_asset_list" 
+            parent="asset_menu_management" 
+            name="List of Asset" 
+            action="asset_action"
+            sequence="1"
+            groups="base.group_user" />
+        <menuitem id="asset_menu_fixed_asset_management" 
+            parent="asset_menu_management" 
+            name="Fixed Asset Management" 
+            action="asset_action"
+            sequence="2"
+            groups="base.group_user" />
+        <menuitem id="asset_menu_fixed_asset_list" 
+            parent="asset_menu_management" 
+            name="Display Status of Types of Fixed Asset" 
+            action="asset_action"
+            sequence="3"
+            groups="base.group_user" />
+        <menuitem id="asset_menu_list_active_fixed_asset" 
+            parent="asset_menu_management" 
+            name="List of Active Fixed Assets" 
+            action="asset_action"
+            sequence="4"
+            groups="base.group_user" />
+        <menuitem id="asset_menu_list_lost_fixed_asset" 
+            parent="asset_menu_management" 
+            name="List of Lost Fixed Assets" 
+            action="asset_action"
+            sequence="5"
+            groups="base.group_user" />
+        <menuitem id="asset_menu_list_unused_fixed_asset" 
+            parent="asset_menu_management" 
+            name="List of Unused Fixed Assets" 
+            action="asset_action"
+            sequence="6"
+            groups="base.group_user" />
+        <menuitem id="asset_menu_list_loaned_fixed_asset" 
+            parent="asset_menu_management" 
+            name="List of Fixed Assets on Loan" 
+            action="asset_action"
+            sequence="7"
+            groups="base.group_user" />
+        <menuitem id="asset_menu_list_fixed_asset_damaged" 
+            parent="asset_menu_management" 
+            name="List of Fixed Assets Damaged" 
+            action="asset_action"
+            sequence="8"
+            groups="base.group_user" />
+        <menuitem id="asset_menu_list_fixed_asset_liquidated" 
+            parent="asset_menu_management" 
+            name="List of Fixed Assets were Liquidated " 
+            action="asset_action"
+            sequence="9"
+            groups="base.group_user" />
+        <menuitem id="asset_menu_list_fixed_asset_by_production_year" 
+            parent="asset_menu_management" 
+            name="List of Fixed Assets by Production Year" 
+            action="asset_action"
+            sequence="10"
+            groups="base.group_user" />
+    </data>
+</odoo>
