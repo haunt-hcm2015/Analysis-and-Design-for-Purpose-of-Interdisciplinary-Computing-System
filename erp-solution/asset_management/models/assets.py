@@ -3,6 +3,7 @@ from odoo import models, fields, api, _
 class Asset(models.Model):
     _name               = 'asset.asset'
     _description        = 'Asset Model'
+    _rec_name           = 'asset_name'
     asset_name          = fields.Char('Asset Name')
     asset_attribute     = fields.Char('Asset Attribute')
     year_of_manufacture = fields.Date('Year of Manufacture')
@@ -21,13 +22,15 @@ class Asset(models.Model):
                             ('loan', 'Loan'),
                             ('damaged', 'Damaged'),
                             ('liquidated', 'Liquidated'),
-                        ], string='State of Asset:')
-    asset_type_id       = fields.Many2one('asset.type', 'Asset Type')
+                        ], string='State of Asset')
+    asset_type_id       = fields.Many2one('asset.type')
+
 class AssetType(models.Model):
     _name = 'asset.type'
     _description = 'Asset Type Model'
+    _rec_name = 'type_name'
     type_name = fields.Char('Asset Type')
-    asset_ids = fields.One2many('asset.asset', 'asset_type_id', 'Asset name') 
+
 
 
 

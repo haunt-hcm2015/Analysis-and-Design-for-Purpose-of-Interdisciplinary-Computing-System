@@ -14,7 +14,7 @@
     'website': "http://www.hns.com",
     'category': 'Management',
     'version': '0.1',
-    'depends': ['base'],
+    'depends': ['base', 'hr'],
     'data': [
         'security/asset_security.xml',
         'security/ir.model.access.csv',

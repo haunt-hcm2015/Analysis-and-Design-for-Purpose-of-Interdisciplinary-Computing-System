@@ -14,7 +14,7 @@
                         <div class="row mt16 o_settings_container">
                             <div class="col-12 col-lg-6 o_setting_box" id="asset">
                                 <div class="o_setting_left_pane">
-                                   <field name="asset_rent" />
+                                   <field name="asset_rent" on_change="1"/>
                                 </div>
                                 <div class="o_setting_right_pane">
                                     <label for="asset_rent"/>
@@ -39,7 +39,8 @@
         </record>
         <menuitem name="Configuration"
             id="asset_configuration_menu"
-            parent="asset_menu"/>
+            parent="asset_menu"
+            sequence="3"/>
         <menuitem name="Settings"
             id="asset_setting_menu"
             parent="asset_configuration_menu"
