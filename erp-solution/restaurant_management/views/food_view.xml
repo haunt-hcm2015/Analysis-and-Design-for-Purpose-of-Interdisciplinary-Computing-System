@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="restaurant_management_food_view_form" model="ir.ui.view" >
+            <field name="name">restaurant.management.food.view.form</field>
+            <field name="model">restaurant.food</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="restaurant_management_food_list_info_based">
+                            <field name="food_tmpl_id" />
+                            <field name="food_id"/>     
+                            <field name="food_qty"/>
+                            <field name="food_type_id"/>                            
+                        </group>
+                        <notebook>
+                            <page name="FoodImage" string="Food Attribute">
+                                <group>
+                                    <field name="image" colspan="2"/>
+                                </group>
+                                <group>
+                                    <field name="unit" colspan="2"/>
+                                </group>
+                            </page>
+                            <page name="FoodComponent" string="Food Component">
+                                <field name="food_line_ids">
+                                    <tree string="Components" editable="bottom">
+                                        <field name="food_id" domain="['|',('is_food', '=', True),('is_beverage', '=', True) ]"/>
+                                        <field name="food_qty"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="restaurant_management_food_view_tree" model="ir.ui.view">
+            <field name="name">restaurant.management.food.view.tree</field>
+            <field name="model">restaurant.food</field>
+            <field name="arch" type="xml">
+                <tree string="Restaurant Management">
+                    <field name="food_tmpl_id" />                   
+                    <field name="food_id"/>     
+                    <field name="food_qty"/>
+                    <field name="food_type_id"/>                  
+                    <field name="unit"/>
+                </tree>
+            </field>
+        </record>
+        <record id="restaurant_management_food_action" model="ir.actions.act_window">
+            <field name="name">Food List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">restaurant.food</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('restaurant_management_food_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('restaurant_management_food_view_form')})]"/>
+        </record>
+
+
+        <menuitem id="restaurant_management_menu"
+            name="Restaurant Portal"
+            web_icon="restaurant_management,static/description/icon.png"/>
+        <menuitem id="restaurant_management_food_menu" 
+            parent="restaurant_management_menu" 
+            name="Food Management" 
+            action="restaurant_management_food_action"
+            groups="base.group_user" 
+            sequence="1"/>
+    </data>
+</odoo>
