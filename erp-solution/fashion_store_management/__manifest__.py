@@ -17,7 +17,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/merchandise_view.xml',
-        'views/res_config_settings_view.xml'
+        'views/res_config_settings_view.xml',
     ],
     'demo': [
         'demo/demo.xml',

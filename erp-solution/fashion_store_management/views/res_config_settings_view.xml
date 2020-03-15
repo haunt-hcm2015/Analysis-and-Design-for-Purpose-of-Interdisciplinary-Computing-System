@@ -45,6 +45,6 @@
             id="fashion_store_settings"
             parent="fashion_store_configuration"
             action="fashion_store_config_settings_action"
-            sequence="1"/>
+            sequence="2"/>
     </data>
 </odoo>

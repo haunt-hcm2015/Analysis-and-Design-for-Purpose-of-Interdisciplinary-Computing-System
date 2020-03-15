@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, _ 
-class Merchandise(models.TransientModel):
+class Merchandise(models.Model):
     _name = 'store.merchandise'
     _description = 'Merchandise model'
     merchandise_tmpl_id = fields.Many2one('product.template', string="Merchandise")
@@ -10,7 +10,7 @@ class Merchandise(models.TransientModel):
     image = fields.Image('Merchandise Image')
     merchandise_type_id = fields.Many2one(comodel_name='merchandise.type', string="Merchandise Type")
 
-class MerchandiseType(models.TransientModel):
+class MerchandiseType(models.Model):
     _name = 'merchandise.type'
     _description = 'Merchandise Type Model'
     _rec_name = 'type_name'
