@@ -17,6 +17,7 @@
     'depends': ['base', 'hr'],
     'data': [
         'security/ir.model.access.csv',
+        'views/student_view.xml',
         'views/res_config_settings_view.xml'
     ],
     'demo': [
