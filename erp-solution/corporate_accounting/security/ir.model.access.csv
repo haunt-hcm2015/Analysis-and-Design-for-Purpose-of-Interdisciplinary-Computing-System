@@ -1,2 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_corporate_accounting,corporate_accounting.corporate_accounting,model_corporate_accounting,base.group_user,1,1,1,1
+access_hr_employee,corporate_accounting.hr_employee,model_hr_employee,base.group_user,1,1,1,1
+access_hr_department,corporate_accounting.hr_department,model_hr_department,base.group_user,1,1,1,1
+access_accounting_currency,corporate_accounting.accounting_currency,model_accounting_currency,base.group_user,1,1,1,1
+access_currency_type,corporate_accounting.currency_type,model_currency_type,base.group_user,1,1,1,1
+access_accounting,corporate_accounting.accounting,model_accounting,base.group_user,1,1,1,1
+access_accounting_type,corporate_accounting.accounting_type,model_accounting_type,base.group_user,1,1,1,1
+access_accounting_group,corporate_accounting.accounting_group,model_accounting_group,base.group_user,1,1,1,1
+access_accounting_list_level_one,corporate_accounting.accounting_list_level_one,model_accounting_list_level_one,base.group_user,1,1,1,1
+access_accounting_list_level_two,corporate_accounting.accounting_list_level_two,model_accounting_list_level_two,base.group_user,1,1,1,1
+

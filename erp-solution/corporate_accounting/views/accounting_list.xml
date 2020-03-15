@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="corporate_accounting_list_view_form" model="ir.ui.view" >
+            <field name="name">corporate.accounting.list.view.form</field>
+            <field name="model">accounting</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="corporate_accounting_list_info_based">
+                            <field name="account_type_id" />
+                            <field name="account_group_id"/>     
+                            <field name="accounting_list_level_one_id"/>
+                            <field name="accounting_list_level_two_id"/>                            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="corporate_accounting_list_view_tree" model="ir.ui.view">
+            <field name="name">corporate.accounting.list.tree.form</field>
+            <field name="model">accounting</field>
+            <field name="arch" type="xml">
+                <tree string="Corporate Accounting List">
+                    <field name="accounting_list_level_one_id" />                   
+                    <field name="accounting_list_level_two_id" />
+                    <field name="account_name" />
+                    <field name="account_type_id" />                   
+                    <field name="account_group_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="corporate_accounting_list_action" model="ir.actions.act_window">
+            <field name="name">Corporate Accounting List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">accounting</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('corporate_accounting_list_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('corporate_accounting_list_view_form')})]"/>
+        </record>
+
+
+        <menuitem id="corporate_accounting_menu"
+            name="Corporate Accounting Portal"
+            web_icon="corporate_accounting,static/description/icon.png"/>
+        <menuitem id="corporate_accounting_list_menu" 
+            parent="corporate_accounting_menu" 
+            name="Corporate Accounting List" 
+            action="corporate_accounting_list_action"
+            groups="base.group_user" 
+            sequence="1"/>
+    </data>
+</odoo>

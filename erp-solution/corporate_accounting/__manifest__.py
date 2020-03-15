@@ -13,15 +13,14 @@
     'website': "http://www.hns.com",
     'category': 'Management',
     'version': '0.1',
-    'depends': ['base'],
-
-    # always loaded
+    'depends': ['base', 'hr'],
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'security/ir.model.access.csv',
+        'views/accounting_list.xml',
+        'views/accounting_list_level_one.xml',
+        'views/accounting_list_level_two.xml',
+        'views/res_config_settings_view.xml'
     ],
-    # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
