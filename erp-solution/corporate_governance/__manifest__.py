@@ -13,17 +13,11 @@
     'website': "http://www.hns.com",
     'category': 'Management',
     'version': '0.1',
-
-    # any module necessary for this one to work correctly
-    'depends': ['base'],
-
-    # always loaded
+    'depends': ['base', 'hr'],
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'security/ir.model.access.csv',
+        'views/res_config_settings_view.xml'
     ],
-    # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],

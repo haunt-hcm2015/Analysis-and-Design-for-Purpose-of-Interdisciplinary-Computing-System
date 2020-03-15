@@ -17,8 +17,8 @@ class ToolAndInstrument(models.Model):
                             ('liquidated', 'Liquidated'),
                         ], string='State of Asset')
     date_created   = fields.Date('Date of Recording Increases')
-    
+
 class ToolType(models.Model):
-    _name == 'tool.type'
+    _name = 'tool.type'
     _description = 'Tools type Model'
     type_name = fields.Char('Type Name')

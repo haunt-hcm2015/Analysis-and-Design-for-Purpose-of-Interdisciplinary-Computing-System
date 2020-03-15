@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="fashion_store_management_merchandise_view_form" model="ir.ui.view" >
+            <field name="name">fashion.store.management.merchandise.view.form</field>
+            <field name="model">store.merchandise</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="fashion_store_management_merchandise_list_info_based">
+                            <field name="merchandise_tmpl_id" />
+                            <field name="merchandise_id"/>     
+                            <field name="merchandise_qty"/>
+                            <field name="merchandise_type_id"/>                            
+                        </group>
+                        <notebook>
+                            <page name="MerchandiseImage" string="Merchandise Attribute">
+                                <group>
+                                    <field name="image" colspan="2" string="Merchandise Image" />
+                                </group>
+                                <group>
+                                    <field name="unit" colspan="2" string="Unit" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="fashion_store_management_merchandise_view_tree" model="ir.ui.view">
+            <field name="name">fashion.store.management.merchandise.view.tree</field>
+            <field name="model">store.merchandise</field>
+            <field name="arch" type="xml">
+                <tree string="Fashion Store Management Merchandise">
+                    <field name="merchandise_tmpl_id" />                   
+                    <field name="merchandise_id"/>     
+                    <field name="merchandise_qty"/>
+                    <field name="merchandise_type_id"/>                  
+                    <field name="unit"/>
+                </tree>
+            </field>
+        </record>
+        <record id="fashion_store_management_merchandise_action" model="ir.actions.act_window">
+            <field name="name">Merchandise List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">store.merchandise</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('fashion_store_management_merchandise_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('fashion_store_management_merchandise_view_form')})]"/>
+        </record>
+
+
+        <menuitem id="fashion_store_management_menu"
+            name="Fashion Store Portal"
+            web_icon="fashion_store_management,static/description/icon.png"/>
+        <menuitem id="fashion_store_management_merchandise_menu" 
+            parent="fashion_store_management_menu" 
+            name="Merchandise Management" 
+            action="fashion_store_management_merchandise_action"
+            groups="base.group_user" 
+            sequence="1"/>
+    </data>
+</odoo>

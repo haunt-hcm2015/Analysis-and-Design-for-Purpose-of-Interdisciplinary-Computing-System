@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class medical_management(models.Model):
-#     _name = 'medical_management.medical_management'
-#     _description = 'medical_management.medical_management'
+# class payroll_management(models.Model):
+#     _name = 'payroll_management.payroll_management'
+#     _description = 'payroll_management.payroll_management'
 
 #     name = fields.Char()
 #     value = fields.Integer()
