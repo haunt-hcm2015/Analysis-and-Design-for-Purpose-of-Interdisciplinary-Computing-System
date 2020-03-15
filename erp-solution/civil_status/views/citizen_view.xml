@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="civil_status_citizen_view_form" model="ir.ui.view" >
+            <field name="name">civil.status.citizen.view.form</field>
+            <field name="model">citizen</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar" options="{'zoom': true, 'preview_image':'image_128'}"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="last_name" placeholder="Last Name" required="True" />
+                            </h1>
+                            <h2>
+                                <field name="middle_name" placeholder="Middle Name" required="True"/>
+                            </h2>
+                            <h2>
+                                <field name="first_name" placeholder="First Name" required="True"/>
+                            </h2>
+                        </div>
+                        <group name="citizen_info_based">
+                            <group>
+                                <field name="other_name" />
+                                <field name="card_number_id" />
+                                <field name="household_id" />
+                                <field name="date_of_birth" />
+                                <field name="gender" />
+                            </group>                     
+                            <group>
+                                <field name="home_town" />
+                                <field name="nation" />
+                                <field name="religion" />
+                                <field name="phone_number" />
+                            </group>                     
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="civil_status_citizen_view_tree" model="ir.ui.view">
+            <field name="name">civil.status.citizen.view.tree</field>
+            <field name="model">citizen</field>
+            <field name="arch" type="xml">
+                <tree string="Civil Status">
+                    <field name="last_name" />
+                    <field name="middle_name" />                   
+                    <field name="first_name" />
+                    <field name="other_name" />
+                    <field name="gender" />
+                    <field name="phone_number" />
+                    <field name="home_town" />
+                    <field name="nation" />
+                    <field name="religion" />
+                    <field name="card_number_id" />
+                    <field name="household_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="civil_status_citizen_action" model="ir.actions.act_window">
+            <field name="name">Civil Status Management</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">citizen</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('civil_status_citizen_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('civil_status_citizen_view_form')})]"/>
+        </record>
+
+
+        <menuitem id="civil_status_menu"
+            name="Civil Status Portal"
+            web_icon="civil_status,static/description/icon.png"/>
+        <menuitem id="civil_status_citizen_management" 
+            parent="civil_status_menu" 
+            name="Citizen Management" 
+            action="civil_status_citizen_action"
+            groups="base.group_user" 
+            sequence="2"/>
+    </data>
+</odoo>

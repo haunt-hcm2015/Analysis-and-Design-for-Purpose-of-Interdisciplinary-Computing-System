@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_civil_status,civil_status.civil_status,model_civil_status,base.group_user,1,1,1,1
+access_citizen,civil_status.citizen,model_citizen,base.group_user,1,1,1,1
+access_id_card,civil_status.id_card,model_id_card,base.group_user,1,1,1,1
+access_id_card_type,civil_status.id_card_type,model_id_card_type,base.group_user,1,1,1,1
+access_place_of_issue,civil_status.place_of_issue,model_place_of_issue,base.group_user,1,1,1,1
+access_household_book,civil_status.household_book,model_household_book,base.group_user,1,1,1,1

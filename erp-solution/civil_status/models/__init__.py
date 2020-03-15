@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import models, citizen
+from . import citizen, id_card, household, birth_certificate, res_config_settings

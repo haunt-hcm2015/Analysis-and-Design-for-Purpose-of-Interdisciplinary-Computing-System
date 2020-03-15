@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Management of Civil Status",
+    'name': "Civil Status Management",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -13,17 +13,15 @@
     'website': "http://www.hns.com",
     'category': 'Management',
     'version': '0.1',
-
-    # any module necessary for this one to work correctly
     'depends': ['base'],
-
-    # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/citizen_view.xml',
+        'views/id_card_view.xml',
+        'views/household_book_view.xml',
+        'views/birth_certificate_view.xml',
+        'views/res_config_settings_view.xml'
     ],
-    # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],

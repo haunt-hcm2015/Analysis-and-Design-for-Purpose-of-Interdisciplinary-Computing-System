@@ -6,11 +6,21 @@ class Citizen(models.Model):
     last_name = fields.Char('Last Name')
     middle_name = fields.Char('Middle Name')
     first_name = fields.Char('First Name')
+    other_name = fields.Char('Other Name')
+    date_of_birth = fields.Date('Date of Birth')
     gender = fields.Selection([
                                 ('male', 'Male'), 
-                                ('female', 'Female'), 
-                                ('other', 'Other')
+                                ('female', 'Female')
                             ])
-    identity_card_number = fields.Integer('Identity Card Number')
-    issued_by = fields.Char('Place of Issuance of Identity Card')
+    home_town = fields.Char('Home Town')
+    nation    = fields.Char('Nation')
+    religion  = fields.Char('Religion')
+    image     = fields.Image('Image')
+    phone_number = fields.Char('Phone Number')
+    card_number_id = fields.Many2one(comodel_name='id.card', string="ID Card Number")
+    household_id    = fields.Many2one(comodel_name='household.book', string="Household Book Number")
+    
+    
+
+
     

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="civil_status_household_book_view_form" model="ir.ui.view" >
+            <field name="name">civil.status.household.book.view.form</field>
+            <field name="model">household.book</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="household_book_number" placeholder="Household Book Number" required="True" />
+                            </h1>
+                        </div>
+                        <group name="household_book_info_based">
+                            <field name="country" required="True"/>
+                            <field name="state" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="civil_status_household_book_view_tree" model="ir.ui.view">
+            <field name="name">civil.status.household.book.view.tree</field>
+            <field name="model">household.book</field>
+            <field name="arch" type="xml">
+                <tree string="Household Book View">
+                    <field name="household_book_number" />
+                    <field name="country" />                   
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+        <record id="civil_status_household_book_action" model="ir.actions.act_window">
+            <field name="name">Household Book Management</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">household.book</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('civil_status_household_book_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('civil_status_household_book_view_form')})]"/>
+        </record>
+        <menuitem id="civil_status_management" 
+            parent="civil_status_menu" 
+            name="Civil Status Management" 
+            sequence="1"/>
+        <menuitem id="household_book_management" 
+            parent="civil_status_management" 
+            name="Household Book" 
+            sequence="2"/>
+        <menuitem name="Declaring Demographics"
+            id="civil_status_demographics_menu"
+            parent="household_book_management"
+            action="civil_status_household_book_action"
+            sequence="1"/>
+    </data>
+</odoo>
