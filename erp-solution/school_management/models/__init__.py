@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-from . import department, staff, res_config_settings, student
+from . import department, staff, res_config_settings, student, asset, cirriculum_vitae, class_school, device, diary, document, education_contract, education_record, invoice, lecture_calendar, library, parents, receipt, registry_book, scholarship, school_profile, subject_detail, subject, timetable, tuition_detail, tuition    

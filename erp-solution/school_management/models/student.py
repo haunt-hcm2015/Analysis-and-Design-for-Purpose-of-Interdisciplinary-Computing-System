@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, _ 
+from . import parents 
 class Student(models.Model):
     _name = 'student'
     _description = 'Student Model'
@@ -8,6 +9,8 @@ class Student(models.Model):
     last_name = fields.Char('Last Name')
     birth_date = fields.Date('DOB')
     image = fields.Image('Student Image')
+    father_ids = fields.Many2many(comodel='parents', string='Father Name')
+    mother_ids = fields.Many2many(comodel='parents', string='Mother Name')
     contact_phone = fields.Char('Phone Number')
     contact_mobile = fields.Char('Mobile Phone')
     contact_mail  = fields.Char('Email')
