@@ -19,6 +19,6 @@ class ToolAndInstrument(models.Model):
     date_created   = fields.Date('Date of Recording Increases')
 
 class ToolType(models.Model):
-    _name = 'tool.type'
+    _name = 'asset.tool.type'
     _description = 'Tools type Model'
     type_name = fields.Char('Type Name')
