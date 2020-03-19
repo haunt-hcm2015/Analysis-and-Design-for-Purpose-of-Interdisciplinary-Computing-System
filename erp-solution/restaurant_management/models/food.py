@@ -11,12 +11,12 @@ class Food(models.Model):
     food_type_id = fields.Many2one(comodel_name='food.type', string="Food Type")
     food_line_ids = fields.One2many('food.line', 'food_line_id', 'Food Components')
 class FoodType(models.Model):
-    _name = 'food.type'
+    _name = 'restaurant.food.type'
     _description = 'food Type Model'
     _rec_name = 'type_name'
     type_name = fields.Char('Food Type')
 class FoodLine(models.Model):
-    _name = "food.line"
+    _name = "restaurant.food.line"
     _description = "Food Line Model"
 
     food_line_id = fields.Many2one('restaurant.food')

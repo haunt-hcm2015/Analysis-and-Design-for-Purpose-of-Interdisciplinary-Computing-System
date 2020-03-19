@@ -2,7 +2,7 @@
 from odoo import models, fields, api, _ 
 from . import parents 
 class Student(models.Model):
-    _name = 'student'
+    _name = 'school.student'
     _description = 'Student Model'
     first_name = fields.Char('First Name')
     middle_name  = fields.Char('Middle Name')
@@ -16,7 +16,7 @@ class Student(models.Model):
     contact_mail  = fields.Char('Email')
     student_category_id = fields.Many2one('student.category')
 class StudentCategory(models.Model):
-    _name = 'student.category'
+    _name = 'school.student.category'
     _description = 'Student Category Model'
     _rec_name = 'category_name'
     category_name = fields.Char('Category Name')

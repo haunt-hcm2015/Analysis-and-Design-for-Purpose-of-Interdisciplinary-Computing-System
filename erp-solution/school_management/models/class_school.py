@@ -4,5 +4,5 @@ class ClassSchool(models.Model):
     _name = 'school.class'
     _description = 'class Model'
 class ClassType(models.Model):
-    _name = 'class.type'
+    _name = 'school.class.type'
     _description = 'Class Type Model'

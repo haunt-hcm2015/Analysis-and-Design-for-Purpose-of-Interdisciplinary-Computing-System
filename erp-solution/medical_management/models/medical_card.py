@@ -5,7 +5,7 @@ class MedicalCard(models.Model):
     _description = 'Medical Card Model'
 
 class CardType(models.Model):
-    _name = 'card.type'
+    _name = 'medical.card.type'
     _description = 'Card Type Model'
     
     
