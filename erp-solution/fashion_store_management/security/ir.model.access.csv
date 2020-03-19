@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_employee,corporate_accounting.hr_employee,model_hr_employee,base.group_user,1,1,1,1
-access_hr_department,corporate_accounting.hr_department,model_hr_department,base.group_user,1,1,1,1
-access_store_merchandise,corporate_accounting.store_merchandise,model_store_merchandise,base.group_user,1,1,1,1
-access_merchandise_type,corporate_accounting.merchandise_type,model_merchandise_type,base.group_user,1,1,1,1

@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//div[hasclass('settings')]" position="inside">
                     <div class="app_settings_block" data-string="Fashion Store Management" string="Fashion Store Management"
-                                data-key="fashion_store_management">
+                                data-key="fashion_store">
                         <h2>Fashion Store Permission</h2>
                         <div class="row mt16 o_settings_container">
                             <div class="col-12 col-lg-6 o_setting_box" id="fashion_store">
@@ -35,11 +35,11 @@
             <field name="view_id" ref="res_config_settings_view_form"/>
             <field name="view_mode">form</field>
             <field name="target">inline</field>
-            <field name="context">{'module' : 'fashion_store_management'}</field>
+            <field name="context">{'module' : 'fashion_store'}</field>
         </record>
         <menuitem name="Configuration"
             id="fashion_store_configuration"
-            parent="fashion_store_management_menu"
+            parent="fashion_store_menu"
             sequence="4"/>
         <menuitem name="Settings"
             id="fashion_store_settings"
