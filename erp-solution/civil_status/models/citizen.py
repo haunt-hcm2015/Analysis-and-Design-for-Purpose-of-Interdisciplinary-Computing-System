@@ -19,6 +19,7 @@ class Citizen(models.Model):
     phone_number = fields.Char('Phone Number')
     card_number_id = fields.Many2one(comodel_name='id.card', string="ID Card Number")
     household_id    = fields.Many2one(comodel_name='household.book', string="Household Book Number")
+    birth_certificate_id = fields.Many2one(comodel_name='birth.certificate', string="Birth Certificate Number")
     
     
 
