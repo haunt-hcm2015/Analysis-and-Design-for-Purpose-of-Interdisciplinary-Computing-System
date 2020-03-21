@@ -8,8 +8,8 @@ class Food(models.Model):
     unit = fields.Char('Unit')
     food_qty = fields.Float(string="Quantity", required=True)
     image = fields.Image('Food Image')
-    food_type_id = fields.Many2one(comodel_name='food.type', string="Food Type")
-    food_line_ids = fields.One2many('food.line', 'food_line_id', 'Food Components')
+    food_type_id = fields.Many2one(comodel_name='restaurant.food.type', string="Food Type")
+    food_line_ids = fields.One2many('restaurant.food.line', 'food_line_id', 'Food Components')
 class FoodType(models.Model):
     _name = 'restaurant.food.type'
     _description = 'food Type Model'

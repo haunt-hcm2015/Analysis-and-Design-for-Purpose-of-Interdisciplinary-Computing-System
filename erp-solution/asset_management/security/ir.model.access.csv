@@ -18,9 +18,8 @@ access_asset_discount,asset_management.asset_discount,model_asset_discount,base.
 access_asset_planning,asset_management.asset_planning,model_asset_planning,base.group_user,1,1,1,1
 access_asset_report,asset_management.asset_report,model_asset_report,base.group_user,1,1,1,1
 access_asset_report_detail,asset_management.asset_report_detail,model_asset_report_detail,base.group_user,1,1,1,1
-access_asset_shopping_votes,asset_management.asset_shopping_votes,model_shopping_votes,base.group_user,1,1,1,1
+access_asset_shopping_votes,asset_management.asset_shopping_votes,model_asset_shopping_votes,base.group_user,1,1,1,1
 access_asset_shopping_votes_detail,asset_management.asset_shopping_votes_detail,model_asset_shopping_votes_detail,base.group_user,1,1,1,1
-access_asset_shopping_votes,asset_management.asset_shopping_votes,model_shopping_votes,base.group_user,1,1,1,1
 access_asset_tool,asset_management.asset_tool,model_asset_tool,base.group_user,1,1,1,1
 access_asset_tool_type,asset_management.asset_tool_type,model_asset_tool_type,base.group_user,1,1,1,1
 access_asset_tool_detail,asset_management.asset_tool_detail,model_asset_tool_detail,base.group_user,1,1,1,1

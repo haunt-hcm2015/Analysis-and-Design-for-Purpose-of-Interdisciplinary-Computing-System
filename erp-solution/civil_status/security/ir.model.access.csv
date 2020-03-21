@@ -1,8 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_citizen,civil_status.citizen,model_citizen,base.group_user,1,1,1,1
-access_city,civil_status.city,model_city,base.group_user,1,1,1,1
-access_commune,civil_status.commune,model_commune,base.group_user,1,1,1,1
-access_district,civil_status.district,model_district,base.group_user,1,1,1,1
+access_civil_status_city,civil_status.civil_status_city,model_civil_status_city,base.group_user,1,1,1,1
+access_civil_status_commune,civil_status.civil_status_commune,model_civil_status_commune,base.group_user,1,1,1,1
+access_civil_status_district,civil_status.civil_status_district,model_civil_status_district,base.group_user,1,1,1,1
 access_id_card,civil_status.id_card,model_id_card,base.group_user,1,1,1,1
 access_id_card_type,civil_status.id_card_type,model_id_card_type,base.group_user,1,1,1,1
 access_place_of_issue,civil_status.place_of_issue,model_place_of_issue,base.group_user,1,1,1,1
@@ -10,7 +10,7 @@ access_household_book,civil_status.household_book,model_household_book,base.grou
 access_adoption_certificate_detail,civil_status.adoption_certificate_detail,model_adoption_certificate_detail,base.group_user,1,1,1,1
 access_adoption_certification,civil_status.adoption_certification,model_adoption_certification,base.group_user,1,1,1,1
 access_birth_certificate_detail,civil_status.birth_certificate_detail,model_birth_certificate_detail,base.group_user,1,1,1,1
-access_birth_certification,civil_status.birth_certification,model_birth_certification,base.group_user,1,1,1,1
+access_birth_certificate,civil_status.birth_certificate,model_birth_certificate,base.group_user,1,1,1,1
 access_death_certificate_detail,civil_status.death_certificate_detail,model_death_certificate_detail,base.group_user,1,1,1,1
 access_death_certification,civil_status.death_certification,model_death_certification,base.group_user,1,1,1,1
 access_guardian_certificate_detail,civil_status.guardian_certificate_detail,model_guardian_certificate_detail,base.group_user,1,1,1,1

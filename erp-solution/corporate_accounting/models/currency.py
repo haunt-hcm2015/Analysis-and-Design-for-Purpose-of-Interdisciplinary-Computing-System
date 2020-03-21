@@ -8,7 +8,7 @@ class Currency(models.Model):
     currency_code = fields.Char('Currency Code')
     currency_type_id = fields.Many2one(comodel_name='currency.type', string = 'Currency Type')
 class CurrencyType(models.Model):
-    _name = 'currency.type'
+    _name = 'accounting.currency.type'
     _description = 'Curency Type Model'
     _rec_name = 'type_name'
     type_name = fields.Char('Type Name')

@@ -13,7 +13,7 @@
     'website': "http://www.hns.com",
     'category': 'Management',
     'version': '0.1',
-    'depends': ['base'],
+    'depends': ['base', 'hr'],
     'data': [
         'security/ir.model.access.csv',
         'views/citizen_view.xml',

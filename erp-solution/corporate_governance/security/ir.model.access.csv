@@ -60,5 +60,6 @@ access_governance_timekeeper,corporate_governance.governance_timekeeper,model_go
 access_governance_transaction,corporate_governance.governance_transaction,model_governance_transaction,base.group_user,1,1,1,1
 access_governance_umbrellas,corporate_governance.governance_umbrellas,model_governance_umbrellas,base.group_user,1,1,1,1
 access_governance_warehouse,corporate_governance.governance_warehouse,model_governance_warehouse,base.group_user,1,1,1,1
+access_governance_employee_salary,corporate_governance.governance_employee_salary,model_governance_employee_salary,base.group_user,1,1,1,1
 
 
