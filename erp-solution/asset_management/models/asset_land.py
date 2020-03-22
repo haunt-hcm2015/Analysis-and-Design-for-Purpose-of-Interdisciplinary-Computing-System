@@ -10,7 +10,7 @@ class AssetLand(models.Model):
     country = fields.Many2one('country')
     city = fields.Many2one('city')
     address = fields.Char('Address')
-    state = fields.fields.Selection([
+    state = fields.Selection([
         ('inuse', 'In Use'),
         ('rent', 'Rent'),
         ('lease', 'Lease')

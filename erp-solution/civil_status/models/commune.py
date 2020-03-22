@@ -8,3 +8,4 @@ class Commune(models.Model):
     commune_abbr = fields.Char('Commune Abbreviation')
     country = fields.Many2one('country')
     city = fields.Many2one('city')
+    district = fields.Many2one('district')

@@ -14,7 +14,7 @@
     'website': "http://www.hns.com",
     'category': 'Management',
     'version': '0.1',
-    'depends': ['base', 'hr', 'civil_status'],
+    'depends': ['base', 'hr', 'civil_status', 'asset_management'],
     'data': [
         'security/ir.model.access.csv',
         'views/student_view.xml',

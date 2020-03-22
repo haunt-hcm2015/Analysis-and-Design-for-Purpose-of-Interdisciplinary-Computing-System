@@ -7,7 +7,7 @@ class AssetSoftware(models.Model):
     owner_id = fields.Many2one('res.partner', string='Owner')
     seller_id = fields.Many2one('res.partner', string='Seller')
     software_type_id = fields.Many2one('asset.software.type')
-    state = fields.fields.Selection([
+    state = fields.Selection([
         ('inuse', 'In Use'),
         ('rent', 'Rent'),
         ('lease', 'Lease'),

@@ -13,7 +13,7 @@ class Customer(models.Model):
     addressLine2 = fields.Char('Address Line 2')
     city = fields.Many2one('city')
     country = fields.Many2one('country')
-    state = fields.fields.Selection([
+    state = fields.Selection([
         ('new', 'New Customer'),
         ('vip', 'VIP Customer'),
         ('trial', 'Only View'),

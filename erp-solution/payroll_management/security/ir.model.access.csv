@@ -22,3 +22,4 @@ access_payroll_power_of_attorney,payroll_management.payroll_power_of_attorney,mo
 access_payroll_project,payroll_management.payroll_project,model_payroll_project,base.group_user,1,1,1,1
 access_payroll_salary_estimation_report,payroll_management.payroll_salary_estimation_report,model_payroll_salary_estimation_report,base.group_user,1,1,1,1
 access_payroll_tradesmen,payroll_management.payroll_tradesmen,model_payroll_tradesmen,base.group_user,1,1,1,1
+access_payroll_tradesmen_type,payroll_management.payroll_tradesmen_type,model_payroll_tradesmen_type,base.group_user,1,1,1,1

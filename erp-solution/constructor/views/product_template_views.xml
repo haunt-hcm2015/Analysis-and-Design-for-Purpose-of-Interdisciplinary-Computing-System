@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="product_template_view_form_inherit" model="ir.ui.view">
+            <field name="name">product.template.view.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr='//field[@name="sale_ok"]' position="before">
+                   <div> 
+                        <field name="is_constructor" type="checkbox" />
+                        <label for="is_constructor"></label>
+                   </div>
+                   <div>
+                        <field name="is_component" type="checkbox" />
+                        <label for="is_component"></label>
+                   </div>
+                   <div>
+                        <label for="component_type"></label>
+                        <field name="component_type" />
+                   </div>
+                </xpath>    
+            </field>
+        </record>
+    </data>
+</odoo>

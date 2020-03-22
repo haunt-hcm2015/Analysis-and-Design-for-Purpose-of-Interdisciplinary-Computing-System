@@ -6,7 +6,7 @@ class AssetMachine(models.Model):
     seri_number = fields.Char('Seri Number')
     color = fields.Many2many('color')
     picture = fields.Image('Machine Picture')
-    state = fields.fields.Selection([
+    state = fields.Selection([
         ('inuse', 'In Use'),
         ('rent', 'Rent'),
         ('lease', 'Lease'),

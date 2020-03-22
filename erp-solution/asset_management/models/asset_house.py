@@ -11,7 +11,7 @@ class AssetHouse(models.Model):
     owner_id = fields.Many2one('res.partner', string='Owner')
     seller_id = fields.Many2one('res.partner', string='Seller')
     house_type_id = fields.Many2one('asset.house.type')
-    state = fields.fields.Selection([
+    state = fields.Selection([
         ('inuse', 'In Use'),
         ('rent', 'Rent'),
         ('lease', 'Lease'),

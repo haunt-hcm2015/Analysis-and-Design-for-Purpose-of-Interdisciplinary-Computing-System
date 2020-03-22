@@ -2,11 +2,10 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hr_employee,school_management.hr_employee,model_hr_employee,base.group_user,1,1,1,1
 access_hr_department,school_management.hr_department,model_hr_department,base.group_user,1,1,1,1
 access_citizen,school_management.citizen,model_citizen,base.group_user,1,1,1,1
-access_school_asset,school_management.school_asset,model_school_asset,base.group_user,1,1,1,1
-access_school_asset_type,school_management.school_asset_type,model_school_asset_type,base.group_user,1,1,1,1
 access_school_curriculum_vitae,school_management.school_curriculum_vitae,model_school_curriculum_vitae,base.group_user,1,1,1,1
 access_school_class,school_management.school_class,model_school_class,base.group_user,1,1,1,1
 access_school_class_type,school_management.school_class_type,model_school_class_type,base.group_user,1,1,1,1
+access_school_grade,school_management.school_grade,model_school_grade,base.group_user,1,1,1,1
 access_school_device,school_management.school_device,model_school_device,base.group_user,1,1,1,1
 access_school_device_category,school_management.school_device_category,model_school_device_category,base.group_user,1,1,1,1
 access_school_diary,school_management.school_diary,model_school_diary,base.group_user,1,1,1,1
@@ -30,6 +29,20 @@ access_school_subject,school_management.school_subject,model_school_subject,base
 access_school_timetable,school_management.school_timetable,model_school_timetable,base.group_user,1,1,1,1
 access_school_tuition_detail,school_management.school_tuition_detail,model_school_tuition_detail,base.group_user,1,1,1,1
 access_school_tuition,school_management.school_tuition,model_school_tuition,base.group_user,1,1,1,1
+access_school_title,school_management.school_title,model_school_title,base.group_user,1,1,1,1
+access_school_organization_title,school_management.school_organization_title,model_school_organization_title,base.group_user,1,1,1,1
+access_school_organization,school_management.school_organization,model_school_organization,base.group_user,1,1,1,1
+access_school_organization_type,school_management.school_organization_type,model_school_organization_type,base.group_user,1,1,1,1
+access_school_skill_organization,school_management.school_skill_organization,model_school_skill_organization,base.group_user,1,1,1,1
+access_school_skill,school_management.school_skill,model_school_skill,base.group_user,1,1,1,1
+access_school_education,school_management.school_education,model_school_education,base.group_user,1,1,1,1
+access_school_education_type,school_management.school_education_type,model_school_education_type,base.group_user,1,1,1,1
+access_school_publication,school_management.school_publication,model_school_publication,base.group_user,1,1,1,1
+access_school_publication_type,school_management.school_publication_type,model_school_publication_type,base.group_user,1,1,1,1
+access_school_location,school_management.school_location,model_school_location,base.group_user,1,1,1,1
+access_school_references,school_management.school_references,model_school_references,base.group_user,1,1,1,1
+access_school_references_type,school_management.school_references_type,model_school_references_type,base.group_user,1,1,1,1
+access_school_attendance,school_management.school_attendance,model_school_attendance,base.group_user,1,1,1,1
 
 
 

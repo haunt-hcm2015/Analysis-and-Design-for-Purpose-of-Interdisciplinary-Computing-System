@@ -15,6 +15,7 @@ class Student(models.Model):
     contact_mobile = fields.Char('Mobile Phone')
     contact_mail  = fields.Char('Email')
     student_category_id = fields.Many2one('student.category')
+    class_ids = fields.Many2many('school.class')
 class StudentCategory(models.Model):
     _name = 'school.student.category'
     _description = 'Student Category Model'
