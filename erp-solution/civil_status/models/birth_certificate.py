@@ -5,9 +5,12 @@ class BirthCertificate(models.Model):
     _description = 'Birth Certificate Model'
     _rec_name = 'birth_certificate_number'
     birth_certificate_number = fields.Char('Birth Certificate Number')
-    country                  = fields.Char('Country')
+    country                  = fields.Many2one('country')
+    city                     = fields.Many2one('city')
+    commune                  = fields.Many2one('commune')
     state                    = fields.Selection([
                                 ('process', 'In Process'), 
                                 ('done', 'Done')
                             ])
-    citizen_ids              = fields.One2many('citizen', 'birth_certificate_id')
+    
+
