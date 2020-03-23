@@ -9,6 +9,7 @@ class Student(models.Model):
     last_name = fields.Char('Last Name')
     birth_date = fields.Date('DOB')
     image = fields.Image('Student Image')
+    address = fields.Many2many('civil.status.address')
     father_ids = fields.Many2many(comodel='parents', string='Father Name')
     mother_ids = fields.Many2many(comodel='parents', string='Mother Name')
     contact_phone = fields.Char('Phone Number')

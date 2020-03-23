@@ -17,6 +17,7 @@ class Citizen(models.Model):
     religion  = fields.Char('Religion')
     image     = fields.Image('Image')
     phone_number = fields.Char('Phone Number')
+    address = fields.Many2many('civil.status.address')
     card_number_id = fields.Many2one(comodel_name='id.card', string="ID Card Number")
     household_id    = fields.Many2one(comodel_name='household.book', string="Household Book Number")
     birth_certificate_id = fields.Many2one(comodel_name='birth.certificate', string="Birth Certificate Number")
