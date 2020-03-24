@@ -21,3 +21,9 @@ access_financial_salary,financial_management.financial_salary,model_financial_sa
 access_financial_services,financial_management.financial_services,model_financial_services,base.group_user,1,1,1,1
 access_financial_share,financial_management.financial_share,model_financial_share,base.group_user,1,1,1,1
 access_financial_supplier,financial_management.financial_supplier,model_financial_supplier,base.group_user,1,1,1,1
+access_public_ledger,financial_management.public_ledger,model_public_ledger,base.group_user,1,1,1,1
+access_public_block,financial_management.public_block,model_public_block,base.group_user,1,1,1,1
+access_public_block,financial_management.public_block,model_public_block,base.group_user,1,1,1,1
+access_transaction_code_in,financial_management.transaction_code_in,model_transaction_code_in,base.group_user,1,1,1,1
+access_transaction_code_out,financial_management.transaction_code_out,model_transaction_code_out,base.group_user,1,1,1,1
+access_block_transaction,financial_management.block_transaction,model_block_transaction,base.group_user,1,1,1,1
