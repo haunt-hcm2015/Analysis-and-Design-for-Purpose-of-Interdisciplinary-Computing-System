@@ -9,3 +9,10 @@ class ContractionType(models.Model):
     _description = 'Accounting Contraction Type Model'
     _rec_name = 'type_name'
     type_name = fields.Char('Type Name')
+class ContractionDocument(models.Model):
+    _name = 'accounting.contraction.document'
+    _description = 'Accounting Contraction Document Model'
+class StandardContractSection(models.Model):
+    _name = 'accounting.standard.contract.section'
+    _description = 'Accounting Contraction Document Model'
+    
