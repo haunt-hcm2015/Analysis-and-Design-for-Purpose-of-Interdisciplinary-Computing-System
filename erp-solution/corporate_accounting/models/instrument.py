@@ -7,5 +7,4 @@ class Instrument(models.Model):
 class InstrumentType(models.Model):
     _name = 'accounting.instrument.type'
     _description = 'Accounting Instrument Type Model'
-    _rec_name = 'type_name'
-    type_name = fields.Char()
+    name = fields.Char()

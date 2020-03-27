@@ -9,8 +9,8 @@ class Customer(models.Model):
     first_name = fields.Char('First Name')
     other_name = fields.Char('Other Name')
     phone_number = fields.Char('Phone Number')
-    addressLine1 = fields.Char('Address Line 1')
-    addressLine2 = fields.Char('Address Line 2')
+    customer_address_1_ids = fields.One2many('accounting.customer.address', 'customer_id', string='Address Line 1')
+    customer_address_2_ids = fields.One2many('accounting.customer.address', 'customer_id', string='Address Line 2')
     city = fields.Many2one('city')
     country = fields.Many2one('country')
     state = fields.Selection([
@@ -26,5 +26,9 @@ class Customer(models.Model):
 class CustomerType(models.Model):
     _name = 'accounting.customer.type'
     _description = 'Accounting Customer Type Model'
-    _rec_name = 'type_name'
-    type_name = fields.Char('Type Name')
+    name = fields.Char('Type Name')
+class CustomerAddress(models.Model):
+    _name = 'accounting.customer.address'
+    _description = 'Accounting Customer Type Model'
+    address_id = fields.Many2one('civil.status.address', string='Address')
+    customer_id = fields.Many2one('accounting.customer',string='Customer')

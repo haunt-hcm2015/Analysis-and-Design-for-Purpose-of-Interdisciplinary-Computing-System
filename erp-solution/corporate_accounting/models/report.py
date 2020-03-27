@@ -19,3 +19,15 @@ class CompareOpponentReport(models.Model):
 class CompareOpponentDetail(models.Model):
     _name = 'accounting.compare.opponent.detail'
     _description = 'Accounting Compare Opponent Detail Model'
+class BusinessPlanReport(models.Model):
+    _name = 'accounting.business.plan.report'
+    _description = 'Accounting Business Plan Report Model'
+class BusinessPlanDetail(models.Model):
+    _name = 'accounting.business.plan.detail'
+    _description = 'Accounting Business Plan Detail Model'
+class SaleReport(models.Model):
+    _name = 'accounting.sale.report'
+    _description = 'Accounting Sale Report Model'
+class SaleReportDetail(models.Model):
+    _name = 'accounting.sale.report.detail'
+    _description = 'Accounting Sale Report Detail Model'
