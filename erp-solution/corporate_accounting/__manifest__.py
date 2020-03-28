@@ -13,7 +13,7 @@
     'website': "http://www.hns.com",
     'category': 'Management',
     'version': '0.1',
-    'depends': ['base', 'hr', 'fashion_store'],
+    'depends': ['base', 'hr', 'fashion_store', 'civil_status', 'restaurant_management', 'product'],
     'data': [
         'security/ir.model.access.csv',
         'views/accounting_list.xml',

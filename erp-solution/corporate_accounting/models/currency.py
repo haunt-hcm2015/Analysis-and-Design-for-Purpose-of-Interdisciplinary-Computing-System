@@ -10,5 +10,4 @@ class Currency(models.Model):
 class CurrencyType(models.Model):
     _name = 'accounting.currency.type'
     _description = 'Curency Type Model'
-    _rec_name = 'type_name'
-    type_name = fields.Char('Type Name')
+    name = fields.Char('Type Name')

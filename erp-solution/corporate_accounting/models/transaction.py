@@ -4,6 +4,7 @@ class Transaction(models.Model):
     _name = 'accounting.transaction'
     _description = 'Accounting Transaction Model'
     transaction_type_id = fields.Many2one('accounting.transaction.type', string='Transaction Type')
+    document_id = fields.Many2one('accounting.document', string='Document')
     counter_party_id = fields.Many2one('accounting.transaction.parties', string='Counter Party')
     party_id = fields.Many2one('accounting.transaction.parties', string='Party')
     currency_ids = fields.Many2many('accounting.currency', string='Currency')

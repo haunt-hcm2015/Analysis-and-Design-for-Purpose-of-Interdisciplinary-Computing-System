@@ -7,10 +7,9 @@ class IDCard(models.Model):
     id_card_number = fields.Char('ID Card Number')
     date_of_issue  = fields.Date('Date of Issue')
     date_of_change = fields.Date('Date of Change')
-    card_type_id   = fields.Many2one(comodel_name='id.card.type', string="ID Card Type")
-    place_id       = fields.Many2one(comodel_name='place.of.issue', string="Place of Issue")
-    citizen_id     = fields.Many2one(comodel_name='citizen')
-    citizen_ids    = fields.One2many(comodel_name='citizen', inverse_name='card_number_id')
+    card_type_id   = fields.Many2one('id.card.type', string="ID Card Type")
+    place_id       = fields.Many2one('place.of.issue', string="Place of Issue")
+    citizen_id     = fields.Many2one('citizen', string='Citizen')
 class PlaceOfIssue(models.Model):
     _name = 'place.of.issue'
     _description = 'Place of Issue of ID Card'
@@ -20,5 +19,5 @@ class PlaceOfIssue(models.Model):
 class IDCardType(models.Model):
     _name = 'id.card.type'
     _description = 'ID Card Type Model'
-    _rec_name    = 'type_name'
-    type_name    = fields.Char('Type Name')
+    name    = fields.Char('Type Name')
+    description = fields.Char()

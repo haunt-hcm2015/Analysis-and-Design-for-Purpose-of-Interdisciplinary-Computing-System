@@ -11,3 +11,4 @@ class Address(models.Model):
     country = fields.Many2one('country')
     zip_postcode = fields.Integer()
     other_address_detail = fields.Char()
+    bank_id = fields.Many2one('accounting.bank.branches')

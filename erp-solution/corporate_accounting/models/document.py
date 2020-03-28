@@ -4,13 +4,15 @@ class Document(models.Model):
     _name = 'accounting.document'
     _description = 'Accounting Document Model'
     name = fields.Char()
+    description = fields.Char()
+    document_number = fields.Char('Document Code')
     document_content = fields.Char('Content')
     document_type_id = fields.Many2one('accounting.document.type')
+    document_comment = fields.Char('Comment')
     entry_date = fields.Date()
 class DocumentType(models.Model):
     _name = 'accounting.document.type'
     _description = 'Accounting Document Type Model'
-    _rec_name = 'type_name'
-    type_name = fields.Char('Type Name')
+    name = fields.Char('Type Name')
     description = fields.Char()
     

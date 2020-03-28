@@ -13,7 +13,7 @@
     'website': "http://www.hns.com",
     'category': 'Management',
     'version': '0.1',
-    'depends': ['base', 'hr', 'asset_management'],
+    'depends': ['base', 'hr', 'asset_management','civil_status'],
     'data': [
         'security/ir.model.access.csv',
         'views/res_config_settings_view.xml'

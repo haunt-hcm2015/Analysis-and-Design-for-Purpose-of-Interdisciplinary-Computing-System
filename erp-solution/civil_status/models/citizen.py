@@ -18,7 +18,7 @@ class Citizen(models.Model):
     image     = fields.Image('Image')
     phone_number = fields.Char('Phone Number')
     address = fields.Many2many('civil.status.address')
-    card_number_id = fields.Many2one(comodel_name='id.card', string="ID Card Number")
+    card_ids = fields.One2many('id.card', 'citizen_id', string="ID Card Number")
     household_id    = fields.Many2one(comodel_name='household.book', string="Household Book Number")
     birth_certificate_id = fields.Many2one(comodel_name='birth.certificate', string="Birth Certificate Number")
     
