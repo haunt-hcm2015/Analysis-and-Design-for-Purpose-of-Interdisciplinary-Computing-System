@@ -1,12 +1,12 @@
 from django.contrib import admin
 from .models import Field
-from django.utils.html import mark_safe
 
 class FieldAdmin(admin.ModelAdmin):
     list_display  = ['field_name', 'description', 'created', 'updated']
     list_filter   = ['field_name']
-    search_fields = ['field_name']
+    search_fields = ['field_name', 'description']
     readonly_fields = ['image_tag']
+
 
 admin.site.register(Field, FieldAdmin)
 admin.site.site_header = "AI Solution Portal"

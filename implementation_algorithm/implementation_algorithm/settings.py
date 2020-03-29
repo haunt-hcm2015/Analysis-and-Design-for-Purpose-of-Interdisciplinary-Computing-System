@@ -1,6 +1,4 @@
-import os
-import pymysql
-
+import os, ctypes 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'wl5-bk19a4q^81%0+m^((bbvo$*nquwex+-)&o*%avbam9p%x-'
 DEBUG = True
@@ -12,12 +10,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
+    'leaflet',
 	'research',
 	'services',
 	'solution',
 	'technology',
 	'bigdata',
     'product_document',
+    'geosystem',
+    'testing_system',
+    'translate_machine',
+    'devops',
 ]
 
 MIDDLEWARE = [
@@ -32,6 +36,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'implementation_algorithm.urls'
+
 
 TEMPLATES = [
     {
@@ -51,23 +56,25 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'implementation_algorithm.wsgi.application'
-
-pymysql.version_info = (1, 3, 13, "final", 0)
-pymysql.install_as_MySQLdb()
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ai-solution',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
-		'OPTIONS': {
-			'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-		}
-	},
+        'default': {
+            'ENGINE':'django.contrib.gis.db.backends.postgis',
+            'NAME': 'ai_solution',
+            'USER': 'postgres',
+            'HOST': 'localhost',
+            'PASSWORD':'123',
+            'PORT': '5432'
+        }
+    }
+GDAL_LIBRARY_PATH = r"C:/Program Files (x86)/Python37/Lib/site-packages/osgeo/gdal204"
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (10.816047, 106.627892),
+    'DEFAULT_ZOOM': 5,
+    'MAX_ZOOM': 20,
+    'MIN_ZOOM': 3,
+    'SCALE': 'both',
+    'ATTRIBUTE_PREFIX': 'Inspired by Life in GIS'
 }
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',

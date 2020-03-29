@@ -40,7 +40,7 @@
           Solution
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="<?php echo AI_URL.'solution/computational-interdisciplinary'; ?>">Computational Interdisciplinary</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'/computational-interdisciplinary'; ?>">Computational Interdisciplinary</a>
           <a class="dropdown-item" href="<?php echo AI_URL.'solution/aerospace-engineering-and-defense'; ?>">Aerospace Engineering and Defense</a>
           <a class="dropdown-item" href="<?php echo AI_URL.'solution/automotive-engineering'; ?>">Automotive Engineering</a>
           <a class="dropdown-item" href="<?php echo AI_URL.'solution/chemical-engineering'; ?>">Chemical Engineering</a>

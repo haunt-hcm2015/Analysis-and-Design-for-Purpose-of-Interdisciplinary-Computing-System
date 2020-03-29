@@ -13,6 +13,7 @@ urlpatterns = [
     path('solution/',           include('solution.urls')),
     path('services/',           include('services.urls')),
     path('research/',           include('research.urls')),
+    path('geosystem/',          include('geosystem.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
