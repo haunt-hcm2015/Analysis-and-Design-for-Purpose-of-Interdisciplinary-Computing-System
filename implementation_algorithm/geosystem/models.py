@@ -43,4 +43,10 @@ class worldBiospheres(models.Model):
     geom = models.MultiPointField(srid=4326)
     def __unicode__(self):
         return self.countries
+class CityWeather(models.Model):
+    name = models.CharField(max_length=25)
+    def __str__(self):
+        return self.name
+    
+
 

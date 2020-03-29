@@ -34,7 +34,8 @@
 + Cài thư viện GDAL xử lý vector và tọa độ không gian GIS: 
   + Tải thư viện [GADL](https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal)
   + Cài đặt thư viện: `pip install GDAL-2.4.1-cp37-cp37m-win32.whl`
-+ khai báo thư viện xử lý trong tập tin settings.py: `GDAL_LIBRARY_PATH = r"C:/Program Files (x86)/Python37/Lib/site-packages/osgeo/gdal204"`
++ Khai báo thư viện xử lý trong tập tin settings.py: `GDAL_LIBRARY_PATH = r"C:/Program Files (x86)/Python37/Lib/site-packages/osgeo/gdal204"`
++ Cài đặt biến môi trường cho thư viện với đường dẫn: `C:\Program Files (x86)\Python37\Lib\site-packages\osgeo` 
 + Restart windows và server Django 
 
 + Cấu hình app GIS trong admin

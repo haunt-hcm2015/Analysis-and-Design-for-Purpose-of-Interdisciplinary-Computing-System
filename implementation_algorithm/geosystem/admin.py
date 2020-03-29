@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Incidence, globalCovid19Live, worldBiospheres
+from .models import Incidence, globalCovid19Live, worldBiospheres, CityWeather
 from leaflet.admin import LeafletGeoAdmin
 class IncidencesAdmin(LeafletGeoAdmin):
     list_display  = ['name', 'location', 'description', 'created', 'updated']
@@ -13,3 +13,4 @@ class WorldBiosphereAdmin(LeafletGeoAdmin):
 admin.site.register(Incidence, IncidencesAdmin)
 admin.site.register(globalCovid19Live, LiveCovidDataAdmin)
 admin.site.register(worldBiospheres, WorldBiosphereAdmin)
+admin.site.register(CityWeather)

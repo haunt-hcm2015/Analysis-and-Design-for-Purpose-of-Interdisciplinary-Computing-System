@@ -6,7 +6,7 @@ Applied Algorithms
 - AI: Django 3, Flask, Python 3.7, R
 - Backend: Python 3.7, PHP 7, Javascript
 - Server: Xampp
-- DB: Mysql
+- DB: Mysql, postgresql
 ### AI Solution Products:
 + Social Network as Open Source
 + Video Social Network as Open Source
