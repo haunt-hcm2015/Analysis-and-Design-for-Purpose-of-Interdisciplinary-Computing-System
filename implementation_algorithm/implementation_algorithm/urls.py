@@ -14,6 +14,7 @@ urlpatterns = [
     path('services/',           include('services.urls')),
     path('research/',           include('research.urls')),
     path('geosystem/',          include('geosystem.urls')),
+    path('blog/',               include('blog_builder.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

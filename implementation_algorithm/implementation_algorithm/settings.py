@@ -11,6 +11,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'django.contrib.sites',
     'leaflet',
 	'research',
 	'services',
@@ -22,6 +23,15 @@ INSTALLED_APPS = [
     'testing_system',
     'translate_machine',
     'devops',
+    'blog_builder',
+    'blog_post',
+    'blog_marketing',
+    'tinymce',
+    'crispy_forms',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
 ]
 
 MIDDLEWARE = [
@@ -109,3 +119,35 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+TINYMCE_DEFAULT_CONFIG = {
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak
+            ''',
+    'toolbar1': '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+}
+
+MAILCHIMP_API_KEY = '9f089a46b70449e409c100c6aa96a559-us19'
+MAILCHIMP_DATA_CENTER = 'us1'
+MAILCHIMP_EMAIL_LIST_ID = 'cf4ef210c1'
+SITE_ID = 1
+
