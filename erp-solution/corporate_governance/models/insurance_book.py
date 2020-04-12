@@ -6,7 +6,7 @@ class InsuranceBook(models.Model):
     book_number = fields.Integer('Insurance Book Number')
     name = fields.Char('Insurance Book Name')
     citizen_id = fields.Many2one('citizen', string='Owner Book')
-    issued_by = fields.Many2one(comodel_name='place.of.issue', string="Place of Issue")
+    issued_by = fields.Many2one('place.of.issue', string="Place of Issue")
     signer_id = fields.Many2one('citizen', string='Signer Book')
     issued_date = fields.Date('Date of Issue') 
 class Insurance(models.Model):

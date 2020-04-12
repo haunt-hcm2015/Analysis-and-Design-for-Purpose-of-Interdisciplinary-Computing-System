@@ -22,4 +22,6 @@ class ToolAndInstrument(models.Model):
 class ToolType(models.Model):
     _name = 'asset.tool.type'
     _description = 'Tools type Model'
-    type_name = fields.Char('Type Name')
+    name = fields.Char('Type Name')
+    description = fields.Char()
+    

@@ -18,6 +18,8 @@ class Policy(models.Model):
         ('ach','Automated Clearing House'),
         ('contactless_cards', 'Contactless Cards')
     ], string='Payment Option')
+    policy_insurance_id = fields.Many2one('governance.policy.insurance', string='Policy Insurance')
+    
 class PolicyEditLog(models.Model):
     _name = 'governance.policy.edit.log'
     _description = 'Policy Model'
