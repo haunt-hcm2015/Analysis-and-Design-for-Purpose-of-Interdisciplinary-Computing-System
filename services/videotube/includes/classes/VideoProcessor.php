@@ -4,23 +4,18 @@ class VideoProcessor {
     private $con;
     private $sizeLimit = 500000000;
     private $allowedTypes = array("mp4", "flv", "webm", "mkv", "vob", "ogv", "ogg", "avi", "wmv", "mov", "mpeg", "mpg");
-    
-    // *** UNCOMMENT ONE OF THESE DEPENDING ON YOUR COMPUTER ***
-    private $ffmpegPath = "ffmpeg/mac/regular-xampp/ffmpeg"; // *** MAC (USING REGULAR XAMPP) ***
+    //private $ffmpegPath = "ffmpeg/mac/regular-xampp/ffmpeg"; // *** MAC (USING REGULAR XAMPP) ***
     //private $ffmpegPath = "ffmpeg/mac/xampp-VM/ffmpeg"; // *** MAC (USING XAMPP VM) ***
     // private $ffmpegPath = "ffmpeg/linux/ffmpeg"; // *** LINUX ***
-    // private $ffmpegPath = "ffmpeg/windows/ffmpeg.exe"; //  *** WINDOWS ***
+    private $ffmpegPath = "ffmpeg/windows/ffmpeg.exe"; //  *** WINDOWS ***
 
-    // *** ALSO UNCOMMENT ONE OF THESE DEPENDING ON YOUR COMPUTER ***
-    private $ffprobePath = "ffmpeg/mac/regular-xampp/ffprobe"; // *** MAC (USING REGULAR XAMPP) ***
+    //private $ffprobePath = "ffmpeg/mac/regular-xampp/ffprobe"; // *** MAC (USING REGULAR XAMPP) ***
     //private $ffprobePath = "ffmpeg/mac/xampp-VM/ffprobe"; // *** MAC (USING XAMPP VM) ***
     // private $ffprobePath = "ffmpeg/linux/ffprobe"; // *** LINUX ***
-    // private $ffprobePath = "ffmpeg/windows/ffprobe.exe"; //  *** WINDOWS ***
-
+    private $ffprobePath = "ffmpeg/windows/ffprobe.exe"; 
     public function __construct($con) {
         $this->con = $con;
     }
-
     public function upload($videoUploadData) {
 
         $targetDir = "uploads/videos/";
@@ -34,30 +29,24 @@ class VideoProcessor {
         if(!$isValidData) {
             return false;
         }
-
         if(move_uploaded_file($videoData["tmp_name"], $tempFilePath)) {
             $finalFilePath = $targetDir . uniqid() . ".mp4";
-
             if(!$this->insertVideoData($videoUploadData, $finalFilePath)) {
                 echo "Insert query failed\n";
                 return false;
             }
-
             if(!$this->convertVideoToMp4($tempFilePath, $finalFilePath)) {
                 echo "Upload failed\n";
                 return false;
             }
-
             if(!$this->deleteFile($tempFilePath)) {
                 echo "Upload failed\n";
                 return false;
             }
-
             if(!$this->generateThumbnails($finalFilePath)) {
                 echo "Upload failed - could not generate thumbnails\n";
                 return false;
             }
-
             return true;
 
         }
@@ -116,7 +105,6 @@ class VideoProcessor {
         exec($cmd, $outputLog, $returnCode);
         
         if($returnCode != 0) {
-            //Command failed
             foreach($outputLog as $line) {
                 echo $line . "<br>";
             }
@@ -157,7 +145,6 @@ class VideoProcessor {
             exec($cmd, $outputLog, $returnCode);
             
             if($returnCode != 0) {
-                //Command failed
                 foreach($outputLog as $line) {
                     echo $line . "<br>";
                 }
@@ -187,15 +174,12 @@ class VideoProcessor {
     }
 
     private function updateDuration($duration, $videoId) {
-        
         $hours = floor($duration / 3600);
         $mins = floor(($duration - ($hours*3600)) / 60);
         $secs = floor($duration % 60);
-        
         $hours = ($hours < 1) ? "" : $hours . ":";
         $mins = ($mins < 10) ? "0" . $mins . ":" : $mins . ":";
         $secs = ($secs < 10) ? "0" . $secs : $secs;
-
         $duration = $hours.$mins.$secs;
 
         $query = $this->con->prepare("UPDATE videos SET duration=:duration WHERE id=:videoId");

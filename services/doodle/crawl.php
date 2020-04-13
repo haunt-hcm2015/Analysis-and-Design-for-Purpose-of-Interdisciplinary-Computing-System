@@ -103,11 +103,8 @@ function getDetails($url) {
 			$keywords = $meta->getAttribute("content");
 		}
 	}
-
 	$description = str_replace("\n", "", $description);
 	$keywords = str_replace("\n", "", $keywords);
-
-
 	if(linkExists($url)) {
 		echo "$url already exists<br>";
 	}
