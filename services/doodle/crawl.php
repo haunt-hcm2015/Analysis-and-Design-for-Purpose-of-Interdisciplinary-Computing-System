@@ -47,8 +47,8 @@ function insertImage($url, $src, $alt, $title) {
 
 function createLink($src, $url) {
 
-	$scheme = parse_url($url)["scheme"];
-	$host = parse_url($url)["host"]; 
+	$scheme = parse_url($url)["scheme"]; // http
+	$host = parse_url($url)["host"]; // www.reecekenney.com
 	
 	if(substr($src, 0, 2) == "//") {
 		$src =  $scheme . ":" . $src;
@@ -103,8 +103,11 @@ function getDetails($url) {
 			$keywords = $meta->getAttribute("content");
 		}
 	}
+
 	$description = str_replace("\n", "", $description);
 	$keywords = str_replace("\n", "", $keywords);
+
+
 	if(linkExists($url)) {
 		echo "$url already exists<br>";
 	}
@@ -156,10 +159,15 @@ function followLinks($url) {
 		else if(substr($href, 0, 11) == "javascript:") {
 			continue;
 		}
+
+
 		$href = createLink($href, $url);
+
+
 		if(!in_array($href, $alreadyCrawled)) {
 			$alreadyCrawled[] = $href;
 			$crawling[] = $href;
+
 			getDetails($href);
 		}
 
