@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^login/?$ core/auth/login.php
+RewriteRule ^sign-up/?$ core/auth/signup.php
