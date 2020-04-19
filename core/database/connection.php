@@ -1,10 +1,10 @@
 <?php 
-    $databaseName = 'mysql:host=localhost; dbname=ai-solution';
-    $user         = 'root';
-    $pass         = '';
-    try{
-        $pdo = new PDO($databaseName, $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
-    }catch(PDOException $e){
-        echo 'Connection error: '.$e->getMessage();
+    $dbName      = 'dbname=ai_solution';
+    $port        = 'port = 5432';
+    $host        = 'host = 127.0.0.1';
+    $credentials = 'user = postgres password=123';
+    $db = pg_connect("$host $port $dbName $credentials");
+    if(!$db) {
+        echo "Error : Unable to open database\n";
     }
 ?>

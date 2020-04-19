@@ -40,7 +40,7 @@
           Solution
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="<?php echo AI_URL.'/computational-interdisciplinary'; ?>">Computational Interdisciplinary</a>
+          <a class="dropdown-item" href="<?php echo AI_URL.'solution/computational-interdisciplinary'; ?>">Computational Interdisciplinary</a>
           <a class="dropdown-item" href="<?php echo AI_URL.'solution/aerospace-engineering-and-defense'; ?>">Aerospace Engineering and Defense</a>
           <a class="dropdown-item" href="<?php echo AI_URL.'solution/automotive-engineering'; ?>">Automotive Engineering</a>
           <a class="dropdown-item" href="<?php echo AI_URL.'solution/chemical-engineering'; ?>">Chemical Engineering</a>
@@ -73,24 +73,11 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Contact</a>
       </li>
-      <li class="nav-item dropdown ">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Login
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <form action="#" method="POST">
-            <input type="text" placeholder="Username..." name="username"/>
-            <input type="text" placeholder="Password..." name="password"/>
-            <input type="submit" value="Login" />
-          </form>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="forgot_password">
-            <label class="form-check-label" for="defaultCheck1">
-              Forgot Password
-            </label>
-          </div>
-          <a class="dropdown-item bg-light" href="#">Sign up</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo BASE_URL.'login'; ?>">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo BASE_URL.'sign-up'; ?>">Sign up</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

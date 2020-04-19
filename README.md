@@ -6,7 +6,11 @@ Applied Algorithms
 - AI: Django 3, Flask, Python 3.7, R
 - Backend: Python 3.7, PHP 7, Javascript
 - Server: Xampp
-- DB: Mysql, postgresql
+- DB: Postgresql
+- Php.ini: Configuration for stored in Postgresql: 
+    + Uncomment 2 lines:
+      + `extension=pdo_pgsql`
+      + `extension=pgsql`
 ### AI Solution Products:
 + Social Network as Open Source
 + Video Social Network as Open Source
