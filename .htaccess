@@ -1,3 +1,19 @@
 RewriteEngine On
 RewriteRule ^login/?$ core/auth/login.php
 RewriteRule ^sign-up/?$ core/auth/signup.php
+RewriteRule ^admin/?$ core/backend/admin.php
+RewriteRule ^console-application/?$ core/backend/console-application.php
+RewriteRule ^console/image-processing/?$ core/backend/interdisciplinary-app/image-processing.php
+RewriteRule ^console/video-processing/?$ core/backend/interdisciplinary-app/video-processing.php
+RewriteRule ^console/discrete-mathematics/?$ core/backend/interdisciplinary-app/discrete-mathematics.php
+RewriteRule ^console/data-conversion/?$ core/backend/interdisciplinary-app/data-conversion.php
+RewriteRule ^console/content-management-system/?$ core/backend/interdisciplinary-app/content-management-system.php
+RewriteRule ^console/container/?$ core/backend/interdisciplinary-app/container.php
+RewriteRule ^console/computer-science/?$ core/backend/interdisciplinary-app/computer-science.php
+RewriteRule ^console/devops/?$ core/backend/interdisciplinary-app/devops.php
+RewriteRule ^console/erp/?$ core/backend/interdisciplinary-app/erp.php
+RewriteRule ^console/geographic-information-system/?$ core/backend/interdisciplinary-app/geographic-information-system.php
+RewriteRule ^console/natural-language-processing/?$ core/backend/interdisciplinary-app/natural-language-processing.php
+RewriteRule ^console/testing/?$ core/backend/interdisciplinary-app/testing.php
+RewriteRule ^console/translate/?$ core/backend/interdisciplinary-app/translate-services.php
+RewriteRule ^console/blog/?$ core/backend/interdisciplinary-app/blog.php
