@@ -61,50 +61,64 @@
                         </li>
                         <li>
                             <a href="pages/widgets.html">
-                                <i class="fa fa-th"></i> <span>Widgets</span> <small class="badge pull-right bg-green">new</small>
+                                <i class="fa fa-user"></i> 
+                                <span>User Management</span> 
+                               
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
-                                <span>Charts</span>
+                                <span>Statistics</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-laptop"></i>
-                                <span>UI Elements</span>
+                                <span>Bandwidth System</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-edit"></i> <span>Forms</span>
+                                <i class="fa fa-edit"></i> <span>Load Balancer</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-table"></i> <span>Tables</span>
+                                <i class="fa fa-table"></i> <span>Note</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
                         <li>
                             <a href="pages/calendar.html">
-                                <i class="fa fa-calendar"></i> <span>Calendar</span>
+                                <i class="fa fa-calendar"></i> <span>Services Usage Status of Customer</span>
                                 <small class="badge pull-right bg-red">3</small>
                             </a>
                         </li>
                         <li>
                             <a href="pages/mailbox.html">
-                                <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                <small class="badge pull-right bg-yellow">12</small>
+                                <i class="fa fa-envelope"></i> <span>Visitor of Products</span>
+                             
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-folder"></i> <span>Examples</span>
+                                <i class="fa fa-folder"></i> <span>List of Services System</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span>Compaign Product</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span>Commission Management </span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
