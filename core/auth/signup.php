@@ -4,13 +4,12 @@
 		require_once("{$baseDir}{$directorySeparator}init.php");
 
 		if (isset($_POST['signup']) && isset($_POST['checkbox'])){
-		
 			$error= '';
 			$firstName = $user->checkInput($_POST['firstname']);
 			$lastName = $user->checkInput($_POST['lastname']);
 			$userName = $user->checkInput($_POST['username']);
 			$password = $user->checkInput($_POST['password']);
-			$position = $user->checkInput($_POST['position']);
+			$position = $_POST['position'];
 			$company = $user->checkInput($_POST['company']);
 			$gender = $_POST['gender']; 
 			$profileLink = '';
@@ -23,7 +22,7 @@
 			$business = $user->checkInput($_POST['business']);
 			$address = $user->checkInput($_POST['address']);
 			$zip = $user->checkInput($_POST['zip']);
-			$country = $user->checkInput($_POST['country']);
+			$country = $_POST['country'];
 			$code = $user->checkInput($_POST['code']);
 			$phone = $user->checkInput($_POST['phone']);
 			$email = $user->checkInput($_POST['email']);
@@ -36,15 +35,11 @@
 				if ($user->checkEmail($email) === true){
 					$error = "Email is already in use";
 				}else{
-					$user_id = $user->create('user_info', array( 'email' => $email, 
+					$user_id = $user->create('user_info', array(  
 									'firstname' => $firstName, 'lastname' => $lastName, 
-									'username' => $userName, 'password' => md5($password), 
-									'profileuser' => $profileLink, 'gender' => $gender, 
-									'position' => $position, 'company' => $company,
-									'profileuser' => $profileLink, 'business' => $business,
-									'address' => $address, 'zip' => $zip,
-									'country' => $country, 'code' => $code,
-									'phone' => $phone, 'email' => $email));
+									'username' => $userName, 'gender' => strval($gender),
+									'password' => md5($password),
+									'email' => $email));
 					$_SESSION['user_id'] = $user_id;
 				}
 			}

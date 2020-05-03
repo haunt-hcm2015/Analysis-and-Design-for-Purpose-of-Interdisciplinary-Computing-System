@@ -10,14 +10,30 @@
         $var = stripslashes($var);
         return $var;
     }
+    public function register($firstname, $lastname, $username, $gender, $password, $position, $company, $profileuser){
+        $smtp = $this->pdo->prepare("INSERT INTO `user` (`username`, `email`,`password`,`screen_name`,`profile_image`,`profile_cover`, `gender`,`birthday`)
+                                        VALUES (:username, :email, :_password, :screenName, 
+                                            'assets/images/defaultprofileimage.png', 
+                                            'assets/images/defaultCoverImage.png', :gender, :birthday)");
+        $smtp->bindParam(":username", $userName, PDO::PARAM_STR);
+        $smtp->bindParam(":email", $email, PDO::PARAM_STR);
+        $password = md5($password);
+        $smtp->bindParam(":_password", $password, PDO::PARAM_STR);
+        $smtp->bindParam(":screenName", $screenName, PDO::PARAM_STR);
+        $smtp->bindParam(":gender", $gender, PDO::PARAM_STR);
+        $smtp->bindParam(":birthday", $birthday, PDO::PARAM_STR);
+        $smtp->execute();
+       
+        $userID = $this->pdo->lastInsertId();
+        $_SESSION['user_id'] = $userID;
+    }
     public function create($table, $fields = array()){
         $columnName = implode(',', array_keys($fields));
         $values = ':'.implode(', :', array_keys($fields));
         $sql = "INSERT INTO {$table} ({$columnName}) VALUES ({$values})";
-        
         if ($smtp = $this->pdo->prepare($sql)){
             foreach($fields as $key => $data)
-                $smtp->bindValue(':'.$key, $data);
+                $smtp->bindValue(":".$key, $data);
             $smtp->execute();
             return $this->pdo->lastInsertId('user_id');
         }
