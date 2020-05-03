@@ -3,7 +3,7 @@ from technology import config
 import requests
 from .models import CityWeather as cityw
 def gis(request):
-    return render(request, 'pages/geographics-information-system.html',{'PHP_HOST': config.PHP_HOST})  
+    return render(request, 'pages/geographics-information-system.html',{'PHP_HOST': config.PHP_HOST, 'AUTH_LOGIN':config.AUTH_LOGIN,'AUTH_SIGNUP':config.AUTH_SIGNUP})  
 def getWeatherData(request):
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=c55b0c604e5d0dc062635a64ecdc72ee'
     city = 'Ho Chi inh city'
