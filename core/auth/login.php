@@ -2,6 +2,19 @@
     $directorySeparator = DIRECTORY_SEPARATOR;
 	$baseDir = realpath(dirname(__FILE__).$directorySeparator.'..') . $directorySeparator;
 	require_once("{$baseDir}{$directorySeparator}init.php");
+
+	if (isset($_POST['login'])){
+		$username    = $_POST['username'];
+		$pass = $_POST['pass'];
+		if (!empty($username) or !empty($pass)){
+			$username    = $user->checkInput($username);
+			$pass        = $user->checkInput($pass);
+			$error    = '';
+			$user->login($username, $pass);
+		}else{
+			$error = "Please check your username or your password";
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,12 +56,7 @@
 						</div>
 						
 						<div class="container-login100-form-btn">
-							<div class="wrap-login100-form-btn">
-								<div class="login100-form-bgbtn"></div>
-								<button class="login100-form-btn">
-									Login
-								</button>
-							</div>
+							<input type="submit" name="login" value="Login"/>
 						</div>
 
 						<div class="txt1 text-center p-t-54 p-b-20">
@@ -80,6 +88,14 @@
 								Sign Up
 							</a>
 						</div>
+						<?php
+							if (isset($error))
+							{
+								echo '<li class="error-li">
+										<div class="span-fp-error">'.$error.'</div>
+									</li> ';
+							}
+						?>
 					</form>
 				</div>
 			</div>
