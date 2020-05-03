@@ -1,8 +1,8 @@
 <?php 
  class User{
-     protected $db;
-     function __construct($db){
-         $this->db = $db;
+     protected $pdo;
+     function __construct($pdo){
+         $this->pdo = $pdo;
      }
      public function checkInput($var){
         $var = htmlspecialchars($var);
@@ -14,11 +14,12 @@
         $columnName = implode(',', array_keys($fields));
         $values = ':'.implode(', :', array_keys($fields));
         $sql = "INSERT INTO {$table} ({$columnName}) VALUES ({$values})";
+        
         if ($smtp = $this->pdo->prepare($sql)){
             foreach($fields as $key => $data)
                 $smtp->bindValue(':'.$key, $data);
             $smtp->execute();
-            return $this->pdo->lastInsertId();
+            return $this->pdo->lastInsertId('user_id');
         }
     }
     public function update($table, $userId, $fields = array()){

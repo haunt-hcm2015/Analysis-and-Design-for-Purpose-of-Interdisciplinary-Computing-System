@@ -1,7 +1,10 @@
 <?php 
     $directorySeparator = DIRECTORY_SEPARATOR;
 	$baseDir = realpath(dirname(__FILE__).$directorySeparator.'..') . $directorySeparator;
-	require_once("{$baseDir}{$directorySeparator}init.php");
+    require_once("{$baseDir}{$directorySeparator}init.php");
+    
+    if ($user->loggedIn() === false)
+		header("Location: index.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,8 +43,13 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="<?php echo BASE_URL.'console/computer-science';?>">
+                            <a class="js-arrow" href="<?php echo BASE_URL.'console-application';?>">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo BASE_URL.'console/blog';?>">
+                                <i class="fas fa-chart-bar"></i>Blogger
                             </a>
                         </li>
                         <li>
@@ -123,9 +131,14 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="<?php echo BASE_URL.'console/computer-science';?>">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="<?php echo BASE_URL.'console-application';?>">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo BASE_URL.'console/blog';?>">
+                                <i class="fas fa-chart-bar"></i>Blogger
                             </a>
                         </li>
                         <li>

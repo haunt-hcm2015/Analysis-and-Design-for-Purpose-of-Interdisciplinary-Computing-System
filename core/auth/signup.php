@@ -3,7 +3,8 @@
 		$baseDir = realpath(dirname(__FILE__).$directorySeparator.'..') . $directorySeparator;
 		require_once("{$baseDir}{$directorySeparator}init.php");
 
-		if (isset($_POST['register']) && isset($_POST['checkbox'])){
+		if (isset($_POST['signup']) && isset($_POST['checkbox'])){
+		
 			$error= '';
 			$firstName = $user->checkInput($_POST['firstname']);
 			$lastName = $user->checkInput($_POST['lastname']);
@@ -27,24 +28,25 @@
 			$phone = $user->checkInput($_POST['phone']);
 			$email = $user->checkInput($_POST['email']);
 			
-			if (strlen($password) < 5){
+			if (strlen($password) < 5)
 				$error = "Password is to short";
-			}
 			else if (!filter_var($email))
 				$error = "Invalid email format";
-			else if ($user->checkEmail($email) === true){
-				$error = "Email is already in use";
-			}else{
-				$user_id = $user->create('user_info', array( 'email' => $email, 
-								'firstname' => $firstName, 'lastname' => $lastName, 
-								'username' => $userName, 'password' => md5($password), 
-								'profileuser' => $profileLink, 'gender' => $gender, 
-								'position' => $position, 'company' => $company,
-								'profileuser' => $profileLink, 'business' => $business,
-								'address' => $address, 'zip' => $zip,
-								'country' => $country, 'code' => $code,
-								'phone' => $phone, 'email' => $email));
-				$_SESSION['user_id'] = $user_id;
+			else {
+				if ($user->checkEmail($email) === true){
+					$error = "Email is already in use";
+				}else{
+					$user_id = $user->create('user_info', array( 'email' => $email, 
+									'firstname' => $firstName, 'lastname' => $lastName, 
+									'username' => $userName, 'password' => md5($password), 
+									'profileuser' => $profileLink, 'gender' => $gender, 
+									'position' => $position, 'company' => $company,
+									'profileuser' => $profileLink, 'business' => $business,
+									'address' => $address, 'zip' => $zip,
+									'country' => $country, 'code' => $code,
+									'phone' => $phone, 'email' => $email));
+					$_SESSION['user_id'] = $user_id;
+				}
 			}
 		}
 ?>
@@ -101,14 +103,14 @@
 							</span>
 						</div>
 						<div class="form-row">
-							<input type="text" name="company" placeholder="Company" required>
+							<input type="text" name="company" placeholder="Company" >
 						</div>
 						<div class="form-row">
 							<input type="file" name="profileuser" accept="images/*"/>
 						</div>
 						<div class="form-group">
 							<div class="form-row form-row-3">
-								<input type="text" name="business" placeholder="Business Arena" required>
+								<input type="text" name="business" placeholder="Business Arena" >
 							</div>
 						</div>
 					</div>
@@ -119,7 +121,7 @@
 						</div>
 						<div class="form-group">
 							<div class="form-row form-row-1">
-								<input type="text" name="zip" placeholder="Zip Code" required>
+								<input type="text" name="zip" placeholder="Zip Code">
 							</div>
 						</div>
 						<div class="form-row">
@@ -135,10 +137,10 @@
 						</div>
 						<div class="form-group">
 							<div class="form-row form-row-1">
-								<input type="text" name="code" placeholder="Code +" required>
+								<input type="text" name="code" placeholder="Code +">
 							</div>
 							<div class="form-row form-row-2">
-								<input type="text" name="phone" placeholder="Phone Number" required>
+								<input type="text" name="phone" placeholder="Phone Number">
 							</div>
 						</div>
 						<div class="form-row">
@@ -151,7 +153,7 @@
 							</label>
 						</div>
 						<div class="form-row-last">
-							<input type="submit" name="register" class="register" value="Register">
+							<input type="submit" name="signup" class="register" value="Signup">
 						</div>
 						<?php 
 							if (isset($error))
