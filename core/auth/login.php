@@ -6,11 +6,15 @@
 	if (isset($_POST['login'])){
 		$username    = $_POST['username'];
 		$pass = $_POST['pass'];
+		$error    = '';
 		if (!empty($username) or !empty($pass)){
 			$username    = $user->checkInput($username);
 			$pass        = $user->checkInput($pass);
-			$error    = '';
-			$user->login($username, $pass);
+			$result = $user->login($username, $pass);
+			if ($result)
+				$error = "Please check your username or your password";
+			else
+				header("Location: ");
 		}else{
 			$error = "Please check your username or your password";
 		}

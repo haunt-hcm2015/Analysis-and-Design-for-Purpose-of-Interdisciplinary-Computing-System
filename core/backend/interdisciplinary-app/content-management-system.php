@@ -387,7 +387,7 @@
                                         <div class="overview-box clearfix">
                                            
                                             <div class="text">
-                                                <h2>New Website</h2>
+                                                <h2><a href="<?php echo BASE_URL.'console/content-management-system/project' ;?>">New Website</a></h2>
                                              
                                             </div>
                                         </div>
@@ -401,7 +401,7 @@
                                         <div class="overview-box clearfix">
                                            
                                             <div class="text">
-                                                <h2>APIs</h2>
+                                                <h2><a href="<?php echo BASE_URL.'console/content-management-system/api' ;?>">APIs</a></h2>
                                                
                                             </div>
                                         </div>
@@ -415,7 +415,7 @@
                                         <div class="overview-box clearfix">
                                            
                                             <div class="text">
-                                                <h2>Resource Download</h2>
+                                                <h2><a href="#">Resource Download</a></h2>
                                             </div>
                                         </div>
                                         

@@ -385,10 +385,8 @@
                                 <div class="overview-item overview-item--c1">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
-                                           
                                             <div class="text">
-                                                <h2>New Blog</h2>
-                                             
+                                                <h2><a href="<?php echo BASE_URL.'console/blog/project' ;?>">New Blog</a></h2>
                                             </div>
                                         </div>
                                         
@@ -401,7 +399,7 @@
                                         <div class="overview-box clearfix">
                                            
                                             <div class="text">
-                                                <h2>APIs</h2>
+                                                <h2><a href="<?php echo BASE_URL.'console/blog/api';?>">APIs</a></h2>
                                                
                                             </div>
                                         </div>
@@ -415,7 +413,7 @@
                                         <div class="overview-box clearfix">
                                            
                                             <div class="text">
-                                                <h2>Theme</h2>
+                                                <h2><a href="<?php ?>">Theme</a></h2>
                                             </div>
                                         </div>
                                         

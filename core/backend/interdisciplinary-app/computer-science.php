@@ -376,7 +376,6 @@
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Computer Science</h2>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -387,8 +386,7 @@
                                         <div class="overview-box clearfix">
                                            
                                             <div class="text">
-                                                <h2>New Project</h2>
-                                             
+                                                <h2><a href="<?php echo BASE_URL.'console/computer-science/project' ;?>">New Project</a></h2>
                                             </div>
                                         </div>
                                         
@@ -399,10 +397,9 @@
                                 <div class="overview-item overview-item--c2">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
-                                           
+                                    
                                             <div class="text">
-                                                <h2>APIs</h2>
-                                               
+                                                <h2><a href="<?php echo BASE_URL.'console/computer-science/api' ;?>">APIs</a></h2>                                              
                                             </div>
                                         </div>
                                        
