@@ -13,4 +13,8 @@
     <link href="<?php echo BASE_URL.'assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css';?>" rel="stylesheet" media="all">
     <link href="<?php echo BASE_URL.'assets/css/bootstrap.min.css';?>" rel="stylesheet" media="all">
     <link href="<?php echo BASE_URL.'assets/css/console-application.css';?>" rel="stylesheet" media="all">
+    <script src="<?php echo BASE_URL.'assets/js/jquery.min.js';?>"></script>
+    <script src="<?php echo BASE_URL.'assets/js/popper.min.js';?>"></script>
+    <script src="<?php echo BASE_URL.'assets/js/bootstrap.min.js';?>"></script>
+
 </head>

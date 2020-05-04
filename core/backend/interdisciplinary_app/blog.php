@@ -2,9 +2,10 @@
     $directorySeparator = DIRECTORY_SEPARATOR;
 	$baseDir = realpath(dirname(__FILE__).$directorySeparator.'..'.$directorySeparator.'..') . $directorySeparator;
     require_once("{$baseDir}{$directorySeparator}init.php");
+    
+    if ($user->loggedIn() === false)
+		header("Location: ".BASE_URL."");
 ?>
-<!DOCTYPE html>
-<html lang="en">
 <?php include_once("../structure-console/header.php");?>
 <body class="animsition">
     <div class="page-wrapper">
@@ -18,10 +19,10 @@
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
+                            </span>
                         </button>
                     </div>
                 </div>
-                            </span>
             </div>
             <nav class="navbar-mobile">
                 <div class="container-fluid">
@@ -36,7 +37,7 @@
                                 <i class="fas fa-chart-bar"></i>Sound Analytis
                             </a>
                         </li>
-                        <li>
+                        <li class='active'>
                             <a href="<?php echo BASE_URL.'console/blog';?>">
                                 <i class="fas fa-chart-bar"></i>Blogger
                             </a>
@@ -72,7 +73,7 @@
                                 <i class="fas fa-desktop"></i>Container
                             </a>
                         </li>
-                        <li class='active'>
+                        <li >
                             <a class="js-arrow" href="<?php echo BASE_URL.'console/computer-science';?>">
                                 <i class="far fa-check-square"></i>Computer Science
                             </a>
@@ -130,7 +131,7 @@
                                 <i class="fas fa-chart-bar"></i>Sound Analytis
                             </a>
                         </li>
-                        <li>
+                        <li class="has-sub active">
                             <a href="<?php echo BASE_URL.'console/blog';?>">
                                 <i class="fas fa-chart-bar"></i>Blogger
                             </a>
@@ -166,7 +167,7 @@
                                 <i class="fas fa-desktop"></i>Container
                             </a>
                         </li>
-                        <li class="has-sub active">
+                        <li>
                             <a class="js-arrow" href="<?php echo BASE_URL.'console/computer-science';?>">
                                 <i class="far fa-check-square"></i>Computer Science
                             </a>
@@ -384,59 +385,50 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">API System Management</h2>
+                                    <h2 class="title-1">Become a Blogger</h2>
+                                    
                                 </div>
                             </div>
                         </div>
                         <div class="row m-t-25">
-                            <div class="container mt-3">
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#credential">Credential API Key</a>
-                                    </li>
-                                    <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#data_history">Data History</a>
-                                    </li>
-                                    <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#web_services">Web Services</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div id="credential" class="container tab-pane active"><br>
-                                        <h3>Credential API Key</h3>
-                                    
-                                    </div>
-                                    <div id="data_history" class="container tab-pane fade"><br>
-                                        <h3>Data History</h3>
-                                    
-                                    </div>
-                                    <div id="web_services" class="container tab-pane fade"><br>
-                                      
-                                        <div class="dropdown">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                                Web Services Permission
-                                            </button>
-                                            <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Public</a>
-                                            <a class="dropdown-item" href="#">Private</a>
-                                            <a class="dropdown-item" href="#">Group User</a>
+                            <div class="col-sm-6 col-lg-6">
+                                <div class="overview-item overview-item--c1">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="text">
+                                                <h2><a href="<?php echo BASE_URL.'console/blog/project' ;?>">New Blog</a></h2>
                                             </div>
                                         </div>
-                                        </br>
-                                        <div class="dropdown">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                                Data Response
-                                            </button>
-                                            <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">JSON</a>
-                                            <a class="dropdown-item" href="#">XML</a>
-                                            <a class="dropdown-item" href="#">CSV</a>
-                                            </div>
-                                        </div>
-                                        <h3>Result:</h3>
+                                        
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="col-sm-6 col-lg-6">
+                                <div class="overview-item overview-item--c2">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                           
+                                            <div class="text">
+                                                <h2><a href="<?php echo BASE_URL.'console/blog/api';?>">APIs</a></h2>
+                                               
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-6">
+                                <div class="overview-item overview-item--c3">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                           
+                                            <div class="text">
+                                                <h2><a href="<?php ?>">Theme</a></h2>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                         </div> 
 <?php include_once("../structure-console/footer.php");?>
