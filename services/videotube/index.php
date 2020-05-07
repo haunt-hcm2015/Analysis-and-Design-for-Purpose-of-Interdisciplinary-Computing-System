@@ -12,7 +12,7 @@
         echo $videoGrid->create($subscriptionVideos, "Subscriptions", false);
     }
 
-    echo $videoGrid->create(null, "Recommended", false);
+    #echo $videoGrid->create(null, "Recommended", false);
 
 
     ?>
