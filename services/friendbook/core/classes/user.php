@@ -117,7 +117,6 @@
 		}
 
 		public function create($table, $fields = array()){
-			# Join key element of array to string
 			$columnName = implode(',', array_keys($fields));
 			$values = ':'.implode(', :', array_keys($fields));
 			$sql = "INSERT INTO {$table} ({$columnName}) VALUES ({$values})";
@@ -212,7 +211,7 @@
 				$GLOBALS['imageError'] = "The extension is not allowed";
 			}
 		}
-		# Posted time ago 
+
 		public function timeAgo($dateTime){
 			$time 	 = strtotime($dateTime);
 			$current = time();

@@ -24,7 +24,6 @@
 		}else{
 			$error1 = "Please check your username or your password";
 		}
-		
 	}
 
 ?>

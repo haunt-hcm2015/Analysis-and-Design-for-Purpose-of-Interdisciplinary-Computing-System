@@ -29,7 +29,6 @@
 			
 			echo '<a href="#">'.$ext.'</a>';
 		}
-		# Post, repost in homepage
 		public function post($userID, $limits){
 			// SELECT * from `post` WHERE `postBy` = `user_id`
 			// SELECT * from `post`, `user` WHERE `postBy` = `user_id` => trả về hết user

@@ -4,9 +4,9 @@
     $base_dir = realpath(dirname(__FILE__).$ds.'..') . $ds;
     require_once("{$base_dir}core{$ds}init.php"); 
     
-    //if ($_SERVER['REQUEST_METHOD'] == "GET" && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])){
-	//	header("Location: ".BASE_URL."index.php");
-    //}
+    if ($_SERVER['REQUEST_METHOD'] == "GET" && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])){
+		header("Location: ".BASE_URL."index.php");
+    }
     
     $user_id = $_SESSION['user_id'];
     $user = $getFromUser->userData($user_id);
