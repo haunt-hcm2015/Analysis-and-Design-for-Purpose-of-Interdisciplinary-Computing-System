@@ -2,6 +2,14 @@
     $directorySeparator = DIRECTORY_SEPARATOR;
 	$baseDir = realpath(dirname(__FILE__).$directorySeparator.'..'.$directorySeparator.'..') . $directorySeparator;
     require_once("{$baseDir}{$directorySeparator}init.php");
+    if (isset($_POST['send_request']))
+        if (isset($_POST['project_name']) && isset($_POST['analysis_mode']) && isset($_POST['analytis_result']))
+        {
+            $projectName = $_POST['project_name'];
+            $analysisName = $_POST['analysis_mode'];
+            $analysisResult = $_POST['analytis_result'];
+            echo $analysisResult;
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,11 +70,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <button class="btn btn--radius-2 btn--blue-2" name="send_request" type="submit">Send Request</button>
+                        </div>
                     </form>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Send Request</button>
-                </div>
+
             </div>
         </div>
     </div>

@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
+    'image_social_network'
 ]
 
 MIDDLEWARE = [

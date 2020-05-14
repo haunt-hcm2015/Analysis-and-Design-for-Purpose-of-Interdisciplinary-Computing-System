@@ -2,6 +2,15 @@
     $directorySeparator = DIRECTORY_SEPARATOR;
 	$baseDir = realpath(dirname(__FILE__).$directorySeparator.'..'.$directorySeparator.'..') . $directorySeparator;
     require_once("{$baseDir}{$directorySeparator}init.php");
+    if (isset($_POST['test']))
+        if (isset($_POST['project_name']) && isset($_POST['programming_language']) && isset($_POST['source_code']) && isset( $_POST['result']))
+        {
+            $projectName = $_POST['project_name'];
+            $programmingLanguage = $_POST['programming_language'];
+            $sourceCode = $_POST['source_code'];
+            $result  = $_POST['result'];
+            
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,11 +82,12 @@
                                 <div class="label--desc">Upload your source code . Max file size 2 MB</div>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <button class="btn btn--radius-2 btn--blue-2" name="test" type="submit">Test</button>
+                        </div>
                     </form>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Test</button>
-                </div>
+
             </div>
         </div>
     </div>

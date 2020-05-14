@@ -2,6 +2,14 @@
     $directorySeparator = DIRECTORY_SEPARATOR;
 	$baseDir = realpath(dirname(__FILE__).$directorySeparator.'..'.$directorySeparator.'..') . $directorySeparator;
     require_once("{$baseDir}{$directorySeparator}init.php");
+
+    if (isset($_POST['translate']))
+        if (isset($_POST['language_source']) && isset($_POST['source_text']) && isset($_POST['language_destination']) && isset($_POST['destination_text'])){
+            $languageSource = $_POST['language_source'];
+            $sourceText = $_POST['source_text'];
+            $languageDestination = $_POST['language_destination'];
+            $destinationText = $_POST['destination_text'];
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +55,7 @@
                             <div class="name">Language</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <textarea class="textarea--style-6" name="message" placeholder="Language Source"></textarea>
+                                    <textarea class="textarea--style-6" name="source_text" placeholder="Language Source"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +80,7 @@
                             <div class="name">Language Destination</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <textarea class="textarea--style-6" name="message" placeholder="Language Destination"></textarea>
+                                    <textarea class="textarea--style-6" name="destination_text" placeholder="Language Destination"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -87,11 +95,12 @@
                                 <div class="label--desc">Upload your Interpreter File . Max file size 10 MB</div>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <button class="btn btn--radius-2 btn--blue-2" name="translate" type="submit">Translate</button>
+                        </div>
                     </form>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Translate</button>
-                </div>
+                
             </div>
         </div>
     </div>

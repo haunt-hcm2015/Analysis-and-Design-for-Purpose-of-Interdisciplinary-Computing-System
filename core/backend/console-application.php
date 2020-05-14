@@ -28,8 +28,8 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img src="assets/images/icon/logo.png" alt="CoolAdmin" />
+                        <a class="logo" href="<?php echo BASE_URL;?>">
+                            <img src="assets/images/icon/logo.png"  />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -45,6 +45,11 @@
                         <li class="has-sub">
                             <a class="js-arrow" href="<?php echo BASE_URL.'console-application';?>">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo BASE_URL.'console/noodle';?>">
+                                <i class="fas fa-chart-bar"></i>Search Engine Console
                             </a>
                         </li>
                         <li>
@@ -124,7 +129,7 @@
         </header>
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="<?php echo BASE_URL.'console/computer-science';?>">
+                <a href="<?php echo BASE_URL;?>">
                     <img src="assets/images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -134,6 +139,11 @@
                         <li class="has-sub">
                             <a class="js-arrow" href="<?php echo BASE_URL.'console-application';?>">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo BASE_URL.'console/noodle';?>">
+                                <i class="fas fa-chart-bar"></i>Search Engine Console
                             </a>
                         </li>
                         <li>
@@ -212,7 +222,7 @@
             </div>
         </aside>
         <div class="page-container">
-            <header class="header-desktop">
+        <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
@@ -233,7 +243,7 @@
                                             </div>
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="assets/images/icon/avatar.png" alt="Michelle Moreno" />
+                                                    <img src="<?php echo BASE_URL.'assets/images/icon/avatar.png';?>" alt="Michelle Moreno" />
                                                 </div>
                                                 <div class="content">
                                                     <h6>Michelle Moreno</h6>
@@ -243,7 +253,7 @@
                                             </div>
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="assets/images/icon/avatar.png" alt="Diane Myers" />
+                                                    <img src="<?php echo BASE_URL.'assets/images/icon/avatar.png';?>" alt="Diane Myers" />
                                                 </div>
                                                 <div class="content">
                                                     <h6>Diane Myers</h6>
@@ -252,7 +262,7 @@
                                                 </div>
                                             </div>
                                             <div class="mess__footer">
-                                                <a href="<?php echo BASE_URL.'console/computer-science';?>">View all messages</a>
+                                                <a href="#">View all messages</a>
                                             </div>
                                         </div>
                                     </div>
@@ -265,7 +275,7 @@
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="assets/images/icon/avatar.png" alt="Cynthia Harvey" />
+                                                    <img src="<?php echo BASE_URL.'assets/images/icon/avatar.png';?>" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
                                                     <p>Meeting about new dashboard...</p>
@@ -274,7 +284,7 @@
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="assets/images/icon/avatar.png" alt="Cynthia Harvey" />
+                                                    <img src="<?php echo BASE_URL.'assets/images/icon/avatar.png';?>" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
                                                     <p>Meeting about new dashboard...</p>
@@ -283,7 +293,7 @@
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="assets/images/icon/avatar.png" alt="Cynthia Harvey" />
+                                                    <img src="<?php echo BASE_URL.'assets/images/icon/avatar.png';?>" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
                                                     <p>Meeting about new dashboard...</p>
@@ -291,7 +301,7 @@
                                                 </div>
                                             </div>
                                             <div class="email__footer">
-                                                <a href="<?php echo BASE_URL.'console/computer-science';?>">See all emails</a>
+                                                <a href="#">See all emails</a>
                                             </div>
                                         </div>
                                     </div>
@@ -330,7 +340,7 @@
                                                 </div>
                                             </div>
                                             <div class="notifi__footer">
-                                                <a href="<?php echo BASE_URL.'console/computer-science';?>">All notifications</a>
+                                                <a href="#">All notifications</a>
                                             </div>
                                         </div>
                                     </div>
@@ -338,41 +348,41 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="assets/images/icon/avatar.png" alt="John Doe" />
+                                            <img src="<?php echo BASE_URL.'assets/images/icon/avatar.png';?>" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="<?php echo BASE_URL.'console/computer-science';?>">john doe</a>
+                                            <a class="js-acc-btn" href="#">john doe</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
-                                                    <a href="<?php echo BASE_URL.'console/computer-science';?>">
-                                                        <img src="assets/images/icon/avatar.png" alt="John Doe" />
+                                                    <a href="#">
+                                                        <img src="<?php echo BASE_URL.'assets/images/icon/avatar.png';?>" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="<?php echo BASE_URL.'console/computer-science';?>">john doe</a>
+                                                        <a href="#">john doe</a>
                                                     </h5>
                                                     <span class="email">johndoe@example.com</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="<?php echo BASE_URL.'console/computer-science';?>">
+                                                    <a href="#">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="<?php echo BASE_URL.'console/computer-science';?>">
+                                                    <a href="#">
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="<?php echo BASE_URL.'console/computer-science';?>">
+                                                    <a href="#">
                                                         <i class="zmdi zmdi-money-box"></i>Billing</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="<?php echo BASE_URL.'console/computer-science';?>">
+                                                <a href="#">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

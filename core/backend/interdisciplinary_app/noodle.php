@@ -32,7 +32,12 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
+                            <a href="<?php echo BASE_URL.'console/noodle';?>">
+                                <i class="fas fa-chart-bar"></i>Search Engine Console
+                            </a>
+                        </li>
+                        <li >
                             <a href="<?php echo BASE_URL.'console/sound-analytis';?>">
                                 <i class="fas fa-chart-bar"></i>Sound Analytis
                             </a>
@@ -78,7 +83,7 @@
                                 <i class="far fa-check-square"></i>Computer Science
                             </a>
                         </li>
-                        <li >
+                        <li>
                             <a href="<?php echo BASE_URL.'console/devops';?>">
                                 <i class="far fa-check-square"></i>DevOps
                             </a>
@@ -93,7 +98,7 @@
                                 <i class="far fa-check-square"></i>Geographic Information System
                             </a>
                         </li>
-                        <li class="has-sub active">
+                        <li>
                             <a href="<?php echo BASE_URL.'console/natural-language-processing';?>">
                                 <i class="far fa-check-square"></i>Natural Language Processing
                             </a>
@@ -126,7 +131,7 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
                         </li>
-                        <li>
+                        <li class='has-sub active'>
                             <a href="<?php echo BASE_URL.'console/noodle';?>">
                                 <i class="fas fa-chart-bar"></i>Search Engine Console
                             </a>
@@ -134,11 +139,6 @@
                         <li>
                             <a href="<?php echo BASE_URL.'console/sound-analytis';?>">
                                 <i class="fas fa-chart-bar"></i>Sound Analytis
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo BASE_URL.'console/blog';?>">
-                                <i class="fas fa-chart-bar"></i>Blogger
                             </a>
                         </li>
                         <li>
@@ -151,7 +151,7 @@
                                 <i class="fas fa-table"></i>Video Processing
                             </a>
                         </li>
-                        <li >
+                        <li>
                             <a href="<?php echo BASE_URL.'console/discrete-mathematics';?>">
                                 <i class="far fa-check-square"></i>Discrete Mathematics
                             </a>
@@ -161,7 +161,7 @@
                                 <i class="fas fa-database"></i>Data Conversion 
                             </a>
                         </li>
-                        <li >
+                        <li>
                             <a href="<?php echo BASE_URL.'console/content-management-system';?>">
                                 <i class="fas fa-map-marker-alt"></i>Content Management System
                             </a>
@@ -172,12 +172,12 @@
                                 <i class="fas fa-desktop"></i>Container
                             </a>
                         </li>
-                        <li >
+                        <li>
                             <a class="js-arrow" href="<?php echo BASE_URL.'console/computer-science';?>">
                                 <i class="far fa-check-square"></i>Computer Science
                             </a>
                         </li>
-                        <li >
+                        <li>
                             <a href="<?php echo BASE_URL.'console/devops';?>">
                                 <i class="far fa-check-square"></i>DevOps
                             </a>
@@ -192,7 +192,7 @@
                                 <i class="far fa-check-square"></i>Geographic Information System
                             </a>
                         </li>
-                        <li class="has-sub active">
+                        <li>
                             <a href="<?php echo BASE_URL.'console/natural-language-processing';?>">
                                 <i class="far fa-check-square"></i>Natural Language Processing
                             </a>
@@ -390,52 +390,20 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Natural Language Processing</h2>
+                                    <h2 class="title-1">Search Engine Console</h2>
                                     
                                 </div>
                             </div>
                         </div>
                         <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="overview-item overview-item--c1">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                           
-                                            <div class="text">
-                                                <h2><a href="<?php echo BASE_URL.'console/natural-language-processing/project' ;?>">New Project</a></h2>
-                                             
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
+                            <div class="col-sm-12 col-lg-12">
+                                <form method="post" action="<?php echo BASE_URL.'services/noodle/crawl.php';?>">
+                                    <input type="text" name="url" style="width:500px">
+                                    <input type="submit" name="indexing" value="Indexing Url">
+                                </form>
                             </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                           
-                                            <div class="text">
-                                                <h2><a href="<?php echo BASE_URL.'console/natural-language-processing/api' ;?>">APIs</a></h2>
-                                               
-                                            </div>
-                                        </div>
-                                       
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <div class="overview-item overview-item--c3">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                           
-                                            <div class="text">
-                                                <h2><a href="#">API Platform Status</a></h2>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
+                            <?php 
+                                echo 'Indexing Url Completely';
+                            ?>
                         </div> 
 <?php include_once("../structure-console/footer.php");?>

@@ -38,6 +38,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?php echo BASE_URL.'console/noodle';?>">
+                                <i class="fas fa-chart-bar"></i>Search Engine Console
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?php echo BASE_URL.'console/blog';?>">
                                 <i class="fas fa-chart-bar"></i>Blogger
                             </a>
@@ -127,6 +132,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?php echo BASE_URL.'console/noodle';?>">
+                                <i class="fas fa-chart-bar"></i>Search Engine Console
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?php echo BASE_URL.'console/sound-analytis';?>">
                                 <i class="fas fa-chart-bar"></i>Sound Analytis
                             </a>
@@ -207,7 +217,10 @@
             </div>
         </aside>
         <div class="page-container">
-            <header class="header-desktop">
+                      </div>
+                    </div>
+                </div>
+            </header><header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
@@ -247,7 +260,7 @@
                                                 </div>
                                             </div>
                                             <div class="mess__footer">
-                                                <a href="<?php echo BASE_URL.'console/computer-science';?>">View all messages</a>
+                                                <a href="#">View all messages</a>
                                             </div>
                                         </div>
                                     </div>
@@ -286,7 +299,7 @@
                                                 </div>
                                             </div>
                                             <div class="email__footer">
-                                                <a href="<?php echo BASE_URL.'console/computer-science';?>">See all emails</a>
+                                                <a href="#">See all emails</a>
                                             </div>
                                         </div>
                                     </div>
@@ -325,7 +338,7 @@
                                                 </div>
                                             </div>
                                             <div class="notifi__footer">
-                                                <a href="<?php echo BASE_URL.'console/computer-science';?>">All notifications</a>
+                                                <a href="#">All notifications</a>
                                             </div>
                                         </div>
                                     </div>
@@ -336,38 +349,38 @@
                                             <img src="<?php echo BASE_URL.'assets/images/icon/avatar.png';?>" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="<?php echo BASE_URL.'console/computer-science';?>">john doe</a>
+                                            <a class="js-acc-btn" href="#">john doe</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
-                                                    <a href="<?php echo BASE_URL.'console/computer-science';?>">
+                                                    <a href="#">
                                                         <img src="<?php echo BASE_URL.'assets/images/icon/avatar.png';?>" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="<?php echo BASE_URL.'console/computer-science';?>">john doe</a>
+                                                        <a href="#">john doe</a>
                                                     </h5>
                                                     <span class="email">johndoe@example.com</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="<?php echo BASE_URL.'console/computer-science';?>">
+                                                    <a href="#">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="<?php echo BASE_URL.'console/computer-science';?>">
+                                                    <a href="#">
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="<?php echo BASE_URL.'console/computer-science';?>">
+                                                    <a href="#">
                                                         <i class="zmdi zmdi-money-box"></i>Billing</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="<?php echo BASE_URL.'console/computer-science';?>">
+                                                <a href="#">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

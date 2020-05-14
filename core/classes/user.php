@@ -14,13 +14,13 @@
     public function create($table, $fields = array()){
         $columnName = implode(',', array_keys($fields));
         $values = ':'.implode(', :', array_keys($fields));
-        $sql = "INSERT INTO {$table} ({$columnName}) VALUES ({$values})";
+        $sql = "INSERT INTO `{$table}` ({$columnName}) VALUES ({$values})";
         $smtp = $this->pdo->prepare($sql);
         if ($smtp = $this->pdo->prepare($sql)){
             foreach($fields as $key => $data)
                 $smtp->bindValue(":".$key, $data);
             $smtp->execute();
-            return $this->pdo->lastInsertId('user_id');
+            return $this->pdo->lastInsertId();
         }
     }
     public function update($table, $userId, $fields = array()){
@@ -41,7 +41,7 @@
     }
     public function checkPassword($password){
         $password = md5($password);
-        $smtp = $this->pdo->prepare("SELECT password from user_info WHERE password = :_password");
+        $smtp = $this->pdo->prepare("SELECT password from users WHERE password = :_password");
         $smtp->bindParam(":_password", $password, PDO::PARAM_STR);
         $smtp->execute();
         $count = $smtp->rowCount();
@@ -50,7 +50,7 @@
         return false;
     }
     public function checkEmail($email){
-        $smtp = $this->pdo->prepare("SELECT email from user_info WHERE email = :email");
+        $smtp = $this->pdo->prepare("SELECT email from users WHERE email = :email");
         $smtp->bindParam(":email", $email, PDO::PARAM_STR);
         $smtp->execute();
         $count = $smtp->rowCount();
@@ -58,16 +58,18 @@
             return true;
         return false;
     }
-    public function login($username, $password){
-        $smtp = $this->pdo->prepare('SELECT user_id from user_info WHERE username = :username and pass = :password');
-        $smtp->bindParam(":username", $username, PDO::PARAM_STR);
-        $password = md5($password);
-        $smtp->bindParam(":password", $password, PDO::PARAM_STR);
+    public function login($username, $pass){
+        $smtp = $this->pdo->prepare('SELECT `user_id` from `users` WHERE `username`= :user and `password` = :pass');
+        $smtp->bindParam(":user", $username, PDO::PARAM_STR);
+        $pass = md5($pass);
+        $smtp->bindParam(":pass", $pass, PDO::PARAM_STR);
         $smtp->execute();
         $user = $smtp->fetch(PDO::FETCH_OBJ);
         $count = $smtp->rowCount();
-        if ($count > 0)
+        if ($count > 0){
             $_SESSION['user_id'] = $user->user_id;
+            header("Location: ".BASE_URL."console-application");
+        }
         else
             return false;
     }

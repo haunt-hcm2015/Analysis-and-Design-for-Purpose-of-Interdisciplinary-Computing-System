@@ -8,13 +8,10 @@
 		$pass = $_POST['pass'];
 		$error    = '';
 		if (!empty($username) or !empty($pass)){
-			$username    = $user->checkInput($username);
-			$pass        = $user->checkInput($pass);
+			$username = $user->checkInput($username);
 			$result = $user->login($username, $pass);
-			if ($result)
+			if ($result === false)
 				$error = "Please check your username or your password";
-			else
-				header("Location: ");
 		}else{
 			$error = "Please check your username or your password";
 		}
@@ -36,6 +33,11 @@
 		<div class="limiter">
 			<div class="container-login100" style="background-image: url('<?php echo BASE_URL.'assets/images/login-bg.jpg';?>');">
 				<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+					<div class="logo">
+						<a href="<?php echo BASE_URL; ?>">
+							<h2>AI SOLUTION</h2>
+						</a>
+					</div> 
 					<form class="login100-form validate-form" method="POST">
 						<span class="login100-form-title p-b-49">
 							Login
@@ -58,7 +60,14 @@
 								Forgot password?
 							</a>
 						</div>
-						
+						<?php
+							if (isset($error))
+							{
+								echo '<li class="error-li">
+										<div class="span-fp-error">'.$error.'</div>
+									</li> ';
+							}
+						?>
 						<div class="container-login100-form-btn">
 							<input type="submit" name="login" value="Login"/>
 						</div>
@@ -92,14 +101,6 @@
 								Sign Up
 							</a>
 						</div>
-						<?php
-							if (isset($error))
-							{
-								echo '<li class="error-li">
-										<div class="span-fp-error">'.$error.'</div>
-									</li> ';
-							}
-						?>
 					</form>
 				</div>
 			</div>

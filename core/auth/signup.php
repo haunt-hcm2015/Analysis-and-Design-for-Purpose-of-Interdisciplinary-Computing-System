@@ -2,7 +2,6 @@
 	    $directorySeparator = DIRECTORY_SEPARATOR;
 		$baseDir = realpath(dirname(__FILE__).$directorySeparator.'..') . $directorySeparator;
 		require_once("{$baseDir}{$directorySeparator}init.php");
-
 		if (isset($_POST['signup']) && isset($_POST['checkbox'])){
 			$error= '';
 			$firstName = $user->checkInput($_POST['firstname']);
@@ -35,12 +34,15 @@
 				if ($user->checkEmail($email) === true){
 					$error = "Email is already in use";
 				}else{
-					$user_id = $user->create('user_info', array(  
+
+					$user_id = $user->create('users', array(  
 									'firstname' => $firstName, 'lastname' => $lastName, 
 									'username' => $userName, 'gender' => strval($gender),
 									'password' => md5($password),
 									'email' => $email));
 					$_SESSION['user_id'] = $user_id;
+					header("Location: ".BASE_URL."console-application");
+					exit();
 				}
 			}
 		}
@@ -59,6 +61,12 @@
 	<body class="form-v10">
 		<div class="page-content">
 			<div class="form-v10-content">
+				<div class="logo">
+					<h2>AI SOLUTION</h2>
+					<a href="<?php echo BASE_URL; ?>">
+						<img src="<?php echo BASE_URL.'assets/images/logo.png'; ?>"/>
+					</a>
+				</div> 
 				<form class="form-detail" method="POST">
 					<div class="form-left">
 						<h2>General Infomation</h2>
