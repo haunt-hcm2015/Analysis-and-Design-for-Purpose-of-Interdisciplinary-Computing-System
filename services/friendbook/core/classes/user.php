@@ -170,7 +170,7 @@
 			if ($count > 0)
 			{
 				$_SESSION['user_id'] = $user->user_id;
-				header('Location: home.php');
+				header('Location: home');
 			}else{
 				return false;
 			}

@@ -17,7 +17,7 @@
 	$getFromAddFriend = new AddFriend($pdo);
 	$getFromFriend = new Friend($pdo);
 	$getFromMessage = new Message($pdo);
-	
 
-	define("BASE_URL", "http://localhost:81/friendbook/");
+	define("BASE_URL", "http://localhost:81/ai-solution/services/friendbook/");
+
 ?>

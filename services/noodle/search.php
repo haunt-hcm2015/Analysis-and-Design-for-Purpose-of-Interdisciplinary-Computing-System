@@ -22,7 +22,7 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 	<title>Welcome to Noodle</title>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo SERVICES_NOODLE.'assets/css/style.css'; ?>">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -30,18 +30,18 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 		<div class="header">
 			<div class="headerContent">
 				<div class="logoContainer">
-					<a href="index.php">
-						<img src="assets/images/logo.png">
+					<a href="<?php echo NOODLE_URL;?>">
+						<img src="<?php echo SERVICES_NOODLE.'assets/images/logo.png'; ?>">
 					</a>
 				</div>
 	
 				<div class="searchContainer">
-					<form action="search.php" method="GET">
+					<form action="search" method="GET">
 						<div class="searchBarContainer">
 							<input type="hidden" name="type" value="<?php echo $type; ?>">
 							<input class="searchBox" type="text" name="term" value="<?php echo $term; ?>" autocomplete="off">
 							<button class="searchButton">
-								<img src="assets/images/icons/search.png">
+								<img src="<?php echo SERVICES_NOODLE.'assets/images/icons/search.png'; ?>">
 							</button>
 						</div>
 					</form>
@@ -51,17 +51,17 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 					<div class="account">
 						<ul>
 							<li>
-								<a href="#">Login</a>
+								<a href="<?php echo BASE_URL.'login';?>">Login</a>
 							</li>
 							<li>
-								<a href="#">Sign up</a>
+								<a href="<?php echo BASE_URL.'sign-up';?>">Sign up</a>
 							</li>
 						</ul>
 					</div>
 					<div class="products">
 						<ul class="topMenuProduct">
 							<li>
-								<a href="#">Social Network</a>
+								<a href="<?php echo BASE_URL.'services/friendbook';?>">Social Network</a>
 							</li>
 							<li>
 								<a href="#">AI Solution</a>
@@ -79,23 +79,23 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 				<ul class="tabList">
 
 					<li class="<?php echo $type == 'sites' ? 'active' : '' ?>">
-						<a href='<?php echo "search.php?term=$term&type=sites"; ?>'>
+						<a href='<?php echo "search?term=$term&type=sites"; ?>'>
 							Sites
 						</a>
 					</li>
 
 					<li class="<?php echo $type == 'images' ? 'active' : '' ?>">
-						<a href='<?php echo "search.php?term=$term&type=images"; ?>'>
+						<a href='<?php echo "search?term=$term&type=images"; ?>'>
 							Images
 						</a>
 					</li>
 					<li class="<?php echo $type == 'video' ? 'active' : '' ?>">
-						<a href='<?php echo "search.php?term=$term&type=videos"; ?>'>
+						<a href='<?php echo "search?term=$term&type=videos"; ?>'>
 							Videos
 						</a>
 					</li>
 					<li class="<?php echo $type == 'news' ? 'active' : '' ?>">
-						<a href='<?php echo "search.php?term=$term&type=news"; ?>'>
+						<a href='<?php echo "search?term=$term&type=news"; ?>'>
 							News
 						</a>
 					</li>
@@ -106,30 +106,30 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 		<div class="mainResultsSection">
 
 			<?php
-			if($type == "sites") {
-				$resultsProvider = new SiteResultsProvider($con);
-				$pageSize = 20;
-			}
-			else if ($type == "images") {
-				$resultsProvider = new ImageResultsProvider($con);
-				$pageSize = 30;
-			}
-			else if ($type == "video"){
-				$resultsProvider = new VideoResultsProvider($con);
-				$pageSize = 30;
-			}
-			else{
-				$resultsProvider = new ImageResultsProvider($con);
-				$pageSize = 30;
-			}
+				if($type == "sites") {
+					$resultsProvider = new SiteResultsProvider($con);
+					$pageSize = 20;
+				}
+				else if ($type == "images") {
+					$resultsProvider = new ImageResultsProvider($con);
+					$pageSize = 30;
+				}
+				else if ($type == "video"){
+					$resultsProvider = new VideoResultsProvider($con);
+					$pageSize = 30;
+				}
+				else{
+					$resultsProvider = new ImageResultsProvider($con);
+					$pageSize = 30;
+				}
 
-			$numResults = $resultsProvider->getNumResults($term);
+				$numResults = $resultsProvider->getNumResults($term);
 
-			echo "<p class='resultsCount'>$numResults results found</p>";
+				echo "<p class='resultsCount'>$numResults results found</p>";
 
 
 
-			echo $resultsProvider->getResultsHtml($page, $pageSize, $term);
+				echo $resultsProvider->getResultsHtml($page, $pageSize, $term);
 			?>
 
 
@@ -144,7 +144,7 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 
 
 				<div class="pageNumberContainer">
-					<img src="assets/images/pageStart.png">
+					<img src="<?php echo SERVICES_NOODLE.'assets/images/pageStart.png'; ?>">
 				</div>
 
 				<?php
@@ -167,14 +167,14 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 
 					if($currentPage == $page) {
 						echo "<div class='pageNumberContainer'>
-								<img src='assets/images/pageSelected.png'>
+								<img src='".SERVICES_NOODLE."assets/images/pageSelected.png'>
 								<span class='pageNumber'>$currentPage</span>
 							</div>";
 					}
 					else {
 						echo "<div class='pageNumberContainer'>
-								<a href='search.php?term=$term&type=$type&page=$currentPage'>
-									<img src='assets/images/page.png'>
+								<a href='search?term=$term&type=$type&page=$currentPage'>
+									<img src='".SERVICES_NOODLE."assets/images/page.png'>
 									<span class='pageNumber'>$currentPage</span>
 								</a>
 						</div>";
@@ -193,7 +193,7 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 				?>
 
 				<div class="pageNumberContainer">
-					<img src="assets/images/pageEnd.png">
+					<img src="<?php echo SERVICES_NOODLE.'assets/images/pageEnd.png'; ?>">
 				</div>
 
 
@@ -214,6 +214,6 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-	<script type="text/javascript" src="assets/js/script.js"></script>
+	<script type="text/javascript" src="<?php echo SERVICES_NOODLE.'assets/js/script.js'; ?>"></script>
 </body>
 </html>

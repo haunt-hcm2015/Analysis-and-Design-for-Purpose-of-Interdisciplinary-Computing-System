@@ -14,7 +14,7 @@
 	</head>
 <body>
 	<div class="front-img">
-		<img src="assets/images/background.jpg">
+		<img src="<?php echo BASE_URL.'assets/images/background.jpg'; ?>">
 	<div class="wrapper">
 		<div class="header-wrapper">
 			<div class="nav-container">

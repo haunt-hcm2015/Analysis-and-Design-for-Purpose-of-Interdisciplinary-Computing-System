@@ -167,14 +167,10 @@ function getDetails($url) {
 }
 
 function followLinks($url) {
-
 	global $alreadyCrawled;
 	global $crawling;
-
 	$parser = new DomDocumentParser($url);
-
 	$linkList = $parser->getLinks();
-
 	foreach($linkList as $link) {
 		$href = $link->getAttribute("href");
 
@@ -184,11 +180,7 @@ function followLinks($url) {
 		else if(substr($href, 0, 11) == "javascript:") {
 			continue;
 		}
-
-
 		$href = createLink($href, $url);
-
-
 		if(!in_array($href, $alreadyCrawled)) {
 			$alreadyCrawled[] = $href;
 			$crawling[] = $href;
@@ -197,15 +189,14 @@ function followLinks($url) {
 		}
 
 	}
-
 	array_shift($crawling);
-
 	foreach($crawling as $site) {
 		followLinks($site);
 	}
-
+	header("Location: ".SERVICES_NOODLE."");
 }
-
-$startUrl = "https://www.youtube.com/";
-followLinks($startUrl);
+if (isset($_POST['url'])){
+	$startUrl = $_POST['url'];
+	followLinks($startUrl);
+}
 ?>
