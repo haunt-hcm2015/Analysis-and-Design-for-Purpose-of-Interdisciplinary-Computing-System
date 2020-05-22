@@ -79,7 +79,13 @@
     public function logout(){
         $_SESSION = array();
         session_destroy();
-        header("Location: ".BASE_URL."index.php");
+    }
+    public function getUserInfo($userID){
+        $smtp = $this->pdo->prepare("SELECT `profileuser`, `username` from `users` WHERE `user_id` = :userID");
+		$smtp->bindParam(":userID", $userID, PDO::PARAM_STR);
+        $smtp->execute();
+        $userInfo = $smtp->fetch(PDO::FETCH_OBJ);
+		return $userInfo;
     }
     public function uploadImage($file){
         $fileName = basename($file['name']);

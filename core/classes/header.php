@@ -79,6 +79,17 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo BASE_URL.'sign-up'; ?>">Sign up</a>
       </li>
+      <?php 
+        if ($user->loggedIn()){
+          $userID = $_SESSION['user_id'];
+          $userInfo = $user->getUserInfo($userID);
+          echo '<li class="nav-item">
+                <a class="nav-link" href="'.BASE_URL.'console-application">
+                  <img src="'.BASE_URL.$userInfo->profileuser.'" alt="User Profile"/>
+                </a>
+              </li>';
+        }
+      ?>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search">
