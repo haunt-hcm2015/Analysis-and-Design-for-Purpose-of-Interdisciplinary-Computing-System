@@ -46,7 +46,6 @@ p {
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
-
 .btn {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -99,10 +98,9 @@ strong {
     font-weight: 700;
 }
 
-/*-----------------------------------------------------*/
-/*                   ELEMENTS                          */
-/*-----------------------------------------------------*/
-/* ----- Title ----- */
+.logout{
+    margin-left: 10px;
+}
 .title--sbold {
     font-weight: 600;
 }
