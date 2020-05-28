@@ -4,7 +4,7 @@
      if (isset($_POST['deletePost']) && !empty($_POST['deletePost'])){
         $postID   = $_POST['deletePost'];
         $userID   = $_SESSION['user_id'];
-        $getFromUser->delete('post', array('postID' => $postID, 'postBy' => $userID));
+        $getFromUser->delete('friendbook_post', array('postID' => $postID, 'postBy' => $userID));
      }
      if (isset($_POST['showPopup']) && !empty($_POST['showPopup'])){
          $userID   = $_SESSION['user_id'];

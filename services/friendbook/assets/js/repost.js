@@ -1,13 +1,13 @@
 $(function(){
     
     $(document).on('click', '.retweet', function(){
+        const URL = 'http://localhost:81/ai-solution/services/friendbook/core/ajax/repost.php';
         $postID  = $(this).data('post');
         $userID  = $(this).data('user');
         $counter = $(this).find(".rePostsCount");
         $count   = $counter.text();
         $button  = $(this);
-        // Repost popup
-        $.post("http://localhost:81/friendbook/core/ajax/repost.php", {showPopup: $postID, userID: $userID}, function(data){
+        $.post(URL, {showPopup: $postID, userID: $userID}, function(data){
             $('.popupTweet').html(data);
             $('.close-retweet-popup').click(function(){
                 $('.retweet-popup').hide();
@@ -16,7 +16,7 @@ $(function(){
     });
     $(document).on('click', '.retweet-it', function(){
         var comment = $('.retweetMsg').val();
-        $.post("http://localhost:81/friendbook/core/ajax/repost.php", {repost: $postID, userID: $userID, comment:comment}, function(data){
+        $.post(URL, {repost: $postID, userID: $userID, comment:comment}, function(data){
             $('.retweet-popup').hide();
             $count++;
             $counter.text($count);

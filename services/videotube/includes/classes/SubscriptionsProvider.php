@@ -12,13 +12,6 @@ class SubscriptionsProvider {
         $videos = array();
         $subscriptions = $this->userLoggedInObj->getSubscriptions();
         if(sizeof($subscriptions) > 0) {
-            
-            // user1, user2, user3
-            // SELECT * FROM videos WHERE uploadedBy = ? OR uploadedBy = ? OR uploadedBy = ? 
-            // $query->bindParam(1, "user1");
-            // $query->bindParam(2, "user2");
-            // $query->bindParam(3, "user3");
-
             $condition = "";
             $i = 0;
 
@@ -33,7 +26,7 @@ class SubscriptionsProvider {
                 $i++;
             }
 
-            $videoSql = "SELECT * FROM videos $condition ORDER BY uploadDate DESC";
+            $videoSql = "SELECT * FROM videotube_videos $condition ORDER BY uploadDate DESC";
             $videoQuery = $this->con->prepare($videoSql);
             $i = 1;
 

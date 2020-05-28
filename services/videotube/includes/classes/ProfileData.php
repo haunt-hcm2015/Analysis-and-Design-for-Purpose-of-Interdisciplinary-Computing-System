@@ -33,8 +33,8 @@ class ProfileData {
         return $this->profileUserObj->getName();
     }
 
-    public function getProfilePic() {
-        return $this->profileUserObj->getProfilePic();
+    public function getProfileImage() {
+        return $this->profileUserObj->getProfileImage();
     }
 
     public function getSubscriberCount() {
@@ -42,7 +42,7 @@ class ProfileData {
     }
 
     public function getUsersVideos() {
-        $query = $this->con->prepare("SELECT * FROM videos WHERE uploadedBy=:uploadedBy ORDER BY uploadDate DESC");
+        $query = $this->con->prepare("SELECT * FROM videotube_videos WHERE uploadedBy=:uploadedBy ORDER BY uploadDate DESC");
         $query->bindParam(":uploadedBy", $username);
         $username = $this->getProfileUsername();
         $query->execute();
@@ -59,13 +59,12 @@ class ProfileData {
             "Name" => $this->getProfileUserFullName(),
             "Username" => $this->getProfileUsername(),
             "Subscribers" => $this->getSubscriberCount(),
-            "Total views" => $this->getTotalViews(),
-            "Sign up date" => $this->getSignUpDate()
+            "Total views" => $this->getTotalViews()
         );
     }
 
     private function getTotalViews() {
-        $query = $this->con->prepare("SELECT sum(views) FROM videos WHERE uploadedBy=:uploadedBy");
+        $query = $this->con->prepare("SELECT sum(views) FROM videotube_videos WHERE uploadedBy=:uploadedBy");
         $query->bindParam(":uploadedBy", $username);
         $username = $this->getProfileUsername();
         $query->execute();
@@ -73,9 +72,6 @@ class ProfileData {
         return $query->fetchColumn();
     }
 
-    private function getSignUpDate() {
-        $date = $this->profileUserObj->getSignUpDate();
-        return date("F jS, Y", strtotime($date));
-    }
+  
 }
 ?>

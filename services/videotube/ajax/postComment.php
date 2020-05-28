@@ -7,7 +7,7 @@ if(isset($_POST['commentText']) && isset($_POST['postedBy']) && isset($_POST['vi
     
     $userLoggedInObj = new User($con, $_SESSION["userLoggedIn"]);
 
-    $query = $con->prepare("INSERT INTO comments(postedBy, videoId, responseTo, body)
+    $query = $con->prepare("INSERT INTO videotube_comments(postedBy, videoId, responseTo, body)
                             VALUES(:postedBy, :videoId, :responseTo, :body)");
     $query->bindParam(":postedBy", $postedBy);
     $query->bindParam(":videoId", $videoId);

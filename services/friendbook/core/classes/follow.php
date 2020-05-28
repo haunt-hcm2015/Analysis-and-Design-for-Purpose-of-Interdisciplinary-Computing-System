@@ -5,7 +5,7 @@
 			$this->pdo = $pdo;
 		}
 		public function checkFollow($followerID, $userID){
-			$smtp = $this->pdo->prepare("SELECT * FROM `follow` WHERE `sender` = :userID AND `receiver` =:followerID");
+			$smtp = $this->pdo->prepare("SELECT * FROM `friendbook_follow` WHERE `sender` = :userID AND `receiver` =:followerID");
 			$smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
 			$smtp->bindParam(':followerID', $followerID, PDO::PARAM_INT);
 			$smtp->execute();
@@ -29,35 +29,35 @@
 
 		public function follow($followID, $userID, $profileID){
 			global $pdo;
-			$this->create('follow', array("sender" => $userID, "receiver" => $followID, 'followOn' => date("Y-M-D H:i:s")));
+			$this->create('friendbook_follow', array("sender" => $userID, "receiver" => $followID, 'followOn' => date("Y-M-D H:i:s")));
 			$this->addFollowCount($followID, $userID);
-			$smtp = $this->pdo->prepare("SELECT `user_id`, `following`, `follower` FROM `user` LEFT JOIN `follow` ON `sender` =:userID AND CASE WHEN `receiver` =:userID THEN `sender` = `user_id` END WHERE `user_id` =:profileID");
+			$smtp = $this->pdo->prepare("SELECT `user_id`, `following`, `follower` FROM `users` LEFT JOIN `friendbook_follow` ON `sender` =:userID AND CASE WHEN `receiver` =:userID THEN `sender` = `user_id` END WHERE `user_id` =:profileID");
 			$smtp->execute(array("userID" => $userID, "profileID" => $profileID));
 			$data = $smtp->fetch(PDO::FETCH_ASSOC);
 			echo json_encode($data);
-			(new Message($pdo))->sendNotification($followID, $userID, $followID, 'follow');
+			(new Message($pdo))->sendNotification($followID, $userID, $followID, 'friendbook_follow');
 		}
 		public function unfollow($followID, $userID, $profileID){
-			$this->delete('follow', array("sender" => $userID, "receiver" => $followID));
+			$this->delete('friendbook_follow', array("sender" => $userID, "receiver" => $followID));
 			$this->removeFollowCount($followID, $userID);
-			$smtp = $this->pdo->prepare("SELECT `user_id`, `following`, `follower` FROM `user` LEFT JOIN `follow` ON `sender` =:userID AND CASE WHEN `receiver` =:userID THEN `sender` = `user_id` END WHERE `user_id` =:profileID");
+			$smtp = $this->pdo->prepare("SELECT `user_id`, `following`, `follower` FROM `users` LEFT JOIN `friendbook_follow` ON `sender` =:userID AND CASE WHEN `receiver` =:userID THEN `sender` = `user_id` END WHERE `user_id` =:profileID");
 			$smtp->execute(array("userID" => $userID, "profileID" => $profileID));
 			$data = $smtp->fetch(PDO::FETCH_ASSOC);
 			echo json_encode($data);
 		}
 		public function addFollowCount($followID, $userID){
-			$smtp = $this->pdo->prepare("UPDATE `user` SET `following` = `following` + 1 WHERE `user_id` =:userID;
-										 UPDATE `user` SET `follower` =  `follower` + 1 WHERE `user_id` =:follow_id");
+			$smtp = $this->pdo->prepare("UPDATE `users` SET `following` = `following` + 1 WHERE `user_id` =:userID;
+										 UPDATE `users` SET `follower` =  `follower` + 1 WHERE `user_id` =:follow_id");
 			$smtp->execute(array("userID" => $userID, "follow_id" => $followID));
 		}
 		public function removeFollowCount($followID, $userID){
-			$smtp = $this->pdo->prepare("UPDATE `user` SET `following` = `following` - 1 WHERE `user_id` =:userID;
-										 UPDATE `user` SET `follower` =  `follower` - 1 WHERE `user_id` =:follow_id");
+			$smtp = $this->pdo->prepare("UPDATE `users` SET `following` = `following` - 1 WHERE `user_id` =:userID;
+										 UPDATE `users` SET `follower` =  `follower` - 1 WHERE `user_id` =:follow_id");
 			$smtp->execute(array("userID" => $userID, "follow_id" => $followID));
 		}
 		public function followingList($profileID, $userID, $followID){
 			global $pdo;
-			$smtp = $this->pdo->prepare("SELECT * FROM `user` LEFT JOIN `follow` ON `receiver` = `user_id`
+			$smtp = $this->pdo->prepare("SELECT * FROM `users` LEFT JOIN `friendbook_follow` ON `receiver` = `user_id`
 										AND CASE WHEN `sender` = :userID THEN `receiver` = `user_id` 
 										END WHERE `sender` IS NOT NULL");
 			$smtp->bindParam(":userID", $profileID, PDO::PARAM_INT);
@@ -94,7 +94,7 @@
 		}
 		public function followerList($profileID, $userID, $followID){
 			global $pdo;
-			$smtp = $this->pdo->prepare("SELECT * FROM `user` LEFT JOIN `follow` ON `sender` = `user_id`
+			$smtp = $this->pdo->prepare("SELECT * FROM `users` LEFT JOIN `friendbook_follow` ON `sender` = `user_id`
 										AND CASE WHEN `receiver` = :userID THEN `sender` = `user_id` 
 										END WHERE `receiver` IS NOT NULL");
 			$smtp->bindParam(":userID", $profileID, PDO::PARAM_INT);
@@ -131,7 +131,7 @@
 		}
 
 		public function whoToFollow($userID, $profileID){
-			$smtp = $this->pdo->prepare("SELECT * FROM `user` WHERE `user_id` != :userID AND `user_id` NOT IN(SELECT `receiver` FROM `follow` WHERE `sender` =:userID) ORDER BY rand() LIMIT 5");
+			$smtp = $this->pdo->prepare("SELECT * FROM `users` WHERE `user_id` != :userID AND `user_id` NOT IN(SELECT `receiver` FROM `friendbook_follow` WHERE `sender` =:userID) ORDER BY rand() LIMIT 5");
 			$smtp->bindParam(":userID", $userID, PDO::PARAM_INT);
 			$smtp->execute();
 			$data = $smtp->fetchAll(PDO::FETCH_OBJ);

@@ -5,11 +5,11 @@ if(isset($_POST['videoId']) && isset($_POST['thumbnailId'])) {
     $videoId = $_POST['videoId'];
     $thumbnailId = $_POST['thumbnailId'];
 
-    $query = $con->prepare("UPDATE thumbnails SET selected=0 WHERE videoId=:videoId");
+    $query = $con->prepare("UPDATE videotube_thumbnails SET selected=0 WHERE videoId=:videoId");
     $query->bindParam(":videoId", $videoId);
     $query->execute();
 
-    $query = $con->prepare("UPDATE thumbnails SET selected=1 WHERE id=:thumbnailId");
+    $query = $con->prepare("UPDATE videotube_thumbnails SET selected=1 WHERE id=:thumbnailId");
     $query->bindParam(":thumbnailId", $thumbnailId);
     $query->execute();
 }

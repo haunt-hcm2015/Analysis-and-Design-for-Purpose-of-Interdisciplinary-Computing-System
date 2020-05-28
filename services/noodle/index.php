@@ -1,5 +1,6 @@
 <?php
-    require_once("config.php");
+	require_once("config.php");
+	require_once("..\..\core\init.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,6 +21,17 @@
 		<div id="topMenu">
 			<div class="account">
 				<ul>
+					<?php 
+						if ($user->loggedIn()){
+						$userID = $_SESSION['user_id'];
+						$userInfo = $user->getUserInfo($userID);
+						echo '<li>
+								<a class="nav-link" href="'.BASE_URL.'console-application">
+									<img src="'.BASE_URL.$userInfo->profileuser.'" alt="User Profile"/>
+								</a>
+							</li>';
+						}
+					?>
 					<li>
 						<a href="<?php echo BASE_URL.'login';?>">Login</a>
 					</li>
@@ -30,6 +42,9 @@
 			</div>
 			<div class="products">
 				<ul class="topMenuProduct">
+					<li>
+						<a href="<?php echo BASE_URL.'services/videotube';?>">Video Network</a>
+					</li>
 					<li>
 						<a href="<?php echo BASE_URL.'services/friendbook';?>">Social Network</a>
 					</li>
@@ -46,10 +61,8 @@
 			<div class="logoContainer">
 				<img src="<?php echo SERVICES_NOODLE.'assets/images/logo.png'; ?>" title="Logo of our site" alt="Site logo">
 			</div>
-
-
 			<div class="searchContainer">
-				<form action="<?php echo NOODLE_URL.'search' ;?>" method="GET">
+				<form action="<?php echo SERVICES_NOODLE.'search' ;?>" method="GET">
 					<input class="searchBox" type="text" name="term" autocomplete="off">
 					<input class="searchButton" type="submit" value="Search">
 				</form>

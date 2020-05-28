@@ -22,31 +22,27 @@ class User {
     }
 
     public function getName() {
-        return $this->sqlData["firstName"] . " " . $this->sqlData["lastName"];
+        return $this->sqlData["firstname"] . " " . $this->sqlData["lastname"];
     }
 
     public function getFirstName() {
-        return $this->sqlData["firstName"];
+        return $this->sqlData["firstname"];
     }
 
     public function getLastName() {
-        return $this->sqlData["lastName"];
+        return $this->sqlData["lastname"];
     }
 
     public function getEmail() {
         return $this->sqlData["email"];
     }
 
-    public function getProfilePic() {
-        return $this->sqlData["profilePic"];
-    }
-
-    public function getSignUpDate() {
-        return $this->sqlData["signUpDate"];
+    public function getProfileImage() {
+        return $this->sqlData["profile_image"];
     }
 
     public function isSubscribedTo($userTo) {
-        $query = $this->con->prepare("SELECT * FROM subscribers WHERE userTo=:userTo AND userFrom=:userFrom");
+        $query = $this->con->prepare("SELECT * FROM videotube_subscribers WHERE userTo=:userTo AND userFrom=:userFrom");
         $query->bindParam(":userTo", $userTo);
         $query->bindParam(":userFrom", $username);
         $username = $this->getUsername();
@@ -55,7 +51,7 @@ class User {
     }
 
     public function getSubscriberCount() {
-        $query = $this->con->prepare("SELECT * FROM subscribers WHERE userTo=:userTo");
+        $query = $this->con->prepare("SELECT * FROM videotube_subscribers WHERE userTo=:userTo");
         $query->bindParam(":userTo", $username);
         $username = $this->getUsername();
         $query->execute();
@@ -63,7 +59,7 @@ class User {
     }
 
     public function getSubscriptions() {
-        $query = $this->con->prepare("SELECT userTo FROM subscribers WHERE userFrom=:userFrom");
+        $query = $this->con->prepare("SELECT userTo FROM videotube_subscribers WHERE userFrom=:userFrom");
         $username = $this->getUsername();
         $query->bindParam(":userFrom", $username);
         $query->execute();

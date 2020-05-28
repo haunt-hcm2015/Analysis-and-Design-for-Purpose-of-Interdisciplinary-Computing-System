@@ -5,13 +5,13 @@
 			$this->pdo = $pdo;
         }
         public function recentMessages($userID){
-            $smtp = $this->pdo->prepare("SELECT * FROM `message` LEFT JOIN `user` ON `messageFrom` = `user_id` WHERE `messageTo` =:userID");
+            $smtp = $this->pdo->prepare("SELECT * FROM `friendbook_message` LEFT JOIN `users` ON `messageFrom` = `user_id` WHERE `messageTo` =:userID");
 			$smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
             $smtp->execute();
             return $smtp->fetchAll(PDO::FETCH_OBJ);
         }
         public function getMessages($messageFrom, $userID){
-            $smtp = $this->pdo->prepare("SELECT * FROM `message` LEFT JOIN `user` 
+            $smtp = $this->pdo->prepare("SELECT * FROM `friendbook_message` LEFT JOIN `users` 
                                             ON `messageFrom` = `user_id` 
                                             WHERE `messageFrom` =:messageFrom AND `messageTo` =:userID OR `messageTo` =:messageFrom AND `messageFrom` = :userID");
             $smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
@@ -58,28 +58,28 @@
         }
 
         public function delete($messageID, $userID){
-            $smtp = $this->pdo->prepare("DELETE FROM `message` 
+            $smtp = $this->pdo->prepare("DELETE FROM `friendbook_message` 
                                             WHERE `messageID` =:messageID AND `messageFrom` =:userID 
                                                 OR `messageID` =:messageID AND `messageTo` =:userID");
             $smtp->bindParam(':messageID', $messageID, PDO::PARAM_INT);
             $smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
             $smtp->execute();
         }
-        public function getNotificationCount($userID){
-            $smtp = $this->pdo->prepare("SELECT COUNT(`messageID`) AS `totalMessage`,(SELECT COUNT(`ID`) FROM `notification` WHERE `notificationFor` =:userID AND `status` = 0) AS `totalNotification` FROM `message` WHERE `messageTo` =:userID AND `status` = 0");
-            $smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
+        public function getNotificationCount($user_id){
+            $smtp = $this->pdo->prepare("SELECT COUNT(`messageID`) AS `totalMessage`,(SELECT COUNT(`ID`) FROM `friendbook_notification` WHERE `notificationFor` =:userID AND `status` = 0) AS `totalNotification` FROM `friendbook_message` WHERE `messageTo` =:userID AND `status` = 0");
+            $smtp->bindParam(':userID', $user_id, PDO::PARAM_INT);
             $smtp->execute();
             return $smtp->fetch(PDO::FETCH_OBJ);
         }
         public function getChatbot($userID){
-            $smtp = $this->pdo->prepare("SELECT * FROM `chatbot` C, `user` U WHERE :userID = U.`user_id` ORDER by C.`date` DESC");
+            $smtp = $this->pdo->prepare("SELECT * FROM `friendbook_chatbot` C, `users` U WHERE :userID = U.`user_id` ORDER by C.`date` DESC");
             $smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
             $smtp->execute();
             return $smtp->fetch(PDO::FETCH_OBJ);
         }
         public function getQuestion($userID, $msg){
             $server_time = date("Y-m-d H:i:s");
-            $smtp = $this->pdo->prepare("SELECT * FROM `question` WHERE `question` like %:msg%"); 
+            $smtp = $this->pdo->prepare("SELECT * FROM `friendbook_question` WHERE `question` like %:msg%"); 
             $smtp->execute(array('msg' => $msg));
             $result = $smtp->rowCount();
             if($count == 0){
@@ -95,24 +95,24 @@
             $smtp->execute();
         }
         public function messageViewed($userID){
-            $smtp = $this->pdo->prepare("UPDATE `message` SET `status` = 1 WHERE `messageTo` =:userID AND `status` = 0");
+            $smtp = $this->pdo->prepare("UPDATE `friendbook_message` SET `status` = 1 WHERE `messageTo` =:userID AND `status` = 0");
             $smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
             $smtp->execute();
         }
         public function notificationViewed($userID){
-            $smtp = $this->pdo->prepare("UPDATE `notification` SET `status` = 1 WHERE `notificationFor` =:userID");
+            $smtp = $this->pdo->prepare("UPDATE `friendbook_notification` SET `status` = 1 WHERE `notificationFor` =:userID");
             $smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
             $smtp->execute();
         }
         public function sendNotification($getID, $userID, $target, $type){
-            $this->create('notification', array('notificationFor' => $getID, 'notificationFrom' => $userID, 'target' => $target, 'type' => $type, 'notificationAt' => date('Y-m-d H:i:s')));
+            $this->create('friendbook_notification', array('notificationFor' => $getID, 'notificationFrom' => $userID, 'target' => $target, 'type' => $type, 'notificationAt' => date('Y-m-d H:i:s')));
         }
         public function notification($userID){
-            $smtp = $this->pdo->prepare("SELECT * FROM `notification` N 
-                                                  LEFT JOIN `user` U ON N.`notificationFrom` = U.`user_id` 
-                                                  LEFT JOIN `post` P ON N.`target` = P.`postID`
-                                                  LEFT JOIN `likes` L ON N.`target` = L.`likeOn`
-                                                  LEFT JOIN `follow` F ON N.`notificationFrom` = F.`sender` AND N.`notificationFor` = F.`receiver` 
+            $smtp = $this->pdo->prepare("SELECT * FROM `friendbook_notification` N 
+                                                  LEFT JOIN `users` U ON N.`notificationFrom` = U.`user_id` 
+                                                  LEFT JOIN `friendbook_post` P ON N.`target` = P.`postID`
+                                                  LEFT JOIN `friendbook_likes` L ON N.`target` = L.`likeOn`
+                                                  LEFT JOIN `friendbook_follow` F ON N.`notificationFrom` = F.`sender` AND N.`notificationFor` = F.`receiver` 
                                                   WHERE N.`notificationFor` =:userID AND N.`notificationFrom` !=:userID ");
             $smtp->execute(array('userID' => $userID));
             return $smtp->fetchAll(PDO::FETCH_OBJ);

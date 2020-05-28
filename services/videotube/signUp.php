@@ -9,17 +9,12 @@ $account = new Account($con);
 if(isset($_POST["submitButton"])) {
     $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]);
     $lastName = FormSanitizer::sanitizeFormString($_POST["lastName"]);
-
     $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
-
     $email = FormSanitizer::sanitizeFormEmail($_POST["email"]);
     $email2 = FormSanitizer::sanitizeFormEmail($_POST["email2"]);
-
     $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
     $password2 = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
-    
     $wasSuccessful = $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
-
     if($wasSuccessful) {
         $_SESSION["userLoggedIn"] = $username;
         header("Location: index.php");
@@ -39,12 +34,10 @@ function getInputValue($name) {
 <head>
     <title>VideoTube</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
 
 </head>
 <body>

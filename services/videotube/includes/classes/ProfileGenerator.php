@@ -39,7 +39,7 @@ class ProfileGenerator {
     }
 
     public function createHeaderSection() {
-        $profileImage = $this->profileData->getProfilePic();
+        $profileImage = $this->profileData->getProfileImage();
         $name = $this->profileData->getProfileUserFullName();
         $subCount = $this->profileData->getSubscriberCount();
 

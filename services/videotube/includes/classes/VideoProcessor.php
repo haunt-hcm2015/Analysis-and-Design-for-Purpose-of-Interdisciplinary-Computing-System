@@ -86,7 +86,7 @@ class VideoProcessor {
     }
 
     private function insertVideoData($uploadData, $filePath) {
-        $query = $this->con->prepare("INSERT INTO videos(title, uploadedBy, description, privacy, category, filePath)
+        $query = $this->con->prepare("INSERT INTO videotube_videos(title, uploadedBy, description, privacy, category, filePath)
                                         VALUES(:title, :uploadedBy, :description, :privacy, :category, :filePath)");
 
         $query->bindParam(":title", $uploadData->title);
@@ -106,7 +106,6 @@ class VideoProcessor {
         exec($cmd, $outputLog, $returnCode);
         
         if($returnCode != 0) {
-            //Command failed
             foreach($outputLog as $line) {
                 echo $line . "<br>";
             }
@@ -142,18 +141,15 @@ class VideoProcessor {
             $fullThumbnailPath = "$pathToThumbnail/$videoId-$imageName";
 
             $cmd = "$this->ffmpegPath -i $filePath -ss $interval -s $thumbnailSize -vframes 1 $fullThumbnailPath 2>&1";
-
             $outputLog = array();
             exec($cmd, $outputLog, $returnCode);
-            
             if($returnCode != 0) {
-                //Command failed
                 foreach($outputLog as $line) {
                     echo $line . "<br>";
                 }
             }
 
-            $query = $this->con->prepare("INSERT INTO thumbnails(videoId, filePath, selected)
+            $query = $this->con->prepare("INSERT INTO videotube_thumbnails(videoId, filePath, selected)
                                         VALUES(:videoId, :filePath, :selected)");
             $query->bindParam(":videoId", $videoId);
             $query->bindParam(":filePath", $fullThumbnailPath);
@@ -188,7 +184,7 @@ class VideoProcessor {
 
         $duration = $hours.$mins.$secs;
 
-        $query = $this->con->prepare("UPDATE videos SET duration=:duration WHERE id=:videoId");
+        $query = $this->con->prepare("UPDATE videotube_videos SET duration=:duration WHERE id=:videoId");
         $query->bindParam(":duration", $duration);
         $query->bindParam(":videoId", $videoId);
         $query->execute();

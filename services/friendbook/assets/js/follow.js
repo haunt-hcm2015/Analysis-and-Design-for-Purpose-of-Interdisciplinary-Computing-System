@@ -3,8 +3,9 @@ $(function(){
         var followID = $(this).data('follow');
         var profile  = $(this).data('profile');
         $button      = $(this);
+        const URL = 'http://localhost:81/ai-solution/services/friendbook/core/ajax/follow.php';
         if ($button.hasClass('following-btn')){
-            $.post("http://localhost:81/friendbook/core/ajax/follow.php", {unfollow:followID, profile:profile}, function(data){
+            $.post(URL, {unfollow:followID, profile:profile}, function(data){
                 data = JSON.parse(data);
                 $button.removeClass('following-btn');
                 $button.removeClass('unfollow-btn');
@@ -14,7 +15,7 @@ $(function(){
             });
         }
         else{
-            $.post("http://localhost:81/friendbook/core/ajax/follow.php", {follow:followID, profile:profile}, function(data){
+            $.post(URL, {follow:followID, profile:profile}, function(data){
                 data = JSON.parse(data);
                 $button.removeClass('follow-btn');
                 $button.addClass('following-btn');

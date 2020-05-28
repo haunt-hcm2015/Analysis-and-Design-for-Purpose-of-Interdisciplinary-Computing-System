@@ -22,7 +22,7 @@
 			return $randomNumber;
 		}
 		public function confirmCode($userID){
-			$smtp = $this->pdo->prepare("SELECT `hash_code` from `user` WHERE `user_id` = :userID");
+			$smtp = $this->pdo->prepare("SELECT `hash_code` from `users` WHERE `user_id` = :userID");
 			$smtp->bindParam(":userID", $userID, PDO::PARAM_STR);
 			$smtp->execute();
 			$user = $smtp->fetch(PDO::FETCH_OBJ);
@@ -45,14 +45,14 @@
 			$mail->send();
 		}
 		public function search($search){
-			$smtp = $this->pdo->prepare("SELECT `user_id`,`username`,`screen_name`,`profile_image`,`profile_cover` from `user` WHERE `username` LIKE ? OR `screen_name` LIKE ?");
+			$smtp = $this->pdo->prepare("SELECT `user_id`,`username`,`screen_name`,`profile_image`,`profile_cover` from `users` WHERE `username` LIKE ? OR `screen_name` LIKE ?");
 			$smtp->bindValue(1, $search.'%', PDO::PARAM_STR);
 			$smtp->bindValue(2, $search.'%', PDO::PARAM_STR);
 			$smtp->execute();
 			return $smtp->fetchAll(PDO::FETCH_OBJ);
 		}
 		public function checkEmail($email){
-			$smtp = $this->pdo->prepare("SELECT `email` from `user` WHERE `email` = :email");
+			$smtp = $this->pdo->prepare("SELECT `email` from `users` WHERE `email` = :email");
 			$smtp->bindParam(":email", $email, PDO::PARAM_STR);
 			$smtp->execute();
 
@@ -67,7 +67,7 @@
 			}
 		}
 		public function checkPhoneNumber($phoneNumber){
-			$smtp = $this->pdo->prepare("SELECT `phone_number` from `user` WHERE `phone_number` = :phoneNumber");
+			$smtp = $this->pdo->prepare("SELECT `phone_number` from `users` WHERE `phone_number` = :phoneNumber");
 			$smtp->bindParam(":phoneNumber", $phoneNumber, PDO::PARAM_STR);
 			$smtp->execute();
 
@@ -77,7 +77,7 @@
 			return false;
 		}
 		public function checkUserName($userName){
-			$smtp = $this->pdo->prepare("SELECT `username` from `user` WHERE `username` = :username");
+			$smtp = $this->pdo->prepare("SELECT `username` from `users` WHERE `username` = :username");
 			$smtp->bindParam(":username", $userName, PDO::PARAM_STR);
 			$smtp->execute();
 
@@ -89,7 +89,7 @@
 
 		public function checkPassword($password){
 			$password = md5($password);
-			$smtp = $this->pdo->prepare("SELECT `password` from `user` WHERE `password` = :_password");
+			$smtp = $this->pdo->prepare("SELECT `password` from `users` WHERE `password` = :_password");
 			$smtp->bindParam(":_password", $password, PDO::PARAM_STR);
 			$smtp->execute();
 
@@ -100,7 +100,7 @@
 		}
 
 		public function register($userName, $screenName, $birthday, $gender, $email, $password){
-			$smtp = $this->pdo->prepare("INSERT INTO `user` (`username`, `email`,`password`,`screen_name`,`profile_image`,`profile_cover`, `gender`,`birthday`)
+			$smtp = $this->pdo->prepare("INSERT INTO `users` (`username`, `email`,`password`,`screen_name`,`profile_image`,`profile_cover`, `gender`,`birthday`)
 											VALUES (:username, :email, :_password, :screenName, 
 												'assets/images/defaultprofileimage.png', 
 												'assets/images/defaultCoverImage.png', :gender, :birthday)");
@@ -159,7 +159,7 @@
 			}
 		}
 		public function login($email, $password){
-			$smtp = $this->pdo->prepare('SELECT `user_id` from `user` WHERE `email` = :email and `password` = :password');
+			$smtp = $this->pdo->prepare('SELECT `user_id` from `users` WHERE `email` = :email and `password` = :password');
 			$smtp->bindParam(":email", $email, PDO::PARAM_STR);
 			$password = md5($password);
 			$smtp->bindParam(":password", $password, PDO::PARAM_STR);
@@ -177,7 +177,7 @@
 		}
 
 		public function userIdByUsername($_username){
-			$smtp = $this->pdo->prepare("SELECT `user_id` from `user` WHERE `username` = :username");
+			$smtp = $this->pdo->prepare("SELECT `user_id` from `users` WHERE `username` = :username");
 			$smtp->bindParam(":username", $_username, PDO::PARAM_STR);
 			$smtp->execute();
 			$user = $smtp->fetch(PDO::FETCH_OBJ);
@@ -237,7 +237,7 @@
 			return (isset($_SESSION['user_id'])) ? true : false;
 		}
 		public function userData($userId){
-			$smtp = $this->pdo->prepare('SELECT * from `user` WHERE `user_id` = :userId');
+			$smtp = $this->pdo->prepare('SELECT * from `users` WHERE `user_id` = :userId');
 			$smtp->bindParam(":userId", $userId, PDO::PARAM_INT);
 			$smtp->execute();
 			$data = $smtp->fetch(PDO::FETCH_OBJ);

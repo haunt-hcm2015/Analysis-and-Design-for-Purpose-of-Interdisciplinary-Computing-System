@@ -8,7 +8,7 @@ class Comment {
     public function __construct($con, $input, $userLoggedInObj, $videoId) {
 
         if(!is_array($input)) {
-            $query = $con->prepare("SELECT * FROM comments where id=:id");
+            $query = $con->prepare("SELECT * FROM videotube_comments where id=:id");
             $query->bindParam(":id", $input);
             $query->execute();
 
@@ -70,7 +70,7 @@ class Comment {
     }
 
     public function getNumberOfReplies() {
-        $query = $this->con->prepare("SELECT count(*) FROM comments WHERE responseTo=:responseTo");
+        $query = $this->con->prepare("SELECT count(*) FROM videotube_comments WHERE responseTo=:responseTo");
         $query->bindParam(":responseTo", $id);
         $id = $this->sqlData["id"];
         $query->execute();
@@ -116,7 +116,7 @@ class Comment {
     }
 
     public function wasLikedBy() {
-        $query = $this->con->prepare("SELECT * FROM likes WHERE username=:username AND commentId=:commentId");
+        $query = $this->con->prepare("SELECT * FROM videotube_likes WHERE username=:username AND commentId=:commentId");
         $query->bindParam(":username", $username);
         $query->bindParam(":commentId", $id);
 
@@ -129,7 +129,7 @@ class Comment {
     }
 
     public function wasDislikedBy() {
-        $query = $this->con->prepare("SELECT * FROM dislikes WHERE username=:username AND commentId=:commentId");
+        $query = $this->con->prepare("SELECT * FROM videotube_dislikes WHERE username=:username AND commentId=:commentId");
         $query->bindParam(":username", $username);
         $query->bindParam(":commentId", $id);
 
@@ -142,7 +142,7 @@ class Comment {
     }
 
     public function getLikes() {
-        $query = $this->con->prepare("SELECT count(*) as 'count' FROM likes WHERE commentId=:commentId");
+        $query = $this->con->prepare("SELECT count(*) as 'count' FROM videotube_likes WHERE commentId=:commentId");
         $query->bindParam(":commentId", $commentId);
         $commentId = $this->getId();
         $query->execute();
@@ -150,7 +150,7 @@ class Comment {
         $data = $query->fetch(PDO::FETCH_ASSOC);
         $numLikes = $data["count"];
 
-        $query = $this->con->prepare("SELECT count(*) as 'count' FROM dislikes WHERE commentId=:commentId");
+        $query = $this->con->prepare("SELECT count(*) as 'count' FROM videotube_dislikes WHERE commentId=:commentId");
         $query->bindParam(":commentId", $commentId);
         $query->execute();
 
@@ -166,7 +166,7 @@ class Comment {
 
         if($this->wasLikedBy()) {
             // User has already liked
-            $query = $this->con->prepare("DELETE FROM likes WHERE username=:username AND commentId=:commentId");
+            $query = $this->con->prepare("DELETE FROM videotube_likes WHERE username=:username AND commentId=:commentId");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
@@ -174,13 +174,13 @@ class Comment {
             return -1;
         }
         else {
-            $query = $this->con->prepare("DELETE FROM dislikes WHERE username=:username AND commentId=:commentId");
+            $query = $this->con->prepare("DELETE FROM videotube_dislikes WHERE username=:username AND commentId=:commentId");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
             $count = $query->rowCount();
 
-            $query = $this->con->prepare("INSERT INTO likes(username, commentId) VALUES(:username, :commentId)");
+            $query = $this->con->prepare("INSERT INTO videotube_likes(username, commentId) VALUES(:username, :commentId)");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
@@ -194,8 +194,7 @@ class Comment {
         $username = $this->userLoggedInObj->getUsername();
 
         if($this->wasDislikedBy()) {
-            // User has already liked
-            $query = $this->con->prepare("DELETE FROM dislikes WHERE username=:username AND commentId=:commentId");
+            $query = $this->con->prepare("DELETE FROM videotube_dislikes WHERE username=:username AND commentId=:commentId");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
@@ -203,13 +202,13 @@ class Comment {
             return 1;
         }
         else {
-            $query = $this->con->prepare("DELETE FROM likes WHERE username=:username AND commentId=:commentId");
+            $query = $this->con->prepare("DELETE FROM videotube_likes WHERE username=:username AND commentId=:commentId");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
             $count = $query->rowCount();
 
-            $query = $this->con->prepare("INSERT INTO dislikes(username, commentId) VALUES(:username, :commentId)");
+            $query = $this->con->prepare("INSERT INTO videotube_dislikes(username, commentId) VALUES(:username, :commentId)");
             $query->bindParam(":username", $username);
             $query->bindParam(":commentId", $id);
             $query->execute();
@@ -219,7 +218,7 @@ class Comment {
     }
 
     public function getReplies() {
-        $query = $this->con->prepare("SELECT * FROM comments WHERE responseTo=:commentId ORDER BY datePosted ASC");
+        $query = $this->con->prepare("SELECT * FROM videotube_comments WHERE responseTo=:commentId ORDER BY datePosted ASC");
         $query->bindParam(":commentId", $id);
 
         $id = $this->getId();

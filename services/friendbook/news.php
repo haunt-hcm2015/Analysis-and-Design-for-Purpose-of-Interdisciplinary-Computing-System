@@ -19,7 +19,7 @@
 				if (!empty($_FILES['file']['name'][0])){
 					$postImage = $getFromUser->uploadImage($_FILES['file']);
 				}
-				$postID = $getFromUser->create('post', array('status' => $status, 'postBy' => $user->user_id, 'postImage' => $postImage, 'postedOn' => date('Y-m-d H:i:s')));
+				$postID = $getFromUser->create('friendbook_post', array('status' => $status, 'postBy' => $user->user_id, 'postImage' => $postImage, 'postedOn' => date('Y-m-d H:i:s')));
 				preg_match_all("/#+([A-Za-z0-9_]+)/i", $status, $hashtag);
 				if (!empty($hashtag)){
 					$getFromPost->addTrend($status);

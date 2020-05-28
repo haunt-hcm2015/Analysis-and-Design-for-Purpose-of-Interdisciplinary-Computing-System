@@ -11,7 +11,7 @@
         $message = $getFromUser->checkInput($_POST['sendMessage']);
         $getID   = $_POST['getID'];
         if (!empty($message)){
-            $getFromUser->create('message', array('messageTo' => $getID, 'messageFrom' => $userID, 'message' => $message, 'messageOn' => date('Y-m-d H:i:s')));
+            $getFromUser->create('friendbook_message', array('messageTo' => $getID, 'messageFrom' => $userID, 'message' => $message, 'messageOn' => date('Y-m-d H:i:s')));
         }
     }
     if (isset($_POST['showChatMessage']) && !empty($_POST['showChatMessage'])){

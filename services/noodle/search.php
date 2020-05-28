@@ -2,6 +2,7 @@
 include("config.php");
 include("classes/SiteResultsProvider.php");
 include("classes/ImageResultsProvider.php");
+include("../../core/init.php");
 
 if(isset($_GET["term"])) {
 	$term = $_GET["term"];
@@ -30,7 +31,7 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 		<div class="header">
 			<div class="headerContent">
 				<div class="logoContainer">
-					<a href="<?php echo NOODLE_URL;?>">
+					<a href="<?php echo SERVICES_NOODLE;?>">
 						<img src="<?php echo SERVICES_NOODLE.'assets/images/logo.png'; ?>">
 					</a>
 				</div>
@@ -50,6 +51,17 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 				<div id="topMenu">
 					<div class="account">
 						<ul>
+							<?php 
+								if ($user->loggedIn()){
+								$userID = $_SESSION['user_id'];
+								$userInfo = $user->getUserInfo($userID);
+								echo '<li>
+										<a class="nav-link" href="'.BASE_URL.'console-application">
+											<img src="'.BASE_URL.$userInfo->profileuser.'" alt="User Profile"/>
+										</a>
+									</li>';
+								}
+							?>
 							<li>
 								<a href="<?php echo BASE_URL.'login';?>">Login</a>
 							</li>
@@ -60,6 +72,9 @@ $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 					</div>
 					<div class="products">
 						<ul class="topMenuProduct">
+							<li>
+								<a href="<?php echo BASE_URL.'services/videotube';?>">Video Network</a>
+							</li>
 							<li>
 								<a href="<?php echo BASE_URL.'services/friendbook';?>">Social Network</a>
 							</li>

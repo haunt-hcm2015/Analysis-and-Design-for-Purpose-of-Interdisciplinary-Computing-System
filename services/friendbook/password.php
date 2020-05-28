@@ -17,7 +17,7 @@
                 else if ($newPassword != $rePassword)
                     $error['rePassword'] = "Password doesn't match"; 
                 else{
-                    $getFromUser->update('user', $userId, array('password' => $newPassword));
+                    $getFromUser->update('users', $userId, array('password' => $newPassword));
                     header("Location: ".BASE_URL.$user->username);
                 }
             }else{

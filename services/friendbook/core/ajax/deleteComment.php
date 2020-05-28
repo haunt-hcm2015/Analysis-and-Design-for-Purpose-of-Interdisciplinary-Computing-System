@@ -4,6 +4,6 @@
     if (isset($_POST['deleteTweet']) && !empty($_POST['deleteComment'])){
         $userID   = $_SESSION['user_id'];
         $commentID   = $_POST['deleteComment'];
-        $getFromUser->delete('comments', array("commentID" => $commentID, "commentBy" => $userID));
+        $getFromUser->delete('friendbook_comments', array("commentID" => $commentID, "commentBy" => $userID));
     }
 ?>

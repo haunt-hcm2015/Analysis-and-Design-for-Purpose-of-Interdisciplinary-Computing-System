@@ -13,7 +13,7 @@ class VideoUploadData {
     }
 
     public function updateDetails($con, $videoId) {
-        $query = $con->prepare("UPDATE videos SET title=:title, description=:description, privacy=:privacy,
+        $query = $con->prepare("UPDATE videotube_videos SET title=:title, description=:description, privacy=:privacy,
                                     category=:category WHERE id=:videoId");
         $query->bindParam(":title", $this->title);
         $query->bindParam(":description", $this->description);

@@ -35,7 +35,7 @@
 				if ($getFromUser->checkEmail($email) === true)
 					$error2 = "Email is already in use";
 				else{
-					$user_id = $getFromUser->create('user', array( 'email' => $email, 
+					$user_id = $getFromUser->create('users', array( 'email' => $email, 
 								'password' => md5($password),'screen_name' => $screenName, 
 									'profile_image' => 'assets/images/defaultprofileimage.png', 
 										'profile_cover' => 'assets/images/defaultCoverImage.png', 

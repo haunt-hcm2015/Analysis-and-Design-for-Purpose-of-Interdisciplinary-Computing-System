@@ -6,7 +6,6 @@
         $postID = $_POST['repost'];
         $getID  = $_POST['userID'];
         $comment = $getFromUser->checkInput($_POST['comment']);
-        #Method to repost a post
         $getFromPost->repost($postID, $userID, $getID, $comment);
     }
     if (isset($_POST['showPopup']) && !empty($_POST['showPopup'])){

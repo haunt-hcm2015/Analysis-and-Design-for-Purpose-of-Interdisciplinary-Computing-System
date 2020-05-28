@@ -47,7 +47,7 @@ class Account {
         $this->validateNewEmail($em, $un);
 
         if(empty($this->errorArray)) {
-            $query = $this->con->prepare("UPDATE users SET firstName=:fn, lastName=:ln, email=:em WHERE username=:un");
+            $query = $this->con->prepare("UPDATE users SET firstname=:fn, lastname=:ln, email=:em WHERE username=:un");
             $query->bindParam(":fn", $fn);
             $query->bindParam(":ln", $ln);
             $query->bindParam(":em", $em);
@@ -95,9 +95,9 @@ class Account {
         
         $pw = hash("sha512", $pw);
         $profilePic = "assets/images/profilePictures/default.png";
-
-        $query = $this->con->prepare("INSERT INTO users (firstName, lastName, username, email, password, profilePic)
-                                        VALUES(:fn, :ln, :un, :em, :pw, :pic)");
+        $profileCov = "assets/images/profilePictures/default.png";
+        $query = $this->con->prepare("INSERT INTO users (firstname, lastname, username, email, password, profile_image, profile_cover)
+                                        VALUES(:fn, :ln, :un, :em, :pw, :pic, :cover)");
 
         $query->bindParam(":fn", $fn);
         $query->bindParam(":ln", $ln);
@@ -105,7 +105,7 @@ class Account {
         $query->bindParam(":em", $em);
         $query->bindParam(":pw", $pw);
         $query->bindParam(":pic", $profilePic);
-        
+        $query->bindParam(":cover", $profileCov);
         return $query->execute();
     }
     

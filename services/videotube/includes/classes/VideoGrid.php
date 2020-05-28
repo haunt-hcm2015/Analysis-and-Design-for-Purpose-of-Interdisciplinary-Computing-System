@@ -32,7 +32,7 @@ class VideoGrid {
     }
     
     public function generateItems() {
-        $query = $this->con->prepare("SELECT * FROM videos ORDER BY RAND() LIMIT 15");
+        $query = $this->con->prepare("SELECT * FROM videotube_videos ORDER BY RAND() LIMIT 15");
         $query->execute();
         
         $elementsHtml = "";

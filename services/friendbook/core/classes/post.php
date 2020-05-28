@@ -34,8 +34,8 @@
 			// SELECT * from `post`, `user` WHERE `postBy` = `user_id` => trả về hết user
 			// $smtp = $this->pdo->prepare('SELECT * from `post` LEFT JOIN `user` ON `postBy` = `user_id` WHERE `postBy` =:user_id AND `repostID` = 0 OR `postBy` = `user_id` AND `repostBy` != :user_id');
 			// $smtp = $this->pdo->prepare('SELECT * from `post`,`user` WHERE `postBy` = `user_id` LIMIT :limits');
-			$smtp = $this->pdo->prepare('SELECT * from `post` LEFT JOIN `user` ON `postBy` = `user_id` 
-											WHERE `postBy` =:user_id OR `postBy` = `user_id` AND `repostBy` != :user_id AND `postBy` IN(SELECT `receiver` FROM `follow` WHERE `sender`=:user_id) ORDER BY `postID` DESC LIMIT :limits');
+			$smtp = $this->pdo->prepare('SELECT * from `friendbook_post` LEFT JOIN `users` ON `postBy` = `user_id` 
+											WHERE `postBy` =:user_id OR `postBy` = `user_id` AND `repostBy` != :user_id AND `postBy` IN(SELECT `receiver` FROM `friendbook_follow` WHERE `sender`=:user_id) ORDER BY `postID` DESC LIMIT :limits');
 			$smtp->bindParam(':user_id', $userID, PDO::PARAM_INT);
 			$smtp->bindParam(':limits', $limits, PDO::PARAM_INT);
 			$smtp->execute();
@@ -151,12 +151,12 @@
 
 		public function repost($postID, $userID, $getID, $comment){
 			global $pdo;
-			$smtp = $this->pdo->prepare("UPDATE `post` SET `repostCount` = `repostCount` + 1 WHERE `postID` = :postID");
+			$smtp = $this->pdo->prepare("UPDATE `friendbook_post` SET `repostCount` = `repostCount` + 1 WHERE `postID` = :postID");
 			$smtp->bindParam(':postID', $postID, PDO::PARAM_INT);
 			$smtp->execute();
-			$smtp = $this->pdo->prepare("INSERT INTO `post` (`status`, `postBy`, `postImage`, `repostID`, `repostBy`, `postedOn`, `likeCount`, `repostCount`, `repostMgs`) 
+			$smtp = $this->pdo->prepare("INSERT INTO `friendbook_post` (`status`, `postBy`, `postImage`, `repostID`, `repostBy`, `postedOn`, `likeCount`, `repostCount`, `repostMgs`) 
 													  SELECT `status`, `postBy`, `postImage`, `postID`, :user_id, `postedOn`, `likeCount`, `repostCount`, :repostMgs
-													  FROM `post`
+													  FROM `friendbook_post`
 													  WHERE `postID` = :postID");
 			$smtp->bindParam(':user_id', $userID, PDO::PARAM_INT);
 			$smtp->bindParam(':repostMgs', $comment, PDO::PARAM_STR);
@@ -166,7 +166,7 @@
 			return $smtp->fetch(PDO::FETCH_ASSOC);
 		}
 		public function checkRepost($postID, $userID){
-			$smtp = $this->pdo->prepare("SELECT * FROM `post` WHERE `repostID` = :postID AND `repostBy` = :userID 
+			$smtp = $this->pdo->prepare("SELECT * FROM `friendbook_post` WHERE `repostID` = :postID AND `repostBy` = :userID 
 													OR `postID` = :postID AND `repostBy` = :userID");
 			$smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
 			$smtp->bindParam(':postID', $postID, PDO::PARAM_INT);
@@ -174,14 +174,14 @@
 			return $smtp->fetch(PDO::FETCH_ASSOC);
 		} 
 		public function comments($postID){
-			$smtp = $this->pdo->prepare("SELECT * FROM `comments` LEFT JOIN `user` ON `commentBy` = `user_id` WHERE `commentOn` = :postID");
+			$smtp = $this->pdo->prepare("SELECT * FROM `friendbook_comments` LEFT JOIN `users` ON `commentBy` = `user_id` WHERE `commentOn` = :postID");
 			$smtp->bindParam(':postID', $postID, PDO::PARAM_INT);
 			$smtp->execute();
 			return $smtp->fetchAll(PDO::FETCH_OBJ);
 		}
 
 		public function countPost($userID){
-			$smtp = $this->pdo->prepare("SELECT COUNT(`postID`) AS `totalPost` FROM `post` WHERE `postBy` =:userID AND `repostID` = 0 OR `repostBy` =:userID");
+			$smtp = $this->pdo->prepare("SELECT COUNT(`postID`) AS `totalPost` FROM `friendbook_post` WHERE `postBy` =:userID AND `repostID` = 0 OR `repostBy` =:userID");
 			$smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
 			$smtp->execute();
 			$count = $smtp->fetch(PDO::FETCH_OBJ);
@@ -189,20 +189,20 @@
 		}
 		#
 		public function countLike($userID){
-			$smtp = $this->pdo->prepare("SELECT COUNT(`likeID`) AS `totalLike` FROM `likes` WHERE `likeBy` =:userID");
+			$smtp = $this->pdo->prepare("SELECT COUNT(`likeID`) AS `totalLike` FROM `friendbook_likes` WHERE `likeBy` =:userID");
 			$smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
 			$smtp->execute();
 			$count = $smtp->fetch(PDO::FETCH_OBJ);
 			echo $count->totalLike;
 		}
 		public function getTrendByHash($hashTag){
-			$smtp = $this->pdo->prepare("SELECT * from `trend` WHERE `hashtag` LIKE :hashtag LIMIT 5");
+			$smtp = $this->pdo->prepare("SELECT * from `friendbook_trend` WHERE `hashtag` LIKE :hashtag LIMIT 5");
 			$smtp->bindValue(":hashtag", $hashTag.'%');
 			$smtp->execute();
 			return $smtp->fetchAll(PDO::FETCH_OBJ);
 		}
 		public function getMention($mention){
-			$smtp = $this->pdo->prepare("SELECT `user_id`, `username`, `screen_name`, `profile_image` from `user` WHERE `username` LIKE :mention OR `screen_name` LIKE :mention LIMIT 5");
+			$smtp = $this->pdo->prepare("SELECT `user_id`, `username`, `screen_name`, `profile_image` from `users` WHERE `username` LIKE :mention OR `screen_name` LIKE :mention LIMIT 5");
 			$smtp->bindValue(":mention", $mention.'%');
 			$smtp->execute();
 			return $smtp->fetchAll(PDO::FETCH_OBJ);
@@ -213,7 +213,7 @@
 			if ($matches){
 				$result = array_values($matches[1]);
 			}
-			$sql = "INSERT INTO `trend` (`hashtag`, `createdOn`) VALUES(:hashtag, CURRENT_TIMESTAMP)";
+			$sql = "INSERT INTO `friendbook_trend` (`hashtag`, `createdOn`) VALUES(:hashtag, CURRENT_TIMESTAMP)";
 			foreach($result as $trend)
 			{
 				if ($smtp = $this->pdo->prepare($sql)){
@@ -228,7 +228,7 @@
 			if ($matches){
 				$result = array_values($matches[1]);
 			}
-			$sql = "SELECT * FROM `user` WHERE `username` = :mention";
+			$sql = "SELECT * FROM `users` WHERE `username` = :mention";
 			foreach($result as $trend)
 			{
 				if ($smtp = $this->pdo->prepare($sql)){
@@ -240,7 +240,7 @@
 			}
 			
 		}
-		# Post links clickable
+		
 		public function getPostLink($post){
 			$post = preg_replace("/(https?:\/\/)([\w]+.)([\w\.]+)/", '<a href="$0" target="_blank">$0</a>', $post);
 			$post = preg_replace("/#([\w]*)/", '<a href="'.BASE_URL.'hashtag/$1" target="_blank">$0</a>', $post);
@@ -249,7 +249,7 @@
 		}
 
 		public function getPopupPost($postID){
-			$smtp = $this->pdo->prepare("SELECT * FROM `post`,`user` WHERE `postID` = :postID AND `postBy` = `user_id`");
+			$smtp = $this->pdo->prepare("SELECT * FROM `friendbook_post`,`users` WHERE `postID` = :postID AND `postBy` = `user_id`");
 			$smtp->bindParam(':postID', $postID, PDO::PARAM_INT);
 			$smtp->execute();
 			return $smtp->fetch(PDO::FETCH_OBJ);
@@ -257,7 +257,7 @@
 		public function addLike($userID, $postID, $getID){
 			global $pdo;
 			$message = new Message($this);
-			$smtp = $this->pdo->prepare("UPDATE `post` SET `likeCount` = `likeCount` + 1 WHERE `postID` = :postID");
+			$smtp = $this->pdo->prepare("UPDATE `friendbook_post` SET `likeCount` = `likeCount` + 1 WHERE `postID` = :postID");
 			$smtp->bindParam(':postID', $postID, PDO::PARAM_INT);
 			$smtp->execute();
 			$this->create('likes', array('likeBy' => $userID, 'likeOn' => $postID));
@@ -266,29 +266,29 @@
 			}
 		}
 		public function getUserPosts($userID){
-			$smtp = $this->pdo->prepare("SELECT * from `post` LEFT JOIN `user` ON `postBy` = `user_id` WHERE `postBy` =:user_id AND `repostID` = 0 OR `postBy` = `user_id` AND `repostBy` = :user_id ORDER BY `postID` DESC");
+			$smtp = $this->pdo->prepare("SELECT * from `friendbook_post` LEFT JOIN `users` ON `postBy` = `user_id` WHERE `postBy` =:user_id AND `repostID` = 0 OR `postBy` = `user_id` AND `repostBy` = :user_id ORDER BY `postID` DESC");
 			$smtp->bindParam(':user_id', $userID, PDO::PARAM_INT);
 			$smtp->execute();
 			return $smtp->fetchAll(PDO::FETCH_OBJ);
 		}
 		public function unlike($userID, $postID, $getID){
-			$smtp = $this->pdo->prepare("UPDATE `post` SET `likeCount` = `likeCount` - 1 WHERE `postID` = :postID");
+			$smtp = $this->pdo->prepare("UPDATE `friendbook_post` SET `likeCount` = `likeCount` - 1 WHERE `postID` = :postID");
 			$smtp->bindParam(':postID', $postID, PDO::PARAM_INT);
 			$smtp->execute();
-			$smtp = $this->pdo->prepare("DELETE FROM `likes` WHERE `likeBy` = :userID AND `likeOn`=:postID");
+			$smtp = $this->pdo->prepare("DELETE FROM `friendbook_likes` WHERE `likeBy` = :userID AND `likeOn`=:postID");
 			$smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
 			$smtp->bindParam(':postID', $postID, PDO::PARAM_INT);
 			$smtp->execute();
 		}
 		public function likes($userID, $postID){
-			$smtp = $this->pdo->prepare("SELECT * FROM `likes` WHERE `likeBy`=:userID AND `likeOn`=:postID");
+			$smtp = $this->pdo->prepare("SELECT * FROM `friendbook_likes` WHERE `likeBy`=:userID AND `likeOn`=:postID");
 			$smtp->bindParam(':userID', $userID, PDO::PARAM_INT);
 			$smtp->bindParam(':postID', $postID, PDO::PARAM_INT);
 			$smtp->execute();
 			return $smtp->fetch(PDO::FETCH_ASSOC);
 		}
 		public function trends(){
-			$smtp = $this->pdo->prepare("SELECT *, COUNT(`postID`) AS `post_count` FROM `trend` INNER JOIN `post` ON `status` LIKE CONCAT('%#', `hashtag`,'%') OR `repostMgs` LIKE CONCAT('%#', `hashtag`,'%') GROUP BY `hashtag` ORDER BY `postID`");
+			$smtp = $this->pdo->prepare("SELECT *, COUNT(`postID`) AS `post_count` FROM `friendbook_trend` INNER JOIN `friendbook_post` ON `status` LIKE CONCAT('%#', `hashtag`,'%') OR `repostMgs` LIKE CONCAT('%#', `hashtag`,'%') GROUP BY `hashtag` ORDER BY `postID`");
 			$smtp->execute();
 			$trends = $smtp->fetchAll(PDO::FETCH_OBJ);
 			echo '<div class="trend-wrapper"><div class="trend-inner"><div class="trend-title"><h3>Trends</h3></div>';
@@ -309,13 +309,13 @@
 		}
 
 		public function getPostByHash($hashTag){
-			$smtp = $this->pdo->prepare("SELECT * FROM `post` LEFT JOIN `user` ON `postBy` = `user_id` WHERE `status` LIKE :hashtag OR `repostMgs` LIKE :hashtag");
+			$smtp = $this->pdo->prepare("SELECT * FROM `friendbook_post` LEFT JOIN `users` ON `postBy` = `user_id` WHERE `status` LIKE :hashtag OR `repostMgs` LIKE :hashtag");
 			$smtp->bindValue(":hashtag", '%#'.$hashTag.'%', PDO::PARAM_STR);
 			$smtp->execute();
 			return $smtp->fetchAll(PDO::FETCH_OBJ);
 		}
 		public function getUserByHash($hashTag){
-			$smtp = $this->pdo->prepare("SELECT DISTINCT * FROM `post` INNER JOIN `user` ON `postBy` = `user_id` WHERE `status` LIKE :hashtag OR `repostMgs` LIKE :hashtag GROUP BY `user_id`");
+			$smtp = $this->pdo->prepare("SELECT DISTINCT * FROM `friendbook_post` INNER JOIN `users` ON `postBy` = `user_id` WHERE `status` LIKE :hashtag OR `repostMgs` LIKE :hashtag GROUP BY `user_id`");
 			$smtp->bindValue(":hashtag", '%#'.$hashTag.'%', PDO::PARAM_STR);
 			$smtp->execute();
 			return $smtp->fetchAll(PDO::FETCH_OBJ);

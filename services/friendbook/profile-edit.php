@@ -18,7 +18,7 @@
             else if (strlen($country) > 80)
                 $error = "Country name is too long";
             else{
-                $getFromUser->update('user', $userID, array("screen_name" => $screenName, 
+                $getFromUser->update('users', $userID, array("screen_name" => $screenName, 
                                 "bio" => $profileBio, "country" => $country, "website" => $website));
                 header('Location: '.$user->username);
             }
@@ -29,14 +29,14 @@
     if (isset($_FILES['profileImage'])){
         if (!empty($_FILES['profileImage']['name'][0])){
             $fileRoot = $getFromUser->uploadImage($_FILES['profileImage']);
-            $getFromUser->update('user', $userID, array("profile_image" => $fileRoot));
+            $getFromUser->update('users', $userID, array("profile_image" => $fileRoot));
             header('Location: '.$user->username);
         }
     }
     if (isset($_FILES['profileCover'])){
         if (!empty($_FILES['profileCover']['name'][0])){
             $fileRoot = $getFromUser->uploadImage($_FILES['profileCover']);
-            $getFromUser->update('user', $userID, array("profile_cover" => $fileRoot));
+            $getFromUser->update('users', $userID, array("profile_cover" => $fileRoot));
             header('Location: '.$user->username);
         }
     }

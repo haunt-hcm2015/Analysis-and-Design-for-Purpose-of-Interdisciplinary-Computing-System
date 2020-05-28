@@ -1,14 +1,15 @@
 $(function(){
+    const URL = 'http://localhost:81/ai-solution/services/friendbook/core/ajax/message.php';
     $(document).on('click', '#messagePopup', function(){
         var getMessage = 1;
-        $.post("http://localhost:81/friendbook/core/ajax/message.php", {showMessage:getMessage}, function(data){
+        $.post(URL, {showMessage:getMessage}, function(data){
             $('.popupTweet').html(data);
             $('#messages').hide();
         });
     });
     $(document).on('click', '.people-message', function(){
         var getID = $(this).data('user');
-        $.post("http://localhost:81/friendbook/core/ajax/message.php", {showChatPopup:getID}, function(data){
+        $.post(URL, {showChatPopup:getID}, function(data){
             $('.popupTweet').html(data);
             if (autoscroll){
                 scrolldown();
@@ -25,7 +26,7 @@ $(function(){
             });
         });
         getMessage = function(){
-                $.post("http://localhost:81/friendbook/core/ajax/message.php", {showChatMessage:getID}, function(data){
+                $.post(URL, {showChatMessage:getID}, function(data){
                 $('.main-msg-inner').html(data);
                 if (autoscroll){
                     scrolldown();
@@ -50,7 +51,7 @@ $(function(){
         }
         $(document).on('click', '.back-messages', function(){
             var getMessage = 1;
-            $.post("http://localhost:81/friendbook/core/ajax/message.php", {showMessage:getMessage}, function(data){
+            $.post(URL, {showMessage:getMessage}, function(data){
                 $('.popupTweet').html(data);
                 clearInterval(timer);
             });
@@ -62,7 +63,7 @@ $(function(){
                 $('.message-del-inner').height('0px');
             });
             $(document).on('click', '.delete', function(){
-                $.post("http://localhost:81/friendbook/core/ajax/message.php", {deleteMsg:messageID}, function(data){
+                $.post(URL, {deleteMsg:messageID}, function(data){
                     $('.message-del-inner').height('0px');
                     getMessage();
                 });

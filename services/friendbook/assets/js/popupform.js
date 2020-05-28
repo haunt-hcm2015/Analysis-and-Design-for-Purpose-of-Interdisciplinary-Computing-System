@@ -1,10 +1,10 @@
 $(function(){
     $(document).on('click','.addTweetBtn', function(){
-        console.log('aaaaaa');
+        const URL1 = 'http://localhost:81/ai-solution/services/friendbook/core/ajax/postform.php';
         $('.status').removeClass().addClass('status-removed');
         $('.hash-box').removeClass().addClass('hash-removed');
         $('#count').attr('id', 'count-removed');
-        $.post("http://localhost:81/friendbook/core/ajax/postform.php", function(data){
+        $.post(URL1, function(data){
             $('.popupTweet').html(data);
             $('.closeTweetPopup').click(function(){
                 $('.popup-tweet-wrap').hide();
@@ -15,11 +15,12 @@ $(function(){
         });
     });
     $(document).on('submit','#popupForm', function(e){
+        const URL2 = 'http://localhost:81/ai-solution/services/friendbook/core/ajax/addpost.php';
         e.preventDefault();
         var formData = new FormData($(this)[0]);
         formData.append('file', $('#file')[0].files[0]);
         $.ajax({
-            url: "http://localhost:81/friendbook/core/ajax/addpost.php",
+            url: URL2,
             type: "POST",
             data: formData,
             success: function(data){

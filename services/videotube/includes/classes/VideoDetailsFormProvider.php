@@ -76,7 +76,7 @@ class VideoDetailsFormProvider {
 
     private function createCategoriesInput($value) {
         if($value == null) $value = "";
-        $query = $this->con->prepare("SELECT * FROM categories");    
+        $query = $this->con->prepare("SELECT * FROM videotube_categories");    
         $query->execute();
         
         $html = "<div class='form-group'>

@@ -6,7 +6,7 @@
         $comment = $getFromUser->checkInput($_POST['comment']);
         $postID  = $_POST['postID'];
         if (!empty($comment)){
-            $getFromUser->create('comments', array('comment' => $comment, 'commentOn' => $postID, 'commentBy' => $userID, 'commentAt' => date('Y:m:d H:i:s')));
+            $getFromUser->create('friendbook_comments', array('comment' => $comment, 'commentOn' => $postID, 'commentBy' => $userID, 'commentAt' => date('Y:m:d H:i:s')));
             $comments = $getFromPost->comments($postID);
             $post     = $getFromPost->getPopupPost($postID);
 

@@ -1,5 +1,6 @@
 notification = function(){
-    $.get('http://localhost:81/friendbook/core/ajax/notification.php',{showNotification:true}, function(data){
+    const BASE_URL = 'http://localhost:81/ai-solution/services/friendbook/core/ajax/notification.php';
+    $.get(BASE_URL,{showNotification:true}, function(data){
         if (data){
             if (data.notification > 0){
                 $('#notification').addClass('span-i');

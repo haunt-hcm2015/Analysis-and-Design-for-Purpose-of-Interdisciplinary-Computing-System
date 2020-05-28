@@ -1,18 +1,17 @@
 $(function(){
     var regex = /[#|@](\w+)$/ig;
+    const URL = "http://localhost:81/ai-solution/services/friendbook/core/ajax/getHashtag.php";
     $(document).on('keyup', '.status', function(){
         var content = $.trim($(this).val());
         var text    = content.match(regex);
         var max     = 140;
         if (text != null){
-            // $_POST['hashtag']
             var dataString = 'hashtag=' + text;
             $.ajax({
                 type: "POST",
-                url: "http://localhost:81/friendbook/core/ajax/getHashtag.php",
+                url: URL,
                 data: dataString,
                 cache: false,
-                // After getHashtag.php file completed 
                 success: function(data){
                     $('.hash-box ul').html(data);
                     $('.hash-box li').click(function(){

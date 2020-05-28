@@ -1,13 +1,13 @@
 $(function(){
     $(document).on('click', '.like-btn', function(){
-        // data-post="" data-user=""
+        const URL = 'http://localhost:81/ai-solution/services/friendbook/core/ajax/like.php';
         var postID  = $(this).data('post');
         var userID  = $(this).data('user');
         var counter = $(this).find(".likesCount");
         var count   = counter.text();
         var button  = $(this);
-        // $_POST['like']
-        $.post("http://localhost:81/friendbook/core/ajax/like.php", {like:postID, userID: userID}, function(){
+
+        $.post(URL, {like:postID, userID: userID}, function(){
             button.addClass('unlike-btn');
             button.removeClass('like-btn');
             count++;
@@ -23,8 +23,7 @@ $(function(){
         var counter = $(this).find(".likesCount");
         var count   = counter.text();
         var button  = $(this);
-        // $_POST['like']
-        $.post("http://localhost:81/friendbook/core/ajax/like.php", {unlike:postID, userID: userID}, function(){
+        $.post(URL, {unlike:postID, userID: userID}, function(){
             counter.show();
             button.addClass('like-btn');
             button.removeClass('unlike-btn');

@@ -22,7 +22,7 @@
             }else if ($user->phone_number != $phoneNumber and $getFromUser->checkPhoneNumber($phoneNumber) === true){
                 $error['phone_number'] = "Phone number already in use"; 
             }else {
-                $getFromUser->update('user', $userId, array('username' => $userName, 'email' => $email, 'phone_number' => $phoneNumber));
+                $getFromUser->update('users', $userId, array('username' => $userName, 'email' => $email, 'phone_number' => $phoneNumber));
                 header("Location: ".BASE_URL."settings/account");
             }
         } else{

@@ -7,7 +7,6 @@ try {
 catch(PDOExeption $e) {
 	echo "Connection failed: " . $e->getMessage();
 }
-define("NOODLE_URL", "http://localhost:81/ai-solution/noodle/");
-define("BASE_URL", "http://localhost:81/ai-solution/");
 define("SERVICES_NOODLE", "http://localhost:81/ai-solution/services/noodle/");
+
 ?>

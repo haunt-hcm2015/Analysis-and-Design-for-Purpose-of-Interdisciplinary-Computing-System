@@ -36,7 +36,7 @@ class SelectThumbnail {
     private function getThumbnailData() {
         $data = array();
 
-        $query = $this->con->prepare("SELECT * FROM thumbnails WHERE videoId=:videoId");
+        $query = $this->con->prepare("SELECT * FROM videotube_thumbnails WHERE videoId=:videoId");
         $query->bindParam(":videoId", $videoId);
         $videoId = $this->video->getId();
         $query->execute();
