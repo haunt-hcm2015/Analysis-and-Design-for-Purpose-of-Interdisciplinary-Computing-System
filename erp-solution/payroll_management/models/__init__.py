@@ -1,0 +1,2 @@
+# -*- coding: utf-8 -*-
+from . import department, staff, res_config_settings, bid, bid_prices_sheet, bid_reduction_letter, bid_security_votes, bid_votes, business_license, city, commune, construction, construction_contract, district, employee_salary, financial_report, freight, government_departments, investor, labor, machine, machine_manifest, material, package, power_of_attorney, project, salary_estimation_report, tradesmen     

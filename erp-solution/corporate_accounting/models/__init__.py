@@ -1,0 +1,2 @@
+# -*- coding: utf-8 -*-
+from . import department, staff, currency,customer, accounting_list, receipts, res_config_settings, account, accounting_list, asset, bank, bank_book, cash_book, cash_flow, construction, contraction, coupon, currency, debt_confirmation_sheet, debt_detail_book, debt_reconciliation_book, delivery_votes, deposits, document, financial_report, instrument, inventory, invoice, ledger, loan, materials, merchandise, payment_votes, project, report, sale_order, supplier, tax, tool, transaction, vat_invoice, fund             

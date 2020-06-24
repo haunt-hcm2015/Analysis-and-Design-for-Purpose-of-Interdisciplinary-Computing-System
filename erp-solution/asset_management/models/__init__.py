@@ -1,0 +1,2 @@
+# -*- coding: utf-8 -*-
+from . import customer, assets, country, color, tools, res_config_settings, department, staff, asset_architecture, asset_copyright, asset_detail, asset_house, asset_land, asset_machine, asset_patents, asset_ships, asset_software, asset_trademark, asset_vehicle, commission, discount,planning, report_detail, report,  shopping_votes, shopping_votes_detail, tools   

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="accounting_list_level_one_view_form" model="ir.ui.view" >
+            <field name="name">accounting.list.level.one.view.form</field>
+            <field name="model">accounting.list.level.one</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>                 
+                        <group>
+                            <field name="account_number_level_one" />
+                        </group>                     
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

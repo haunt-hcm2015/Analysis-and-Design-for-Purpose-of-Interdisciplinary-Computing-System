@@ -1,0 +1,2 @@
+# -*- coding: utf-8 -*-
+from . import surgery, icd_code, department, staff, res_config_settings, bank_book, bank, cash_book, city, commune, currency, district, diary, expense_board, expense_book, health_services_dept, hospital, invoice, material_votes, medical_book, medical_card, medical_record, medical_supply, medicine, patient, prescription,  price_list, receipt, services, subclinical, tools, treatment_paper, warehouse

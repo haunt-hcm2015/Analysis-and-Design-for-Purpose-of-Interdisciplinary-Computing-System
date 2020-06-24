@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="birth_certificate_management" 
+            parent="civil_status_management" 
+            name="Birth Certificate" 
+            sequence="3"/>
+        <menuitem name="Registration of Birth Certificate"
+            id="civil_status_birth_certificate_menu"
+            parent="birth_certificate_management"
+            action="civil_status_household_book_action"
+            sequence="1"/>
+    </data>
+</odoo>

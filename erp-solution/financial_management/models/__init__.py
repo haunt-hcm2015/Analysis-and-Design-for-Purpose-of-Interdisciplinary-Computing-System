@@ -1,0 +1,2 @@
+# -*- coding: utf-8 -*-
+from . import department, staff, res_config_settings, account, asset, bank, bonds, budget, carriage, contract, currency, customer, discount, house, investment, land, merchandise, planning, printed_votes, printer, real_estate, salary, services, share, supplier
