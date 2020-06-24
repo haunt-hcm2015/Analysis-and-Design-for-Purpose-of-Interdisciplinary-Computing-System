@@ -1,0 +1,110 @@
+{% extends 'pages/project_header.html' %}
+{% block title %}
+    Translate Machine
+{% endblock %}
+{% block content %}
+    <div class="page-wrapper bg-blue p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                    <h2 class="title">AI Solution Translate</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                         {% csrf_token %}
+                        <div class="form-row">
+                            <div class="name">Select Language</div>
+                            <div class="value">
+                                <select value="{{src}}" name="language_source">
+                                    <option value="af">Afrikaans</option>
+                                    <option value="sq">Albanian</option>
+                                    <option value="am">Amharic</option>
+                                    <option value="ar">Arabic</option>
+                                    <option value="hy">Armenian</option>
+                                    <option value="az">Azerbaijani</option>
+                                    <option value="eu">Basque</option>
+                                    <option value="be">Belarusian</option>
+                                    <option value="bn">Bengali</option>
+                                    <option value="bg">Bulgarian</option>
+                                    <option value="ca">Catalan</option>
+                                    <option value="ceb">Cebuano</option>
+                                    <option value="zh-cn">Chinese (simplified)</option>
+                                    <option value="zh-tw">Chinese (traditional)</option>
+                                    <option value="en">English</option>
+                                    <option value="fr">French</option>
+                                    <option value="ja">Japanese</option>
+                                    <option value="vi">Vietnamese</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Language</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    {% if not sourceTranslate %}
+                                        <textarea class="textarea--style-6" name="source_text" placeholder="Language Source"></textarea>
+                                    {% else %}
+                                        <textarea class="textarea--style-6" name="source_text" placeholder="Language Source">{{sourceText}}</textarea>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Select Language Destination</div>
+                            <div class="value">
+                                <select value="{{dest}}" name="language_destination">
+                                    <option value="af">Afrikaans</option>
+                                    <option value="sq">Albanian</option>
+                                    <option value="am">Amharic</option>
+                                    <option value="ar">Arabic</option>
+                                    <option value="hy">Armenian</option>
+                                    <option value="az">Azerbaijani</option>
+                                    <option value="eu">Basque</option>
+                                    <option value="be">Belarusian</option>
+                                    <option value="bn">Bengali</option>
+                                    <option value="bg">Bulgarian</option>
+                                    <option value="ca">Catalan</option>
+                                    <option value="ceb">Cebuano</option>
+                                    <option value="zh-cn">Chinese (simplified)</option>
+                                    <option value="zh-tw">Chinese (traditional)</option>
+                                    <option value="en">English</option>
+                                    <option value="fr">French</option>
+                                    <option value="ja">Japanese</option>
+                                    <option value="vi">Vietnamese</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Language Destination</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <textarea class="textarea--style-6" name="destination_text" placeholder="Language Destination">
+                                        {% if resultTranslate %}
+                                            {{resultTranslate}}
+                                        {% endif %}
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Upload Interpreter File</div>
+                            <div class="value">
+                                <div class="input-group js-input-file">
+                                    <input class="input-file" type="file" name="fileSource" id="file">
+                                    <label class="label--file" for="file">Choose file</label>
+                                    <span class="input-file__info">No file chosen</span>
+                                </div>
+                                <div class="label--desc">Upload your Interpreter File . Max file size 10 MB</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn--radius-2 btn--blue-2" name="translate" type="submit">Translate</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

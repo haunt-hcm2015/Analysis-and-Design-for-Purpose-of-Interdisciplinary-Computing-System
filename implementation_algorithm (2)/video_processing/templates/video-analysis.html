@@ -1,0 +1,74 @@
+{% extends 'pages/project_header.html' %}
+{% block title %}
+    Video Processing
+{% endblock %}
+{% block content %}
+    <div class="page-wrapper bg-dark p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                    <h2 class="title">Video Processing</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="name">Project Name</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="project_name">
+                            </div>
+                        </div>
+                       
+                        <div class="form-row">
+                            <div class="name">Analysis Mode</div>
+                            <div class="value">
+                                <select name="analysis_mode">
+                                    <option value="object_and_scene_detection">Object and Scene Detection</option>
+                                    <option value="face_comparison">Face Comparison</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Upload Multi Video</div>
+                            <div class="value">
+                                <div class="input-group js-input-file">
+                                    <input class="input-file" type="file" name="video_files" id="file">
+                                    <label class="label--file" for="file">Choose file</label>
+                                    {% if not url  %}
+                                        <span>No file chosen</span>
+                                    {% endif %}
+                                    
+                                </div>
+                                <div class="label--desc">Upload your Multi Video. Max file size 100 MB</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Analytis Gallery Result</div>
+                            <div class="value">
+                                {% if url %}
+                                        <video width="320" height="240" controls>
+                                            <source src="{{ url }}" type="audio/ogg">
+                                            <source src="{{ url }}" type="{{ url }}">
+                                            Your browser does not support the audio element.
+                                    </video>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Analytis Result</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <textarea class="textarea--style-6" name="analytis_result" placeholder="Analytis Result"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn--radius-2 btn--blue-2" name="send_request" type="submit">Send Request</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}

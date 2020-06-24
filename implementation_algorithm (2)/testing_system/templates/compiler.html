@@ -1,0 +1,108 @@
+{% extends 'pages/project_header.html' %}
+{% block title %}
+    Compiler Online
+{% endblock %}
+{% block content %}
+    <div class="page-wrapper bg-gray p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                    <h2 class="title">Compiler Online</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="name">Project name</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="project_name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Select Programming Language</div>
+                            <div class="value">
+                                <select name="programming_language">
+                                    <option value="C">C</option>
+                                    <option value="CPP">C++</option>
+                                    <option value="CPP11">C++11</option>
+                                    <option value="CPP14">C++14</option>
+                                    <option value="CLOJURE">Clojure</option>
+                                    <option value="CSHARP">C#</option>
+                                    <option value="GO">Go</option>
+                                    <option value="HASKELL">Haskell</option>
+                                    <option value="JAVA">Java</option>
+                                    <option value="JAVA8">Java 8</option>
+                                    <option value="JAVASCRIPT">JavaScript (Rhino)	</option>
+                                    <option value="JAVASCRIPT_NODE">JavaScript (Nodejs)	</option>
+                                    <option value="OBJECTIVEC">Objective C	</option>
+                                    <option value="PASCAL">Pascal</option>
+                                    <option value="PERL">Perl</option>
+                                    <option value="PHP">PHP</option>
+                                    <option value="PYTHON">Python 2	</option>
+                                    <option value="PYTHON3">Python 3</option>
+                                    <option value="R">R</option>
+                                    <option value="RUBY">Ruby</option>
+                                    <option value="RUST">Rust</option>
+                                    <option value="SCALA">Scala</option>
+                                    <option value="SWIFT">Swift</option>
+                                    <option value="SWIFT_4_1">Swift 4.1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Source Code</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    {% if sourcecode %}
+                                    <textarea class="textarea--style-6" name="source_code" placeholder="Source Code">
+                                        {{sourcecode}}
+                                    </textarea>
+                                    {% else %}
+                                    <textarea class="textarea--style-6" name="source_code" placeholder="Source Code">
+                                      
+                                    </textarea>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Result</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    {% if status %}
+                                    <textarea class="textarea--style-6" name="result" placeholder="Result">
+                                        Compile Status: {{compile_status}}&#13;&#10;
+                                        Output: {{output}}&#13;&#10;
+                                        
+                                    </textarea>
+                                    {% else %}
+                                    <textarea class="textarea--style-6" name="result" placeholder="Result">
+
+                                    </textarea>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Upload Source Code</div>
+                            <div class="value">
+                                <div class="input-group js-input-file">
+                                    <input class="input-file" type="file" name="sourceFile" id="file">
+                                    <label class="label--file" for="file">Choose file</label>
+                                    <span class="input-file__info">No file chosen</span>
+                                </div>
+                                <div class="label--desc">Upload your source code . Max file size 2 MB</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn--radius-2 btn--blue-2" name="test" type="submit">Test</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
